@@ -1,0 +1,30 @@
+{
+  "name": "MapML Extension",
+  "version": "0.1",
+  "description": "An extension for the mapml-viewer",
+  "manifest_version": 2,
+  "permissions": [
+    "activeTab",
+    "contextMenus",
+    "storage",
+    "unlimitedStorage",
+    "geolocation"
+  ],
+  "browser_action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "persistent": true,
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "content_scripts": [{
+    "matches": [
+      "https://maps4html.org/*"
+    ],
+    "js": [
+      "content.js"
+    ]
+  }]
+}
