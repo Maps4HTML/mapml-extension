@@ -11,3 +11,4 @@
 .idea/
 *.iml
 key.pem
+/test/e2e/mapml-extension.crx

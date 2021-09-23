@@ -15,7 +15,7 @@ const getChromeDriver = () => {
     .forBrowser(Browser.CHROME)
     .setChromeOptions(new chrome.Options()
       .setPageLoadStrategy(PageLoadStrategy.NORMAL)
-      .addExtensions(encodeExt("./test/mapml-extension.crx")))
+      .addExtensions(encodeExt("./test/e2e/mapml-extension.crx")))
     .build();
 }
 
