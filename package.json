@@ -1,0 +1,29 @@
+{
+  "name": "mapml-extension",
+  "version": "1.0.0",
+  "description": "Source code for the MapML Browser Extension",
+  "main": "index.js",
+  "scripts": {
+    "test": "crx pack src -o test/mapml-extension.crx & jest --detectOpenHandles --verbose --noStackTrace",
+    "build": "crx pack src -o test/mapml-extension.crx"
+  },
+  "keywords": [],
+  "author": "Maps for HTML Community Group",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Maps4HTML/mapml-extension.git"
+  },
+  "license": "W3C",
+  "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@babel/preset-env": "^7.15.6",
+    "@jest/globals": "^27.2.0",
+    "babel-jest": "^27.2.0",
+    "chromedriver": "^93.0.1",
+    "crx": "^5.0.1",
+    "fs": "0.0.1-security",
+    "jest": "^27.2.0",
+    "path": "^0.12.7",
+    "selenium-webdriver": "^4.0.0-rc-1"
+  }
+}
