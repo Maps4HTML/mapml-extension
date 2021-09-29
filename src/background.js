@@ -1,17 +1,16 @@
-// Runs in the background on background page, consider migration to service workers
+chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
+  console.log(message);
+  if (request.command === "get-location") {
+    navigator.geolocation.getCurrentPosition (function (position) {
+      sendResponse ({
+        lon: position.coords.longitude,
+        lat: position.coords.latitude,
+      });
+    });
+    return true;
+  }
+});
 
-function success(pos) {
-  console.log('My Location is '+pos.coords.latitude.toString()+" lat "+pos.coords.longitude.toString()+" lng");
-}
-
-function error(err) {
-  console.warn('ERROR(' + err.code + '): ' + err.message);
-}
-
-options = {
-  enableHighAccuracy: true,
-  timeout: 5000,
-  maximumAge: 0
-};
-
-navigator.geolocation.watchPosition(success, error, options);
+chrome.runtime.onInstalled.addListener(() => {
+  console.log("Runs on install and updates");
+});
