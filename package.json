@@ -4,7 +4,7 @@
   "description": "Source code for the MapML Browser Extension",
   "main": "index.js",
   "scripts": {
-    "test": "crx pack src -o test/e2e/mapml-extension.crx & jest --detectOpenHandles --verbose --noStackTrace"
+    "test": "crx pack src -o test/e2e/mapml-extension.crx && jest --detectOpenHandles --verbose --noStackTrace"
   },
   "keywords": [],
   "author": "Maps for HTML Community Group",
@@ -14,10 +14,8 @@
   },
   "license": "W3C",
   "devDependencies": {
-    "@babel/core": "^7.15.5",
     "@babel/preset-env": "^7.15.6",
     "@jest/globals": "^27.2.0",
-    "babel-jest": "^27.2.0",
     "chromedriver": "^93.0.1",
     "crx": "^5.0.1",
     "fs": "0.0.1-security",
