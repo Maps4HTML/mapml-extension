@@ -4,7 +4,7 @@
   "description": "Source code for the MapML Browser Extension",
   "main": "index.js",
   "scripts": {
-    "test": "crx pack src -o test/e2e/mapml-extension.crx & jest --detectOpenHandles --verbose --noStackTrace"
+    "test": "crx pack src -o test/e2e/mapml-extension.crx && jest --detectOpenHandles --verbose --noStackTrace"
   },
   "keywords": [],
   "author": "Maps for HTML Community Group",
