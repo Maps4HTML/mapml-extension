@@ -12,5 +12,5 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
 });
 
 chrome.runtime.onInstalled.addListener(() => {
-  console.log("Runs on install and updates");
+  console.log("Installed");
 });
