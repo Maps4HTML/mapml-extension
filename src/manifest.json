@@ -14,6 +14,13 @@
   "action": {
     "default_popup": "popup.html"
   },
+  "icons": {
+    "16": "icons/maps4html16.png",
+    "32": "icons/maps4html32.png",
+    "48": "icons/maps4html48.png",
+    "96": "icons/maps4html96.png",
+    "128": "icons/maps4html128.png"
+  },
   "background": {
     "service_worker": "background.js"
   },
