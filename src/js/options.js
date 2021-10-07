@@ -1,4 +1,10 @@
 window.addEventListener('message', function(e) {
-  if(e.data.options && M.options) Object.assign(M.options, e.data);
-  else M.options = e.data; // TODO: remove once M.options is set in the web custom element suite
+  if(e.data.type === "set-options" && M.options) {
+    Object.assign(M.options, e.data.options);
+
+    for (let map of document.querySelectorAll("mapml-viewer, web-map")) {
+      map._toggleControls();
+      map._toggleControls();
+    }
+  }
 }, true);

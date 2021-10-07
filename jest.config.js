@@ -1,5 +1,5 @@
 module.exports = {
-  setupFilesAfterEnv: ['./jest.setup.js'],
+  testTimeout: 30000,
   projects: [
     {
       displayName: "UNIT Testing",

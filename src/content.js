@@ -12,7 +12,6 @@ function loadOptions() {
       options = o.options || {};
       let script = document.createElement('script');
       script.src = chrome.runtime.getURL("/js/options.js");
-      script.setAttribute("type", "text/javascript")
       document.head.appendChild(script);
     });
   }
@@ -20,15 +19,19 @@ function loadOptions() {
 /*
 use for injecting mapml.js file
 let script = document.createElement('script');
-script.src = chrome.runtime.getURL("/js/options.js");
+script.src = chrome.runtime.getURL("/js/set-options.js");
 script.setAttribute("type", "text/javascript")
 document.head.appendChild(script);
 */
 
-document.addEventListener("DOMContentLoaded",  () => {
-  loadOptions();
-});
+let loadOptionListener = function () {
+  if (document.readyState === "interactive") {
+    loadOptions();
+    document.removeEventListener("readystatechange", loadOptionListener);
+  }
+};
+document.addEventListener("readystatechange", loadOptionListener);
 
-window.onload = () => {
-  window.postMessage(options, "*");
-}
+document.addEventListener("DOMContentLoaded", () => {
+  window.postMessage({type:"set-options", options: options}, "*");
+}, {once: true});

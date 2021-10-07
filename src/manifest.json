@@ -4,8 +4,6 @@
   "description": "An extension for the mapml-viewer",
   "manifest_version": 3,
   "permissions": [
-    "activeTab",
-    "contextMenus",
     "storage",
     "unlimitedStorage",
     "geolocation",
