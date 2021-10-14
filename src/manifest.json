@@ -23,11 +23,5 @@
     "js": [
       "content.js"
     ]
-  }],
-  "web_accessible_resources": [
-    {
-      "resources": [ "js/options.js" ],
-      "matches": [ "<all_urls>" ]
-    }
-  ]
+  }]
 }
