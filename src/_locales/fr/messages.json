@@ -1,6 +1,6 @@
 {
   "extName": {
-    "message": "MapML Extension",
+    "message": "Extension MapML",
     "description": "Nom de l'extension."
   },
   "extDescription": {
@@ -8,51 +8,51 @@
   },
 
   "cmBack": {
-    "message": "Back"
+    "message": "Retour"
   },
   "cmForward": {
-    "message": "Forward"
+    "message": "Vers l'avant"
   },
   "cmReload": {
-    "message": "Reload"
+    "message": "Rechargez"
   },
   "cmToggleControls": {
-    "message": "Toggle Controls"
+    "message": "Basculer les contrôles"
   },
   "cmCopyCoords": {
-    "message": "Copy Coordinates"
+    "message": "Copier les coordonnées"
   },
   "cmToggleDebug": {
-    "message": "Toggle Debug Mode"
+    "message": "Basculer le mode de débogage"
   },
   "cmCopyMapML": {
-    "message": "Copy MapML"
+    "message": "Copier MapML"
   },
   "cmViewSource": {
-    "message": "View Map Source"
+    "message": "Voir la source de la carte"
   },
   "cmCopyAll" : {
-    "message": "All"
+    "message": "Tous"
   },
 
   "lmZoomToLayer" : {
-    "message": "Zoom To Layer"
+    "message": "Zoom sur la couche"
   },
   "lmCopyExtent" : {
-    "message": "Copy Extent"
+    "message": "Copier l'étendue"
   },
 
   "lcOpacity": {
-    "message": "Opacity"
+    "message": "Opacité"
   },
 
   "btnZoomIn": {
-    "message": "Zoom in"
+    "message": "Zoomer"
   },
   "btnZoomOut": {
     "message": "Zoom out"
   },
   "btnFullScreen": {
-    "message": "View fullscreen"
+    "message": "Affichage plein écran"
   }
 }
