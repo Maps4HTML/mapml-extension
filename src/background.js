@@ -19,5 +19,12 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
  * Runs on installs and updates once
  */
 chrome.runtime.onInstalled.addListener(() => {
-  console.log("Installed");
+  chrome.storage.local.get("options", function (obj) {
+    if(!obj.options){
+      chrome.storage.local.set({
+        options: {},
+      });
+    }
+  });
+
 });
