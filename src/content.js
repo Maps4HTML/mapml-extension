@@ -12,6 +12,14 @@ document.addEventListener("readystatechange", () => {
     }*/
     chrome.storage.local.get("options", function (o) {
       let mapOptions = document.createElement("map-options");
+
+      let msgs = ["cmBack", "cmForward", "cmReload", "cmToggleControls", "cmCopyCoords", "cmToggleDebug", "cmCopyMapML",
+        "cmViewSource", "lcOpacity", "btnZoomIn", "btnZoomOut", "btnFullScreen"];
+      o.options.locale = {};
+      for(let msg of msgs){
+        o.options.locale[msg] = chrome.i18n.getMessage(msg);
+      }
+
       mapOptions.innerHTML = JSON.stringify(o.options || {});
       document.head.appendChild(mapOptions);
     });
