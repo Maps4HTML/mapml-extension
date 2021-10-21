@@ -4,8 +4,6 @@
   "description": "An extension for the mapml-viewer",
   "manifest_version": 3,
   "permissions": [
-    "activeTab",
-    "contextMenus",
     "storage",
     "unlimitedStorage",
     "geolocation",
@@ -25,8 +23,9 @@
     "service_worker": "background.js"
   },
   "content_scripts": [{
+    "run_at": "document_start",
     "matches": [
-      "https://maps4html.org/*"
+      "<all_urls>"
     ],
     "js": [
       "content.js"
