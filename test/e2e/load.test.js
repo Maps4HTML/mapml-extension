@@ -2,7 +2,7 @@ import { driver } from "./driver";
 import { until } from "selenium-webdriver";
 import { afterAll, beforeAll, describe, expect, test } from "@jest/globals";
 
-describe("Text Group", () => {
+describe("Test Group", () => {
   beforeAll(async () => {
     await driver.navigate().to("https://maps4html.org/");
   });
