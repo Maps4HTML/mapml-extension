@@ -29,7 +29,17 @@
     "message": "Copy MapML"
   },
   "cmViewSource": {
-    "message": "View Source"
+    "message": "View Map Source"
+  },
+  "cmCopyAll" : {
+    "message": "Copy MapML"
+  },
+
+  "lmZoomToLayer" : {
+    "message": "Zoom To Layer"
+  },
+  "lmCopyExtent" : {
+    "message": "Copy Extent"
   },
 
   "lcOpacity": {

@@ -14,7 +14,7 @@ document.addEventListener("readystatechange", () => {
       let mapOptions = document.createElement("map-options");
 
       let msgs = ["cmBack", "cmForward", "cmReload", "cmToggleControls", "cmCopyCoords", "cmToggleDebug", "cmCopyMapML",
-        "cmViewSource", "lcOpacity", "btnZoomIn", "btnZoomOut", "btnFullScreen"];
+        "cmViewSource", "cmCopyAll", "lmZoomToLayer", "lmCopyExtent", "lcOpacity", "btnZoomIn", "btnZoomOut", "btnFullScreen"];
       o.options.locale = {};
       for(let msg of msgs){
         o.options.locale[msg] = chrome.i18n.getMessage(msg);
