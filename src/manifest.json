@@ -2,7 +2,7 @@
   "name": "__MSG_extName__",
   "version": "0.1",
   "default_locale": "en",
-  "description": "An extension for the mapml-viewer",
+  "description": "__MSG_extDescription__",
   "manifest_version": 3,
   "permissions": [
     "storage",
