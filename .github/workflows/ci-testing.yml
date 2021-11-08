@@ -13,7 +13,8 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '12.x'
+      - run: sudo apt-get install xvfb
       - run: npm install
-      - run: npm test
+      - run: xvfb-run --auto-servernum -- npm test
         env:
           CI: true
