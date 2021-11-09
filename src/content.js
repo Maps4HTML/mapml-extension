@@ -10,10 +10,20 @@ document.addEventListener("readystatechange", () => {
     if (viewerScript){
       viewerScript.src = chrome.runtime.getURL("/js/mapml-viewer.js");
     }*/
-    chrome.storage.local.get("options", function (o) {
-      let mapOptions = document.createElement("map-options");
-      mapOptions.innerHTML = JSON.stringify(o.options || {});
-      document.head.appendChild(mapOptions);
+    chrome.storage.local.get("options", function (obj) {
+      let mapOptionsElem = document.createElement("map-options");
+      let options = obj.options || {};
+
+      let msgs = ["cmBack", "cmForward", "cmReload", "cmToggleControls", "cmCopyCoords", "cmToggleDebug", "cmCopyMapML",
+        "cmViewSource", "cmCopyAll", "lmZoomToLayer", "lmCopyExtent", "lcOpacity", "btnZoomIn", "btnZoomOut", "btnFullScreen"];
+
+      options.locale = {};
+      for(let msg of msgs){
+        options.locale[msg] = chrome.i18n.getMessage(msg);
+      }
+
+      mapOptionsElem.innerHTML = JSON.stringify(options);
+      document.head.appendChild(mapOptionsElem);
     });
   }
 }, {once: true});

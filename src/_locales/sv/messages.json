@@ -1,0 +1,58 @@
+{
+  "extName": {
+    "message": "MapML-tillägg",
+    "description": "Tilläggets namn."
+  },
+  "extDescription": {
+    "message": "Ett tillägg för mapml-viewer"
+  },
+
+  "cmBack": {
+    "message": "Bakåt"
+  },
+  "cmForward": {
+    "message": "Framåt"
+  },
+  "cmReload": {
+    "message": "Läs In Igen"
+  },
+  "cmToggleControls": {
+    "message": "Växla Kontroller"
+  },
+  "cmCopyCoords": {
+    "message": "Kopiera Koordinater"
+  },
+  "cmToggleDebug": {
+    "message": "Växla Till Felsökningsläge"
+  },
+  "cmCopyMapML": {
+    "message": "Kopiera MapML"
+  },
+  "cmViewSource": {
+    "message": "Visa Kartkälla"
+  },
+  "cmCopyAll" : {
+    "message": "Alla"
+  },
+
+  "lmZoomToLayer" : {
+    "message": "Zooma Till Lager"
+  },
+  "lmCopyExtent" : {
+    "message": "Kopiera Omfattning"
+  },
+
+  "lcOpacity": {
+    "message": "Opacitet"
+  },
+
+  "btnZoomIn": {
+    "message": "Zooma in"
+  },
+  "btnZoomOut": {
+    "message": "Zooma ut"
+  },
+  "btnFullScreen": {
+    "message": "Visa i helskärm"
+  }
+}

@@ -1,7 +1,8 @@
 {
-  "name": "MapML Extension",
+  "name": "__MSG_extName__",
   "version": "0.1",
-  "description": "An extension for the mapml-viewer",
+  "default_locale": "en",
+  "description": "__MSG_extDescription__",
   "manifest_version": 3,
   "permissions": [
     "storage",

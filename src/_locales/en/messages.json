@@ -1,0 +1,58 @@
+{
+  "extName": {
+    "message": "MapML Extension",
+    "description": "Extension name."
+  },
+  "extDescription": {
+    "message": "An extension for the mapml-viewer"
+  },
+
+  "cmBack": {
+    "message": "Back"
+  },
+  "cmForward": {
+    "message": "Forward"
+  },
+  "cmReload": {
+    "message": "Reload"
+  },
+  "cmToggleControls": {
+    "message": "Toggle Controls"
+  },
+  "cmCopyCoords": {
+    "message": "Copy Coordinates"
+  },
+  "cmToggleDebug": {
+    "message": "Toggle Debug Mode"
+  },
+  "cmCopyMapML": {
+    "message": "Copy MapML"
+  },
+  "cmViewSource": {
+    "message": "View Map Source"
+  },
+  "cmCopyAll" : {
+    "message": "All"
+  },
+
+  "lmZoomToLayer" : {
+    "message": "Zoom To Layer"
+  },
+  "lmCopyExtent" : {
+    "message": "Copy Extent"
+  },
+
+  "lcOpacity": {
+    "message": "Opacity"
+  },
+
+  "btnZoomIn": {
+    "message": "Zoom in"
+  },
+  "btnZoomOut": {
+    "message": "Zoom out"
+  },
+  "btnFullScreen": {
+    "message": "View fullscreen"
+  }
+}
