@@ -54,5 +54,38 @@
   },
   "btnFullScreen": {
     "message": "View fullscreen"
+  },
+  "amZoom": {
+    "message": "zoom level"
+  },
+  "amColumn": {
+    "message": "column"
+  },
+  "amRow": {
+    "message": "row"
+  },
+  "amMaxZoom": {
+    "message": "At maximum zoom level, zoom in disabled"
+  },
+  "amMinZoom": {
+    "message": "At minimum zoom level, zoom out disabled"
+  },
+  "amZoomedOut": {
+    "message": "Zoomed out of bounds, returning to"
+  },
+  "amDraggedOut": {
+    "message": "Dragged out of bounds, returning to"
+  },
+  "amEastBound": {
+    "message": "Reached east bound, panning east disabled"
+  },
+  "amWestBound": {
+    "message": "Reached west bound, panning west disabled"
+  },
+  "amNorthBound": {
+    "message": "Reached north bound, panning north disabled"
+  },
+  "amSouthBound": {
+    "message": "Reached south bound, panning south disabled"
   }
 }

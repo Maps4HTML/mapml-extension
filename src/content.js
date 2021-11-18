@@ -15,7 +15,10 @@ document.addEventListener("readystatechange", () => {
       let options = obj.options || {};
 
       let msgs = ["cmBack", "cmForward", "cmReload", "cmToggleControls", "cmCopyCoords", "cmToggleDebug", "cmCopyMapML",
-        "cmViewSource", "cmCopyAll", "lmZoomToLayer", "lmCopyExtent", "lcOpacity", "btnZoomIn", "btnZoomOut", "btnFullScreen"];
+        "cmViewSource", "cmCopyAll", "lmZoomToLayer", "lmCopyExtent", "lcOpacity", "btnZoomIn", "btnZoomOut", "btnFullScreen",
+        "amZoom", "amColumn", "amRow", "amMaxZoom", "amMinZoom", "amZoomedOut", "amDraggedOut", "amEastBound", "amWestBound",
+        "amNorthBound", "amSouthBound"
+      ];
 
       options.locale = {};
       for(let msg of msgs){

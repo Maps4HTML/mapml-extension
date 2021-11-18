@@ -54,5 +54,39 @@
   },
   "btnFullScreen": {
     "message": "Affichage plein écran"
+  },
+  
+  "amZoom" : {
+    "message" : "Niveau de zoom"
+  },
+  "amColumn" : {
+    "message" : "Colonne" 
+  },
+  "amRow" : {
+    "message" : "Rangée"
+  },
+  "amMaxZoom" : {
+    "message" : "Au niveau de zoom maximal, le zoom avant est désactivé"
+  },
+  "amMinZoom" : {
+    "message" : "Niveau de zoom minimum, le zoom arrière désactivé"
+  },
+  "amZoomedOut" : {
+    "message" : "Zoomé en dehors des limites, retour à"
+  },
+  "amDraggedOut" : {
+    "message" : "Traîné hors des limites, retour à"
+  },
+  "amEastBound" : {
+    "message" : "Atteint la limite est, déplacement ver l'est désactivé"
+  },
+  "amWestBound" : {
+    "message" : "Atteint la limite ouest, déplacement ver l'ouest désactivé"
+  },
+  "amNorthBound" : {
+    "message" : "Atteint la limite nord, déplacement vers le nord désactivé"
+  },
+  "amSouthBound" : {
+    "message" : "Atteint la limite sud, déplacement vers le sud désactivé"
   }
 }
