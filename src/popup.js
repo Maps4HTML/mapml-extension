@@ -62,6 +62,7 @@ function resetStorage() {
 document.addEventListener("DOMContentLoaded", () => {
   loadOptions();
   document.getElementById("announceMovement").addEventListener("change", handleCheckboxChange);
+  document.getElementById("featureIndexOverlayOption").addEventListener("change", handleCheckboxChange);
   document.getElementById("clear").addEventListener("click", resetStorage);
 });
 
