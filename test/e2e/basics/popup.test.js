@@ -29,6 +29,7 @@ describe("Popup test", () => {
         let newPage = await context.newPage();
         await newPage.waitForTimeout(1000);
         await newPage.goto(PATH + "basics/locale.html");
+        await newPage.waitForTimeout(500);
         await newPage.keyboard.press("Tab");
         await newPage.waitForTimeout(500);
         await newPage.keyboard.press("ArrowUp");
@@ -58,6 +59,7 @@ describe("Popup test", () => {
         let newPage = await context.newPage();
         await newPage.waitForTimeout(1000);
         await newPage.goto(PATH + "basics/locale.html");
+        await newPage.waitForTimeout(500);
         await newPage.keyboard.press("Tab");
         await newPage.waitForTimeout(500);
         await newPage.keyboard.press("ArrowUp");
