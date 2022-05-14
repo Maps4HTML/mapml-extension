@@ -1,6 +1,16 @@
+var CryptoJS = require("crypto-js");
 describe("Popup test", () => {
     beforeAll(async () => {
-        await page.goto('chrome-extension://ldmdnbmbifafmfjnfidankbbdegfpnkp/popup.html');
+        //Calculate unpacked extension id
+        let path = process.cwd() + "\\src\\";
+        let hash = CryptoJS.SHA256(CryptoJS.enc.Utf16LE.parse(path));
+        let digest = hash.toString(CryptoJS.enc.Hex);
+        let id = [];
+        for(let i in digest){
+            id.push(String.fromCharCode(parseInt(digest[i], 16) + 97))
+        }
+        id = id.join('').substr(0, 32)
+        await page.goto('chrome-extension://' + id +'/popup.html');
     });
 
     afterAll(async () => {
