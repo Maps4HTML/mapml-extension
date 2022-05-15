@@ -4,8 +4,8 @@ describe("Popup test", () => {
         //Calculate unpacked extension id
         let path = process.cwd();
         let os = await page.evaluate(() => navigator.userAgent);
-        let encode = CryptoJS.enc.Utf16LE.parse(path + "\\src\\" );
-        if(os.indexOf("Windows") === -1) encode = CryptoJS.enc.Utf8.parse(path + "/src/");
+        let encode = CryptoJS.enc.Utf16LE.parse(path + "\\src" );
+        if(os.indexOf("Windows") === -1) encode = CryptoJS.enc.Utf8.parse(path + "/src");
         let hash = CryptoJS.SHA256(encode);
         let digest = hash.toString(CryptoJS.enc.Hex);
         let id = [];
