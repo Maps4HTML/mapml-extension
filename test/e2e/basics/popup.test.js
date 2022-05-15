@@ -2,10 +2,10 @@ var CryptoJS = require("crypto-js");
 describe("Popup test", () => {
     beforeAll(async () => {
         //Calculate unpacked extension id
-        let path = process.cwd() + "\\src\\";
+        let path = process.cwd();
         let os = await page.evaluate(() => navigator.userAgent);
-        let encode = CryptoJS.enc.Utf16LE.parse(path);
-        if(os.indexOf("Windows") === -1) encode = CryptoJS.enc.Utf8.parse(path);
+        let encode = CryptoJS.enc.Utf16LE.parse(path + "\\src\\" );
+        if(os.indexOf("Windows") === -1) encode = CryptoJS.enc.Utf8.parse(path + "/src/");
         let hash = CryptoJS.SHA256(encode);
         let digest = hash.toString(CryptoJS.enc.Hex);
         let id = [];
