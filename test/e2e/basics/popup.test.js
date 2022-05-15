@@ -3,13 +3,16 @@ describe("Popup test", () => {
     beforeAll(async () => {
         //Calculate unpacked extension id
         let path = process.cwd() + "\\src\\";
-        let hash = CryptoJS.SHA256(CryptoJS.enc.Utf16LE.parse(path));
+        let os = await page.evaluate(() => navigator.userAgent);
+        let encode = CryptoJS.enc.Utf16LE.parse(path);
+        if(os.indexOf("Windows") === -1) encode = CryptoJS.enc.Utf8.parse(path);
+        let hash = CryptoJS.SHA256(encode);
         let digest = hash.toString(CryptoJS.enc.Hex);
         let id = [];
         for(let i in digest){
-            id.push(String.fromCharCode(parseInt(digest[i], 16) + 97))
+            id.push(String.fromCharCode(parseInt(digest[i], 16) + 97));
         }
-        id = id.join('').substr(0, 32)
+        id = id.join('').substr(0, 32);
         await page.goto('chrome-extension://' + id +'/popup.html');
     });
 
