@@ -1,7 +1,7 @@
 const path = require("path");
 
 function generateConfig() {
-  let pathToExtension = path.join(__dirname, 'src/');
+  let pathToExtension = path.join(__dirname, 'src');
   return {
     serverOptions: {
       command: 'node test/server.js',
