@@ -23,13 +23,17 @@
   "background": {
     "service_worker": "background.js"
   },
+  "web_accessible_resources": [{
+    "resources": ["dist/*"],
+       "matches": [ "<all_urls>" ]
+  }],
   "content_scripts": [{
-    "run_at": "document_start",
+    "run_at": "document_end",
     "matches": [
       "<all_urls>"
-    ],
+      ],
     "js": [
-      "content.js"
+      "webcomponents-bundle.js","test_content.js"
     ]
   }]
 }
