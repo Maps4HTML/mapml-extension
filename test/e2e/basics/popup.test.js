@@ -21,9 +21,10 @@ describe("Popup test", () => {
     });
 
     test("Turn on options", async ()=>{
-        await page.keyboard.press("Tab");
-        await page.waitForTimeout(500);
-
+        for(let i = 0; i < 2; i++){
+            await page.keyboard.press("Tab");
+            await page.waitForTimeout(500);
+        }
         for(let i = 0; i < 2; i++){
             await page.keyboard.press("Tab");
             await page.waitForTimeout(500);

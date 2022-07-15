@@ -1,0 +1,20 @@
+*, ::before, ::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+}
+
+body > mapml-viewer {
+    position: fixed;
+}
+
+mapml-viewer {
+    height: 100%;
+    max-width: 100%;
+    width: 100%;
+    vertical-align: middle;
+}

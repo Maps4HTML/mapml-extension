@@ -1,0 +1,7 @@
+[{
+  "id": 1,
+  "priority": 1,
+  "action": {"type" :  "modifyHeaders",
+    "responseHeaders":  [{"header": "Content-Type", "operation": "set", "value": "text/html"}]},
+  "condition": {"resourceTypes": ["main_frame"]}
+}]
