@@ -31,6 +31,7 @@ chrome.runtime.onInstalled.addListener(() => {
 
 var needToReload = false;
 var reloaded = false;
+var isMapml = false
 
 /**
  * Creates rule to turn response into text/html if the content is text/mapml or application/xml
@@ -40,6 +41,7 @@ chrome.webRequest.onHeadersReceived.addListener(function (details) {
   if(!header || reloaded) return;
 
   if(header.value.includes("text/mapml")) {
+    isMapml = true;
     needToReload = true;
     chrome.declarativeNetRequest.updateEnabledRulesets({
       enableRulesetIds: ["ruleset"]
@@ -94,7 +96,8 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
     needToReload = false;
     chrome.scripting.executeScript({target: {tabId: tabId}, func: sniffForMapML},
         (results) => {
-          if(results[0].result) chrome.tabs.reload(tabId, function () {
+          if(results[0].result || isMapml) chrome.tabs.reload(tabId, function () {
+            isMapml = false;
             reloaded = true;
           });
           else chrome.declarativeNetRequest.updateEnabledRulesets({
