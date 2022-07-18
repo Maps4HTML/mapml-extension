@@ -71,18 +71,30 @@ function createMap(url) {
   document.body.removeChild(mapml);
   let map = document.createElement("mapml-viewer");
   let projection = mapml.querySelector("map-extent").getAttribute("units");
+  //Matches #int,float,float at the end of url
+  let hash = url.match("([#])(\\d)(,[-]?\\d+[.]?\\d+)(,[-]?\\d+[.]?\\d+)$");
+  let lat = hash ? hash[4].slice(1) : "0";
+  let lon = hash ? hash[3].slice(1) : "0";
+  let zoom = hash ? hash[2] : "0";
   map.setAttribute("projection", projection);
   map.setAttribute("controls", "true");
-  map.setAttribute("lat", "45");
-  map.setAttribute("lon", "-90");
-  map.setAttribute("zoom", "0");
+  map.setAttribute("lat", lat);
+  map.setAttribute("lon", lon);
+  map.setAttribute("zoom", zoom);
   let layer = document.createElement("layer-");
   layer.setAttribute("src", url);
   layer.setAttribute("checked", "true");
   layer.addEventListener("extentload", function () {
-    layer.focus();
+    let title = document.createElement("title");
+    title.innerText = layer.label;
+    document.head.appendChild(title);
+    if(!hash) layer.focus();
   });
   map.appendChild(layer);
+  map.addEventListener("moveend", function () {
+    let map = document.querySelector("mapml-viewer");
+    window.location.hash = map.zoom + "," + map.lon + "," + map.lat;
+  });
   document.body.appendChild(map);
 }
 
