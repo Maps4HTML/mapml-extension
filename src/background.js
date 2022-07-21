@@ -76,6 +76,7 @@ function createMap(url) {
   let lat = hash ? hash[4].slice(1) : "0";
   let lon = hash ? hash[3].slice(1) : "0";
   let zoom = hash ? hash[2] : "0";
+  let focus = !hash;
   map.setAttribute("projection", projection);
   map.setAttribute("controls", "true");
   map.setAttribute("lat", lat);
@@ -88,14 +89,24 @@ function createMap(url) {
     let title = document.createElement("title");
     title.innerText = layer.label;
     document.head.appendChild(title);
-    if(!hash) layer.focus();
+    if(focus) layer.focus();
   });
   map.appendChild(layer);
   map.addEventListener("moveend", function () {
     let map = document.querySelector("mapml-viewer");
-    window.location.hash = map.zoom + "," + map.lon + "," + map.lat;
+    //Focus fires moveend so if the url has no initial hash, return
+    if(focus) {
+      focus = false;
+      return;
+    }
+    window.history.replaceState('','','#' + map.zoom + "," + map.lon + "," + map.lat);
   });
   document.body.appendChild(map);
+
+  window.addEventListener("hashchange", function (e) {
+    let hash = e.newURL.match("([#])(\\d)(,[-]?\\d+[.]?\\d+)(,[-]?\\d+[.]?\\d+)$");
+    map.zoomTo(hash[4].slice(1), hash[3].slice(1), hash[2]);
+  });
 }
 
 /**
