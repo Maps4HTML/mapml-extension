@@ -39,18 +39,11 @@ var isMapml = false
 chrome.webRequest.onHeadersReceived.addListener(function (details) {
   let header = details.responseHeaders.find(i => i.name === "Content-Type");
   if(!header || reloaded) return;
-
-  if(header.value.includes("text/mapml")) {
-    isMapml = true;
-    needToReload = true;
-    chrome.declarativeNetRequest.updateEnabledRulesets({
-      enableRulesetIds: ["ruleset"]
-    });
-  }
-  if(!header.value.includes("application/xml")) return;
+  if(!(header.value.includes("application/xml") || header.value.includes("text/mapml"))) return;
   chrome.storage.local.get("options", function (result) {
     let generateMap = result.options ? result.options.generateMap : false;
     if(!generateMap) return;
+    if(header.value.includes("text/mapml")) isMapml = true;
     needToReload = true;
     chrome.declarativeNetRequest.updateEnabledRulesets({
       enableRulesetIds: ["ruleset"]

@@ -35,6 +35,7 @@ document.addEventListener("readystatechange", () => {
  * Removes the map-options element from the document head after it's been used
  */
 document.addEventListener("DOMContentLoaded", () => {
+  if(!document.head) return;
   let mapOptions = document.head.querySelector("map-options");
   if (mapOptions) document.head.removeChild(mapOptions);
 }, {once: true});
