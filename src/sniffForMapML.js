@@ -7,11 +7,11 @@ function sendMessage() {
 
 let mapml = document.querySelector("mapml-");
 if(mapml) {
-    sendMessage()
+    sendMessage();
 } else {
     //Browser wraps text/mapml with a pre element
-    let pre = document.querySelector("pre");
-    if(pre && document.contentType === "text/mapml") {
+    if(document.contentType === "text/mapml") {
+        let pre = document.querySelector("pre");
         let parser = new DOMParser();
         let doc = parser.parseFromString(pre.innerText, "application/xml");
         if(doc.querySelector("mapml-")) sendMessage();

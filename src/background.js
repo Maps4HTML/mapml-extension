@@ -4,27 +4,26 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
    * reload page, execute scripts
    */
   if (message === "hasMapML") {
-    chrome.storage.local.get("reloaded", function (items) {
-      if(items.reloaded) {
+    chrome.storage.local.get([`${sender.tab.id}`], function (items) {
+      if(Object.keys(items).length > 0) {
         chrome.declarativeNetRequest.updateEnabledRulesets({
           disableRulesetIds: ["ruleset"]
         });
-        chrome.storage.local.get("tab", function (items) {
-          let tab = items.tab;
-          chrome.storage.local.remove(["tab", "reloaded"]);
-          chrome.scripting.executeScript({target: {tabId: tab.id}, func: createMap, args: [tab.url]},
-              () => {
-                chrome.scripting.insertCSS({target: {tabId: tab.id}, files: ['resources/map.css']});
-                chrome.scripting.executeScript({target: {tabId: tab.id}, files: ['resources/webcomponents-bundle.js',
-                    'resources/importMapml.js']});
-              });
+
+        let tab = items[`${sender.tab.id}`];
+        chrome.storage.local.remove([`${sender.tab.id}`]);
+        chrome.scripting.executeScript({target: {tabId: tab.id}, func: createMap, args: [tab.url]},
+            () => {
+              chrome.scripting.insertCSS({target: {tabId: tab.id}, files: ['resources/map.css']});
+              chrome.scripting.executeScript({target: {tabId: tab.id}, files: ['resources/webcomponents-bundle.js',
+                  'resources/importMapml.js']});
         });
       } else {
         let tab = sender.tab;
         chrome.declarativeNetRequest.updateEnabledRulesets({
           enableRulesetIds: ["ruleset"]
         }, () => {
-          chrome.storage.local.set({reloaded: true, tab: tab}, () => {
+          chrome.storage.local.set({[`${tab.id}`] : tab}, () => {
             chrome.tabs.reload(tab.id);
           });
         });
