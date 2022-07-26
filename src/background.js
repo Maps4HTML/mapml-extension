@@ -22,7 +22,7 @@ chrome.runtime.onInstalled.addListener(() => {
   chrome.storage.local.get("options", function (obj) {
     if(!obj.options){
       chrome.storage.local.set({
-        options: {},
+        options: {generateMap: true},
       });
     }
   });
