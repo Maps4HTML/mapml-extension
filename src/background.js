@@ -1,10 +1,41 @@
-/**
- * Used to send back user location on demand, this goes around the need to ask the user
- * for permission on every site the extension runs on for their location
- */
 chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
-  console.log(message);
-  if (request.command === "get-location") {
+  /**
+   * When the document has a mapml element, set the page content type to text/html,
+   * reload page, execute scripts
+   */
+  if (message === "hasMapML") {
+    chrome.storage.local.get("reloaded", function (items) {
+      if(items.reloaded) {
+        chrome.declarativeNetRequest.updateEnabledRulesets({
+          disableRulesetIds: ["ruleset"]
+        });
+        chrome.storage.local.get("tab", function (items) {
+          let tab = items.tab;
+          chrome.storage.local.remove(["tab", "reloaded"]);
+          chrome.scripting.executeScript({target: {tabId: tab.id}, func: createMap, args: [tab.url]},
+              () => {
+                chrome.scripting.insertCSS({target: {tabId: tab.id}, files: ['resources/map.css']});
+                chrome.scripting.executeScript({target: {tabId: tab.id}, files: ['resources/webcomponents-bundle.js',
+                    'resources/importMapml.js']});
+              });
+        });
+      } else {
+        let tab = sender.tab;
+        chrome.declarativeNetRequest.updateEnabledRulesets({
+          enableRulesetIds: ["ruleset"]
+        }, () => {
+          chrome.storage.local.set({reloaded: true, tab: tab}, () => {
+            chrome.tabs.reload(tab.id);
+          });
+        });
+      }
+    });
+  }
+  /**
+   * Used to send back user location on demand, this goes around the need to ask the user
+   * for permission on every site the extension runs on for their location
+   */
+  else if (request.command === "get-location") {
     navigator.geolocation.getCurrentPosition (function (position) {
       sendResponse ({
         lon: position.coords.longitude,
@@ -28,36 +59,6 @@ chrome.runtime.onInstalled.addListener(() => {
   });
 
 });
-
-var needToReload = false;
-var reloaded = false;
-var isMapml = false
-
-/**
- * Creates rule to turn response into text/html if the content is text/mapml or application/xml
- */
-chrome.webRequest.onHeadersReceived.addListener(function (details) {
-  let header = details.responseHeaders.find(i => i.name === "Content-Type");
-  if(!header || reloaded) return;
-  if(!(header.value.includes("application/xml") || header.value.includes("text/mapml"))) return;
-  chrome.storage.local.get("options", function (result) {
-    let generateMap = result.options ? result.options.generateMap : false;
-    if(!generateMap) return;
-    if(header.value.includes("text/mapml")) isMapml = true;
-    needToReload = true;
-    chrome.declarativeNetRequest.updateEnabledRulesets({
-      enableRulesetIds: ["ruleset"]
-    });
-  });
-}, {urls: ["<all_urls>"], types: ["main_frame"]}, ["responseHeaders"]);
-
-/**
- * Checks document for mapml if the response is of type applicaiton/xml
- */
-function sniffForMapML() {
-  let mapml = document.querySelector("mapml-");
-  return (mapml !== null);
-}
 
 function createMap(url) {
   let mapml = document.querySelector("mapml-");
@@ -100,82 +101,4 @@ function createMap(url) {
     let hash = e.newURL.match("([#])(\\d)(,[-]?\\d+[.]?\\d+)(,[-]?\\d+[.]?\\d+)$");
     map.zoomTo(hash[4].slice(1), hash[3].slice(1), hash[2]);
   });
-}
-
-/**
- * Reloads page if a rule has been created to activate it
- * Removes rule afterwards and executes scripts to generate map and import in the necessary components from resources
- */
-chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
-  if(tab.status !== "complete") return;
-  if(needToReload) {
-    needToReload = false;
-    chrome.scripting.executeScript({target: {tabId: tabId}, func: sniffForMapML},
-        (results) => {
-          if(results[0].result || isMapml) chrome.tabs.reload(tabId, function () {
-            isMapml = false;
-            reloaded = true;
-          });
-          else chrome.declarativeNetRequest.updateEnabledRulesets({
-            disableRulesetIds: ["ruleset"]
-          });
-    });
-    return;
-  }
-
-  if(reloaded) {
-    reloaded = false;
-    chrome.declarativeNetRequest.updateEnabledRulesets({
-      disableRulesetIds: ["ruleset"]
-    });
-    chrome.scripting.executeScript({target: {tabId: tabId}, func: createMap, args: [tab.url]},
-        () => {
-            chrome.scripting.insertCSS({target: {tabId: tabId}, files: ['resources/map.css']});
-            chrome.scripting.executeScript({target: {tabId: tabId}, files: ['resources/webcomponents-bundle.js',
-                'resources/importMapml.js']});
-    });
-  }
-});
-
-//Issue with webRequest API: https://bugs.chromium.org/p/chromium/issues/detail?id=1024211
-//When the service worker goes inactive, the next network request is not processed
-//Fix below from: https://stackoverflow.com/a/66618269
-//Keeps the service worker active all the time
-
-let lifeline;
-keepAlive();
-
-chrome.runtime.onConnect.addListener(port => {
-  if (port.name === 'keepAlive') {
-    lifeline = port;
-    setTimeout(keepAliveForced, 295e3); // 5 minutes minus 5 seconds
-    port.onDisconnect.addListener(keepAliveForced);
-  }
-});
-
-function keepAliveForced() {
-  lifeline?.disconnect();
-  lifeline = null;
-  keepAlive();
-}
-
-async function keepAlive() {
-  if (lifeline) return;
-  for (const tab of await chrome.tabs.query({ url: '*://*/*' })) {
-    try {
-      await chrome.scripting.executeScript({
-        target: { tabId: tab.id },
-        function: () => chrome.runtime.connect({ name: 'keepAlive' }),
-      });
-      chrome.tabs.onUpdated.removeListener(retryOnTabUpdate);
-      return;
-    } catch (e) {}
-  }
-  chrome.tabs.onUpdated.addListener(retryOnTabUpdate);
-}
-
-async function retryOnTabUpdate(tabId, info) {
-  if (info.url && /^(file|https?):/.test(info.url)) {
-    keepAlive();
-  }
 }
