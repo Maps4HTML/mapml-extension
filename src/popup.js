@@ -32,13 +32,6 @@ function loadOptions() {
   });
 }
 
-// To get location call the service worker using messages API
-/*function getLocation() {
-  chrome.runtime.sendMessage('get-location', (response) => {
-    console.log(response);
-  });
-}*/
-
 /**
  * Handles checkbox changes, changes are then reflected in the users options in storage
  * @param e - Event object

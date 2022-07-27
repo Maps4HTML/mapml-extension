@@ -1,16 +1,16 @@
+/**
+ * When the document has a mapml element, set the page content type to text/html,
+ * reload page, execute scripts
+ */
 chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
-  /**
-   * When the document has a mapml element, set the page content type to text/html,
-   * reload page, execute scripts
-   */
   if (message === "hasMapML") {
     chrome.storage.local.get([`${sender.tab.id}`], function (items) {
       if(Object.keys(items).length > 0) {
-        chrome.declarativeNetRequest.updateEnabledRulesets({
-          disableRulesetIds: ["ruleset"]
+        let tab = items[`${sender.tab.id}`];
+        chrome.declarativeNetRequest.updateSessionRules({
+          removeRuleIds: [tab.id]
         });
 
-        let tab = items[`${sender.tab.id}`];
         chrome.storage.local.remove([`${sender.tab.id}`]);
         chrome.scripting.executeScript({target: {tabId: tab.id}, func: createMap, args: [tab.url]},
             () => {
@@ -20,8 +20,14 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
         });
       } else {
         let tab = sender.tab;
-        chrome.declarativeNetRequest.updateEnabledRulesets({
-          enableRulesetIds: ["ruleset"]
+        chrome.declarativeNetRequest.updateSessionRules({
+          addRules: [{
+            "id": tab.id,
+            "priority": 1,
+            "action": {"type" :  "modifyHeaders",
+              "responseHeaders":  [{"header": "Content-Type", "operation": "set", "value": "text/html"}]},
+            "condition": {"resourceTypes": ["main_frame"], "tabIds": [tab.id]}
+          }]
         }, () => {
           chrome.storage.local.set({[`${tab.id}`] : tab}, () => {
             chrome.tabs.reload(tab.id);
@@ -29,19 +35,6 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
         });
       }
     });
-  }
-  /**
-   * Used to send back user location on demand, this goes around the need to ask the user
-   * for permission on every site the extension runs on for their location
-   */
-  else if (request.command === "get-location") {
-    navigator.geolocation.getCurrentPosition (function (position) {
-      sendResponse ({
-        lon: position.coords.longitude,
-        lat: position.coords.latitude,
-      });
-    });
-    return true;
   }
 });
 

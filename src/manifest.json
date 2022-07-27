@@ -4,19 +4,9 @@
   "default_locale": "en",
   "description": "__MSG_extDescription__",
   "manifest_version": 3,
-  "declarative_net_request": {
-    "rule_resources": [{
-      "id": "ruleset",
-      "enabled": false,
-      "path": "rules.json"
-    }]
-  },
   "permissions": [
     "storage",
     "unlimitedStorage",
-    "geolocation",
-    "notifications",
-    "webRequest",
     "tabs",
     "scripting",
     "declarativeNetRequest"
