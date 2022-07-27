@@ -51,7 +51,7 @@ chrome.runtime.onInstalled.addListener(() => {
 function createMap() {
   let el = document.querySelector("mapml-") ? document.querySelector("mapml-") : document.querySelector("pre");
   let mapml = el;
-  if(el.nodeName === "pre") {
+  if(el.nodeName === "PRE") {
     let parser = new DOMParser();
     let doc = parser.parseFromString(el.innerText, "application/xml");
     if(doc.querySelector("mapml-")) mapml = doc;
@@ -60,8 +60,15 @@ function createMap() {
   document.body.removeChild(el);
   let map = document.createElement("mapml-viewer");
   let projection;
-  if(mapml.querySelector("map-extent[units]")) projection = mapml.querySelector("map-extent").getAttribute("units");
-  else if(mapml.querySelector("map-meta[projection]")) projection = mapml.querySelector("map-meta").getAttribute("projection");
+  if(mapml.querySelector("map-extent[units]"))
+    projection = mapml.querySelector("map-extent[units]").getAttribute("units");
+  else if(mapml.querySelector("map-meta[name=projection]"))
+    projection = mapml.querySelector("map-meta[name=projection]").getAttribute("content");
+  //content="text/mapml;projection=..."
+  else if(mapml.querySelector("map-meta[content*=projection]")) {
+    let content = mapml.querySelector("map-meta[content*=projection]").getAttribute("content");
+    projection = content.match("projection=(\\w*)")[1];
+  }
   else projection = "OSMTILE";
 
   //Matches #int,float,float at the end of url
@@ -71,13 +78,13 @@ function createMap() {
   let zoom = hash ? hash[2] : "0";
   let focus = !hash;
   map.setAttribute("projection", projection);
-  map.setAttribute("controls", "true");
+  map.setAttribute("controls", "");
   map.setAttribute("lat", lat);
   map.setAttribute("lon", lon);
   map.setAttribute("zoom", zoom);
   let layer = document.createElement("layer-");
   layer.setAttribute("src", window.location.href);
-  layer.setAttribute("checked", "true");
+  layer.setAttribute("checked", "");
   layer.addEventListener("extentload", function () {
     let title = document.createElement("title");
     title.innerText = layer.label;
