@@ -54,12 +54,8 @@ describe("Render MapML resources test", () => {
     });
 
     test("Render map from text/mapml document", async () => {
-        let goto = false;
         //Changes page.goto response (initial page load) to be of content type text/mapml
-        //All other requests (performed by the extension) continue as normal
         await page.route(PATH + "basics/test.mapml", async route => {
-            if(!goto) await route.continue();
-
             const response = await page.request.fetch(PATH + "basics/test.mapml");
             await route.fulfill({
                 body: await response.body(),
@@ -67,9 +63,7 @@ describe("Render MapML resources test", () => {
             });
         });
         await page.waitForTimeout(1000);
-        goto = true;
         await page.goto(PATH + "basics/test.mapml");
-        goto = false;
         await page.waitForTimeout(1000);
 
         const map = await page.$("xpath=//html/body/mapml-viewer");

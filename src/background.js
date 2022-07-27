@@ -3,7 +3,7 @@
  * reload page, execute scripts
  */
 chrome.runtime.onMessage.addListener(function (message, sender) {
-  if (message === "xml" || message === "mapml") {
+  if (message === "xml") {
     chrome.storage.local.get([`${sender.tab.id}`], function (items) {
       if(Object.keys(items).length > 0) {
         let tab = items[`${sender.tab.id}`];
@@ -11,10 +11,8 @@ chrome.runtime.onMessage.addListener(function (message, sender) {
           removeRuleIds: [tab.id]
         });
         chrome.storage.local.remove([`${sender.tab.id}`]);
-        executeScripts(tab, "mapml-");
-      } else if (message === "mapml") {
-        executeScripts(sender.tab, "pre");
-      } else {
+        executeScripts(tab.id);
+      }  else {
         let tab = sender.tab;
         chrome.declarativeNetRequest.updateSessionRules({
           addRules: [{
@@ -31,6 +29,8 @@ chrome.runtime.onMessage.addListener(function (message, sender) {
         });
       }
     });
+  } else if (message === "mapml") {
+    executeScripts(sender.tab.id);
   }
 });
 
@@ -48,19 +48,24 @@ chrome.runtime.onInstalled.addListener(() => {
 
 });
 
-function createMap(url, element) {
-  let mapml = document.querySelector(element);
-  document.body.removeChild(mapml);
+function createMap() {
+  let el = document.querySelector("mapml-") ? document.querySelector("mapml-") : document.querySelector("pre");
+  let mapml = el;
+  if(el.nodeName === "pre") {
+    let parser = new DOMParser();
+    let doc = parser.parseFromString(el.innerText, "application/xml");
+    if(doc.querySelector("mapml-")) mapml = doc;
+    else return false;
+  }
+  document.body.removeChild(el);
   let map = document.createElement("mapml-viewer");
   let projection;
-  if(element === "mapml-")  projection = mapml.querySelector("map-extent").getAttribute("units");
-  if(element === "pre") {
-    let parser = new DOMParser();
-    let doc = parser.parseFromString(mapml.innerText, "application/xml");
-    projection = doc.querySelector("map-extent").getAttribute("units");
-  }
+  if(mapml.querySelector("map-extent[units]")) projection = mapml.querySelector("map-extent").getAttribute("units");
+  else if(mapml.querySelector("map-meta[projection]")) projection = mapml.querySelector("map-meta").getAttribute("projection");
+  else projection = "OSMTILE";
+
   //Matches #int,float,float at the end of url
-  let hash = url.match("([#])(\\d)(,[-]?\\d+[.]?\\d+)(,[-]?\\d+[.]?\\d+)$");
+  let hash = window.location.href.match("([#])(\\d)(,[-]?\\d+[.]?\\d+)(,[-]?\\d+[.]?\\d+)$");
   let lat = hash ? hash[4].slice(1) : "0";
   let lon = hash ? hash[3].slice(1) : "0";
   let zoom = hash ? hash[2] : "0";
@@ -71,7 +76,7 @@ function createMap(url, element) {
   map.setAttribute("lon", lon);
   map.setAttribute("zoom", zoom);
   let layer = document.createElement("layer-");
-  layer.setAttribute("src", url);
+  layer.setAttribute("src", window.location.href);
   layer.setAttribute("checked", "true");
   layer.addEventListener("extentload", function () {
     let title = document.createElement("title");
@@ -95,13 +100,15 @@ function createMap(url, element) {
     let hash = e.newURL.match("([#])(\\d)(,[-]?\\d+[.]?\\d+)(,[-]?\\d+[.]?\\d+)$");
     map.zoomTo(hash[4].slice(1), hash[3].slice(1), hash[2]);
   });
+  return true;
 }
 
-function executeScripts(tab, element) {
-  chrome.scripting.executeScript({target: {tabId: tab.id}, func: createMap, args: [tab.url, element]},
-      () => {
-        chrome.scripting.insertCSS({target: {tabId: tab.id}, files: ['resources/map.css']});
-        chrome.scripting.executeScript({target: {tabId: tab.id}, files: ['resources/webcomponents-bundle.js',
+function executeScripts(tabId) {
+  chrome.scripting.executeScript({target: {tabId: tabId}, func: createMap},
+      (result) => {
+        if(!result[0].result) return;
+        chrome.scripting.insertCSS({target: {tabId: tabId}, files: ['resources/map.css']});
+        chrome.scripting.executeScript({target: {tabId: tabId}, files: ['resources/webcomponents-bundle.js',
             'resources/importMapml.js']});
   });
 }
