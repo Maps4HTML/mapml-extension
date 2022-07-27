@@ -2,22 +2,18 @@
  * When the document has a mapml element, set the page content type to text/html,
  * reload page, execute scripts
  */
-chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
-  if (message === "hasMapML") {
+chrome.runtime.onMessage.addListener(function (message, sender) {
+  if (message === "xml" || message === "mapml") {
     chrome.storage.local.get([`${sender.tab.id}`], function (items) {
       if(Object.keys(items).length > 0) {
         let tab = items[`${sender.tab.id}`];
         chrome.declarativeNetRequest.updateSessionRules({
           removeRuleIds: [tab.id]
         });
-
         chrome.storage.local.remove([`${sender.tab.id}`]);
-        chrome.scripting.executeScript({target: {tabId: tab.id}, func: createMap, args: [tab.url]},
-            () => {
-              chrome.scripting.insertCSS({target: {tabId: tab.id}, files: ['resources/map.css']});
-              chrome.scripting.executeScript({target: {tabId: tab.id}, files: ['resources/webcomponents-bundle.js',
-                  'resources/importMapml.js']});
-        });
+        executeScripts(tab, "mapml-");
+      } else if (message === "mapml") {
+        executeScripts(sender.tab, "pre");
       } else {
         let tab = sender.tab;
         chrome.declarativeNetRequest.updateSessionRules({
@@ -52,11 +48,17 @@ chrome.runtime.onInstalled.addListener(() => {
 
 });
 
-function createMap(url) {
-  let mapml = document.querySelector("mapml-");
+function createMap(url, element) {
+  let mapml = document.querySelector(element);
   document.body.removeChild(mapml);
   let map = document.createElement("mapml-viewer");
-  let projection = mapml.querySelector("map-extent").getAttribute("units");
+  let projection;
+  if(element === "mapml-")  projection = mapml.querySelector("map-extent").getAttribute("units");
+  if(element === "pre") {
+    let parser = new DOMParser();
+    let doc = parser.parseFromString(mapml.innerText, "application/xml");
+    projection = doc.querySelector("map-extent").getAttribute("units");
+  }
   //Matches #int,float,float at the end of url
   let hash = url.match("([#])(\\d)(,[-]?\\d+[.]?\\d+)(,[-]?\\d+[.]?\\d+)$");
   let lat = hash ? hash[4].slice(1) : "0";
@@ -92,5 +94,14 @@ function createMap(url) {
   window.addEventListener("hashchange", function (e) {
     let hash = e.newURL.match("([#])(\\d)(,[-]?\\d+[.]?\\d+)(,[-]?\\d+[.]?\\d+)$");
     map.zoomTo(hash[4].slice(1), hash[3].slice(1), hash[2]);
+  });
+}
+
+function executeScripts(tab, element) {
+  chrome.scripting.executeScript({target: {tabId: tab.id}, func: createMap, args: [tab.url, element]},
+      () => {
+        chrome.scripting.insertCSS({target: {tabId: tab.id}, files: ['resources/map.css']});
+        chrome.scripting.executeScript({target: {tabId: tab.id}, files: ['resources/webcomponents-bundle.js',
+            'resources/importMapml.js']});
   });
 }
