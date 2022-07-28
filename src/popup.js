@@ -15,7 +15,10 @@ function saveOptions() {
  */
 function loadOptions() {
   chrome.storage.local.get("options", function (o) {
-    options = o.options || {};
+    options = o.options || {
+      announceMovement: false,
+      featureIndexOverlayOption: false,
+    };
     for (let name in options) {
       let elem = document.getElementById(name);
       if (elem) {
@@ -51,7 +54,7 @@ function handleCheckboxChange(e) {
  * Used to clear the extensions storage
  */
 function resetStorage() {
-  chrome.storage.local.clear();
+  chrome.storage.local.clear(loadOptions);
 }
 
 // You cannot call a function directly from popup.html, you need to attach a listener in the accompanying JS file
