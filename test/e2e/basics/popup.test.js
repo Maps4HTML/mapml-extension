@@ -56,17 +56,13 @@ describe("Popup test", () => {
     });
 
     test("Clear storage", async ()=>{
-        await page.keyboard.press("Space");
-        await page.waitForTimeout(500);
-        for(let i = 0; i < 2; i++) {
+        for(let i = 0; i < 3; i++) {
             await page.keyboard.press("Shift+Tab");
             await page.waitForTimeout(500);
-            await page.keyboard.press("Space");
-            await page.waitForTimeout(500);
         }
-
-        await page.reload();
+        await page.keyboard.press("Space");
         await page.waitForTimeout(1000);
+
         let announceMoveOption = await page.locator('[id=announceMovement]').isChecked();
         let featureIndexOverlayOption = await page.locator('[id=featureIndexOverlayOption]').isChecked();
         let renderMapOption = await page.locator('[id=renderMap]').isChecked();

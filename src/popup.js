@@ -18,6 +18,7 @@ function loadOptions() {
     options = o.options || {
       announceMovement: false,
       featureIndexOverlayOption: false,
+      renderMap: false
     };
     for (let name in options) {
       let elem = document.getElementById(name);
