@@ -3,34 +3,36 @@
  * reload page, execute scripts
  */
 chrome.runtime.onMessage.addListener(function (message, sender) {
-  if (message === "xml") {
-    chrome.storage.local.get([`${sender.tab.id}`], function (items) {
-      if(Object.keys(items).length > 0) {
-        let tab = items[`${sender.tab.id}`];
-        chrome.declarativeNetRequest.updateSessionRules({
-          removeRuleIds: [tab.id]
-        });
-        chrome.storage.local.remove([`${sender.tab.id}`]);
-        executeScripts(tab.id);
-      }  else {
-        let tab = sender.tab;
-        chrome.declarativeNetRequest.updateSessionRules({
-          addRules: [{
-            "id": tab.id,
-            "priority": 1,
-            "action": {"type" :  "modifyHeaders",
-              "responseHeaders":  [{"header": "Content-Type", "operation": "set", "value": "text/html"}]},
-            "condition": {"resourceTypes": ["main_frame"], "tabIds": [tab.id]}
-          }]
-        }, () => {
-          chrome.storage.local.set({[`${tab.id}`] : tab}, () => {
-            chrome.tabs.reload(tab.id);
-          });
-        });
-      }
-    });
+  if (!sender.tab) {
+    // This message did not come from a tab but from other source like popup or DevTools.
+    // Extension currently does not use such messaging so we should ignore this message.
+    console.warn('BG got unexpected message', message, sender);
+    return;
+  }
+
+  const tabId = sender.tab.id;
+  if (message === "html") {
+    executeScripts(tabId);
+    try {
+      // If document initially had "text/html" content type, we do not have a rule registered.
+      chrome.declarativeNetRequest.updateSessionRules({
+        removeRuleIds: [tabId]
+      });
+    } catch {};
+  } else if (message === "xml") {
+    chrome.declarativeNetRequest.updateSessionRules({
+      addRules: [{
+        "id": tabId,
+        "priority": 1,
+        "action": {
+          "type" :  "modifyHeaders",
+          "responseHeaders":  [{"header": "Content-Type", "operation": "set", "value": "text/html"}]
+        },
+        "condition": {"resourceTypes": ["main_frame"], "tabIds": [tabId]}
+      }]
+    }, () => chrome.tabs.reload(tabId));
   } else if (message === "mapml") {
-    executeScripts(sender.tab.id);
+    executeScripts(tabId);
   }
 });
 
