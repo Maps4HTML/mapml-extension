@@ -21,9 +21,10 @@ describe("Popup test", () => {
     });
 
     test("Turn on options", async ()=>{
-        await page.keyboard.press("Tab");
-        await page.waitForTimeout(500);
-
+        for(let i = 0; i < 2; i++){
+            await page.keyboard.press("Tab");
+            await page.waitForTimeout(500);
+        }
         for(let i = 0; i < 2; i++){
             await page.keyboard.press("Tab");
             await page.waitForTimeout(500);
@@ -55,19 +56,19 @@ describe("Popup test", () => {
     });
 
     test("Clear storage", async ()=>{
+        for(let i = 0; i < 3; i++) {
+            await page.keyboard.press("Shift+Tab");
+            await page.waitForTimeout(500);
+        }
         await page.keyboard.press("Space");
-        await page.waitForTimeout(500);
-        await page.keyboard.press("Shift+Tab");
-        await page.waitForTimeout(500);
-        await page.keyboard.press("Space");
-        await page.waitForTimeout(500);
-
-        await page.reload();
         await page.waitForTimeout(1000);
+
         let announceMoveOption = await page.locator('[id=announceMovement]').isChecked();
         let featureIndexOverlayOption = await page.locator('[id=featureIndexOverlayOption]').isChecked();
-        expect(announceMoveOption).toBe(false);
-        expect(featureIndexOverlayOption).toBe(false);
+        let renderMapOption = await page.locator('[id=renderMap]').isChecked();
+        await expect(announceMoveOption).toBe(false);
+        await expect(featureIndexOverlayOption).toBe(false);
+        await expect(renderMapOption).toBe(false);
     });
 
     test("Check if options are off", async ()=>{
@@ -90,7 +91,12 @@ describe("Popup test", () => {
             (output) => output.innerHTML
         );
 
+        await newPage.goto("https://geogratis.gc.ca/mapml/en/cbmtile/cbmt/?alt=xml");
+        await newPage.waitForTimeout(1000);
+        const map = await page.$("xpath=//html/body/mapml-viewer");
+
         await expect(featureIndexOverlay).toEqual(null);
         await expect(output).toEqual("");
+        await expect(map).toEqual(null);
     });
 });

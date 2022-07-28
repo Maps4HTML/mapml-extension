@@ -18,6 +18,7 @@ function loadOptions() {
     options = o.options || {
       announceMovement: false,
       featureIndexOverlayOption: false,
+      renderMap: false
     };
     for (let name in options) {
       let elem = document.getElementById(name);
@@ -31,13 +32,6 @@ function loadOptions() {
     }
   });
 }
-
-// To get location call the service worker using messages API
-/*function getLocation() {
-  chrome.runtime.sendMessage('get-location', (response) => {
-    console.log(response);
-  });
-}*/
 
 /**
  * Handles checkbox changes, changes are then reflected in the users options in storage
@@ -66,6 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
   loadOptions();
   document.getElementById("announceMovement").addEventListener("change", handleCheckboxChange);
   document.getElementById("featureIndexOverlayOption").addEventListener("change", handleCheckboxChange);
+  document.getElementById("renderMap").addEventListener("change", handleCheckboxChange);
   document.getElementById("clear").addEventListener("click", resetStorage);
 });
 
