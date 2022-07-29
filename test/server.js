@@ -3,8 +3,8 @@ const fs = require("fs")
 const path = require("path")
 
 const server = http.createServer((req, res) => {
-
-  let filePath = path.join(__dirname, req.url);
+  let match = __dirname.match("(\\/|\\\\)test")[0];
+  let filePath = path.join(__dirname.replace(match, ""), req.url);
   let isJS = req.url.slice(-2) === "js";
   if (fs.existsSync(filePath)) {
     let file = fs.readFileSync(filePath, 'utf-8')
