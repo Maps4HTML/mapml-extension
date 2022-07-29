@@ -1,6 +1,6 @@
 describe("Basic Load", () => {
   beforeAll(async () => {
-    await page.goto(PATH + "basics/locale.html");
+    await page.goto(PATH + "test/e2e/basics/locale.html");
   });
 
   afterAll(async () => {

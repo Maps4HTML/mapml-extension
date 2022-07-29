@@ -56,7 +56,7 @@ describe("Render MapML resources test", () => {
     test("Render map from text/mapml document", async () => {
         //Changes page.goto response (initial page load) to be of content type text/mapml
         await page.route(PATH + "basics/test.mapml", async route => {
-            const response = await page.request.fetch(PATH + "basics/test.mapml");
+            const response = await page.request.fetch(PATH + "test/e2e/basics/test.mapml");
             await route.fulfill({
                 body: await response.body(),
                 contentType: 'text/mapml'

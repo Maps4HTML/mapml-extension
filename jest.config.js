@@ -11,7 +11,7 @@ module.exports = {
       testMatch: ["**/test/e2e/**/*.test.js"],
       preset: "jest-playwright-preset",
       globals: {
-        PATH: "http://localhost:30002/e2e/"
+        PATH: "http://localhost:30002/"
       }
     }
   ]

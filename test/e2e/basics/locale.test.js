@@ -2,7 +2,7 @@ const playwright = require("playwright");
 const path = require("path");
 describe("Locale Tests", () => {
   beforeAll(async () => {
-    await page.goto(PATH + "basics/locale.html");
+    await page.goto(PATH + "test/e2e/basics/locale.html");
   });
 
   afterAll(async () => {
@@ -52,7 +52,7 @@ describe("Other Locale Tests", () => {
       ],
     });
     frPage = await frContext.newPage();
-    await frPage.goto(PATH + "basics/locale.html");
+    await frPage.goto(PATH + "test/e2e/basics/locale.html");
   });
 
   afterAll(async () => {
