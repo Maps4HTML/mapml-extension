@@ -11,7 +11,7 @@
     "scripting",
     "declarativeNetRequest"
   ],
-  "host_permissions" : [
+  "host_permissions": [
     "<all_urls>"
   ],
   "action": {
@@ -32,8 +32,8 @@
     "service_worker": "background.js"
   },
   "web_accessible_resources": [{
-    "resources": ["dist/*", "resources/*"],
-       "matches": [ "<all_urls>" ]
+    "resources": ["dist/*"],
+    "matches": ["<all_urls>"]
   }],
   "content_scripts": [{
     "run_at": "document_start",
