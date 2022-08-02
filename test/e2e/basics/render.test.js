@@ -75,4 +75,25 @@ test.describe("Render MapML resources test", () => {
         const map = await page.$("xpath=//html/body/mapml-viewer");
         await expect(map).not.toEqual(null);
     });
+
+    test("Projection defaults to OSMTILE in the case of unknown projection", async () => {
+        //Changes page.goto response (initial page load) to be of content type text/mapml
+        await page.route(PATH + "basics/test.mapml", async route => {
+            const response = await page.request.fetch(PATH + "test/e2e/basics/unknown_projection.mapml");
+            await route.fulfill({
+                body: await response.body(),
+                contentType: 'text/mapml'
+            });
+        });
+        await page.waitForTimeout(1000);
+        await page.goto(PATH + "basics/test.mapml");
+        await page.waitForTimeout(1000);
+
+        const map = await page.$("xpath=//html/body/mapml-viewer");
+        const projection = await page.$eval("xpath=//html/body/mapml-viewer",
+            (map) => map.getAttribute('projection'));
+        await expect(projection).toEqual("OSMTILE");
+    });
+
+
 });

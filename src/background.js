@@ -61,17 +61,21 @@ function createMap() {
   }
   document.body.removeChild(el);
   let map = document.createElement("mapml-viewer");
-  let projection;
+  let defaultProjection = "OSMTILE", 
+      projection = defaultProjection, p, 
+      knownProjections = ["OSMTILE","CBMTILE","APSTILE","WGS84"];
   if(mapml.querySelector("map-extent[units]"))
-    projection = mapml.querySelector("map-extent[units]").getAttribute("units");
+    p = mapml.querySelector("map-extent[units]").getAttribute("units").toUpperCase();
+    if (knownProjections.includes(p)) projection = p;
   else if(mapml.querySelector("map-meta[name=projection]"))
-    projection = mapml.querySelector("map-meta[name=projection]").getAttribute("content");
+    p = mapml.querySelector("map-meta[name=projection]").getAttribute("content").toUpperCase();
+    if (knownProjections.includes(p)) projection = p;
   //content="text/mapml;projection=..."
   else if(mapml.querySelector("map-meta[content*=projection]")) {
-    let content = mapml.querySelector("map-meta[content*=projection]").getAttribute("content");
-    projection = content.match("projection=(\\w*)")[1];
+    let content = mapml.querySelector("map-meta[content*=projection]").getAttribute("content").toUpperCase();
+    p = content.match("projection=(\\w*)")[1];
+    if (knownProjections.includes(p)) projection = p;
   }
-  else projection = "OSMTILE";
 
   //Matches #int,float,float at the end of url
   let hash = window.location.href.match("([#])(\\d)(,[-]?\\d+[.]?\\d+)(,[-]?\\d+[.]?\\d+)$");
