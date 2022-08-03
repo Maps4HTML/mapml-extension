@@ -4,7 +4,7 @@
   "description": "Source code for the MapML Browser Extension",
   "main": "index.js",
   "scripts": {
-    "test": "jest --verbose --noStackTrace"
+    "test": "npx playwright test"
   },
   "keywords": [],
   "author": "Maps for HTML Community Group",
@@ -14,9 +14,7 @@
   },
   "license": "W3C",
   "devDependencies": {
-    "jest": "^28.1.3",
-    "jest-playwright-preset": "^2.0.0",
     "playwright": "^1.24.2",
-    "crypto-js": "^4.1.1"
+    "@playwright/test": "^1.24.2"
   }
 }

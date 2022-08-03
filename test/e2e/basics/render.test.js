@@ -1,9 +1,15 @@
-describe("Render MapML resources test", () => {
-    beforeAll(async () => {
+const { test, expect, chromium } = require('@playwright/test');
+
+test.describe("Render MapML resources test", () => {
+    let page;
+    let context;
+    test.beforeAll(async () => {
+        context = await chromium.launchPersistentContext('');
+        page = await context.newPage();
         await page.goto("https://geogratis.gc.ca/mapml/en/cbmtile/cbmt/?alt=xml");
     });
 
-    afterAll(async () => {
+    test.afterAll(async () => {
         await context.close();
     });
 
@@ -55,15 +61,15 @@ describe("Render MapML resources test", () => {
 
     test("Render map from text/mapml document", async () => {
         //Changes page.goto response (initial page load) to be of content type text/mapml
-        await page.route(PATH + "basics/test.mapml", async route => {
-            const response = await page.request.fetch(PATH + "test/e2e/basics/test.mapml");
+        await page.route("test/e2e/basics/test.mapml", async route => {
+            const response = await page.request.fetch("test/e2e/basics/test.mapml");
             await route.fulfill({
                 body: await response.body(),
                 contentType: 'text/mapml'
             });
         });
         await page.waitForTimeout(1000);
-        await page.goto(PATH + "basics/test.mapml");
+        await page.goto("test/e2e/basics/test.mapml");
         await page.waitForTimeout(1000);
 
         const map = await page.$("xpath=//html/body/mapml-viewer");

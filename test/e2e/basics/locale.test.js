@@ -1,11 +1,15 @@
-const playwright = require("playwright");
+const { test, expect, chromium } = require('@playwright/test');
 const path = require("path");
-describe("Locale Tests", () => {
-  beforeAll(async () => {
-    await page.goto(PATH + "test/e2e/basics/locale.html");
+test.describe("Locale Tests", () => {
+  let page;
+  let context;
+  test.beforeAll(async () => {
+    context = await chromium.launchPersistentContext('');
+    page = await context.newPage();
+    await page.goto("test/e2e/basics/locale.html");
   });
 
-  afterAll(async () => {
+  test.afterAll(async () => {
     await context.close();
   });
 
@@ -37,12 +41,12 @@ describe("Locale Tests", () => {
   });
 });
 
-describe("Other Locale Tests", () => {
+test.describe("Other Locale Tests", () => {
   let frContext, frPage;
-  beforeAll(async () => {
+  test.beforeAll(async () => {
     let pathToExtension = path.join(__dirname, '../../../src/');
 
-    frContext = await playwright["chromium"].launchPersistentContext("",{
+    frContext = await chromium.launchPersistentContext("",{
       headless: false,
       slowMo: 50,
       args: [
@@ -52,37 +56,19 @@ describe("Other Locale Tests", () => {
       ],
     });
     frPage = await frContext.newPage();
-    await frPage.goto(PATH + "test/e2e/basics/locale.html");
+    await frPage.goto("test/e2e/basics/locale.html");
   });
 
-  afterAll(async () => {
+  test.afterAll(async () => {
     await frContext.close();
   });
 
   test("UI button titles", async () => {
-    // let zoomInTitle = await frPage.$eval(
-    //   "xpath=//html/body/mapml-viewer >> css=div > div.leaflet-control-container > div.leaflet-top.leaflet-left > div.leaflet-control-zoom.leaflet-bar.leaflet-control > a.leaflet-control-zoom-in",
-    //   (tile) => tile.title
-    // );
-    //
-    // let zoomOutTitle = await frPage.$eval(
-    //   "xpath=//html/body/mapml-viewer >> css=div > div.leaflet-control-container > div.leaflet-top.leaflet-left > div.leaflet-control-zoom.leaflet-bar.leaflet-control > a.leaflet-control-zoom-out",
-    //   (tile) => tile.title
-    // );
-
     let reloadTitle = await frPage.$eval(
       "xpath=//html/body/mapml-viewer >> css=div > div.leaflet-control-container > div.leaflet-top.leaflet-left > div.mapml-reload-button.leaflet-bar.leaflet-control > button",
       (tile) => tile.title
     );
 
-    // let fullScreenTitle = await frPage.$eval(
-    //   "xpath=//html/body/mapml-viewer >> css=div > div.leaflet-control-container > div.leaflet-top.leaflet-left > div.leaflet-control-fullscreen.leaflet-bar.leaflet-control > a",
-    //   (tile) => tile.title
-    // );
-
-    // expect(zoomInTitle).toBe("Zoom in");
-    // expect(zoomOutTitle).toBe("Zoom out");
     expect(reloadTitle).toBe("Rechargez");
-    // expect(fullScreenTitle).toBe("View fullscreen");
   });
 });

@@ -1,9 +1,15 @@
-describe("Basic Load", () => {
-  beforeAll(async () => {
-    await page.goto(PATH + "test/e2e/basics/locale.html");
+const { test, expect, chromium } = require('@playwright/test');
+
+test.describe("Basic Load", () => {
+  let page;
+  let context;
+  test.beforeAll(async () => {
+    context = await chromium.launchPersistentContext('');
+    page = await context.newPage();
+    await page.goto("test/e2e/basics/locale.html");
   });
 
-  afterAll(async () => {
+  test.afterAll(async () => {
     await context.close();
   });
 

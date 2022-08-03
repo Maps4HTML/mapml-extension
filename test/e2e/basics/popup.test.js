@@ -1,22 +1,21 @@
-var CryptoJS = require("crypto-js");
-describe("Popup test", () => {
-    beforeAll(async () => {
-        //Calculate unpacked extension id
-        let path = process.cwd();
-        let os = await page.evaluate(() => navigator.userAgent);
-        let encode = CryptoJS.enc.Utf16LE.parse(path + "\\src" );
-        if(os.indexOf("Windows") === -1) encode = CryptoJS.enc.Utf8.parse(path + "/src");
-        let hash = CryptoJS.SHA256(encode);
-        let digest = hash.toString(CryptoJS.enc.Hex);
-        let id = [];
-        for(let i in digest){
-            id.push(String.fromCharCode(parseInt(digest[i], 16) + 97));
-        }
-        id = id.join('').substr(0, 32);
+const { test, expect, chromium } = require('@playwright/test');
+
+test.describe("Popup test", () => {
+    let page;
+    let context;
+    test.beforeAll(async () => {
+        context = await chromium.launchPersistentContext('');
+        page = await context.newPage();
+
+        let [background] = context.serviceWorkers();
+        if (!background)
+            background = await context.waitForEvent("serviceworker");
+
+        const id = background.url().split("/")[2];
         await page.goto('chrome-extension://' + id +'/popup.html');
     });
 
-    afterAll(async () => {
+    test.afterAll(async () => {
         await context.close();
     });
 
@@ -33,7 +32,7 @@ describe("Popup test", () => {
         }
         let newPage = await context.newPage();
         await newPage.waitForTimeout(1000);
-        await newPage.goto(PATH + "test/e2e/basics/locale.html");
+        await newPage.goto("test/e2e/basics/locale.html");
         await newPage.waitForTimeout(500);
         await newPage.keyboard.press("Tab");
         await newPage.waitForTimeout(500);
@@ -74,7 +73,7 @@ describe("Popup test", () => {
     test("Check if options are off", async ()=>{
         let newPage = await context.newPage();
         await newPage.waitForTimeout(1000);
-        await newPage.goto(PATH + "test/e2e/basics/locale.html");
+        await newPage.goto("test/e2e/basics/locale.html");
         await newPage.waitForTimeout(500);
         await newPage.keyboard.press("Tab");
         await newPage.waitForTimeout(500);
