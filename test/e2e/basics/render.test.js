@@ -78,15 +78,15 @@ test.describe("Render MapML resources test", () => {
 
     test("Projection defaults to OSMTILE in the case of unknown projection", async () => {
         //Changes page.goto response (initial page load) to be of content type text/mapml
-        await page.route(PATH + "basics/test.mapml", async route => {
-            const response = await page.request.fetch(PATH + "test/e2e/basics/unknown_projection.mapml");
+        await page.route("test/e2e/basics/test.mapml", async route => {
+            const response = await page.request.fetch("test/e2e/basics/test.mapml");
             await route.fulfill({
                 body: await response.body(),
                 contentType: 'text/mapml'
             });
         });
         await page.waitForTimeout(1000);
-        await page.goto(PATH + "basics/test.mapml");
+        await page.goto("test/e2e/basics/test.mapml");
         await page.waitForTimeout(1000);
 
         const map = await page.$("xpath=//html/body/mapml-viewer");
