@@ -16,6 +16,7 @@ test.describe("Render MapML resources test", () => {
     test("Render map from application/xml document", async ()=> {
         await page.waitForTimeout(1000);
         const map = await page.$("xpath=//html/body/mapml-viewer");
+        await page.waitForTimeout(1000);
         const lat = await page.$eval("xpath=//html/body/mapml-viewer",
             (map) => map.getAttribute('lat'));
         const lon = await page.$eval("xpath=//html/body/mapml-viewer",
