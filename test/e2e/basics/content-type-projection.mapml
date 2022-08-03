@@ -1,0 +1,22 @@
+<mapml- xmlns="http://www.w3.org/1999/xhtml">
+  <map-head>
+    <map-title>MapML with projection in a content-type parameter (at least, in the map-meta content, not tested with header)</map-title>
+    <map-meta charset="utf-8" ></map-meta>
+    <map-meta content="text/mapml;projection=CBMTILE" http-equiv="Content-Type" ></map-meta>
+    <!-- <map-meta content="CBMTILE" name="projection"></map-meta> -->
+    <map-meta name="extent" content="top-left-latitude=45.5, top-left-longitude=-75.8, bottom-right-latitude=45.3, bottom-right-longitude=-75.6"></map-meta> 
+  </map-head>
+  <map-body>
+    <map-feature id="thing1">
+      <map-featurecaption>a11y caption goes here</map-featurecaption>
+        <map-geometry cs="gcrs">
+          <map-point>
+            <map-coordinates>-75.691084 45.4079051</map-coordinates>
+          </map-point>
+        </map-geometry>
+        <map-properties>
+          <h1>Feature properties html</h1>
+        </map-properties>
+    </map-feature>
+  </map-body>
+</mapml->
