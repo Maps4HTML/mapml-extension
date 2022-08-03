@@ -20,16 +20,12 @@ test.describe("Popup test", () => {
     });
 
     test("Turn on options", async ()=>{
+        await page.keyboard.press("Tab");
         for(let i = 0; i < 2; i++){
             await page.keyboard.press("Tab");
-            await page.waitForTimeout(500);
-        }
-        for(let i = 0; i < 2; i++){
-            await page.keyboard.press("Tab");
-            await page.waitForTimeout(500);
             await page.keyboard.press("Space");
-            await page.waitForTimeout(500);
         }
+
         let newPage = await context.newPage();
         await newPage.waitForTimeout(1000);
         await newPage.goto("test/e2e/basics/locale.html");
@@ -54,23 +50,14 @@ test.describe("Popup test", () => {
         await expect(announceMovement).toEqual("zoom level 2 column 10 row 11");
     });
 
-    test("Clear storage", async ()=>{
-        for(let i = 0; i < 3; i++) {
-            await page.keyboard.press("Shift+Tab");
-            await page.waitForTimeout(500);
-        }
+    test("Turn off options", async ()=>{
         await page.keyboard.press("Space");
+        for(let i = 0; i < 2; i++) {
+            await page.keyboard.press("Shift+Tab");
+            await page.keyboard.press("Space");
+        }
+
         await page.waitForTimeout(1000);
-
-        let announceMoveOption = await page.locator('[id=announceMovement]').isChecked();
-        let featureIndexOverlayOption = await page.locator('[id=featureIndexOverlayOption]').isChecked();
-        let renderMapOption = await page.locator('[id=renderMap]').isChecked();
-        await expect(announceMoveOption).toBe(false);
-        await expect(featureIndexOverlayOption).toBe(false);
-        await expect(renderMapOption).toBe(false);
-    });
-
-    test("Check if options are off", async ()=>{
         let newPage = await context.newPage();
         await newPage.waitForTimeout(1000);
         await newPage.goto("test/e2e/basics/locale.html");

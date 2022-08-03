@@ -44,13 +44,6 @@ function handleCheckboxChange(e) {
   saveOptions();
 }
 
-/**
- * Used to clear the extensions storage
- */
-function resetStorage() {
-  chrome.storage.local.clear(loadOptions);
-}
-
 // You cannot call a function directly from popup.html, you need to attach a listener in the accompanying JS file
 
 /**
@@ -61,6 +54,5 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("announceMovement").addEventListener("change", handleCheckboxChange);
   document.getElementById("featureIndexOverlayOption").addEventListener("change", handleCheckboxChange);
   document.getElementById("renderMap").addEventListener("change", handleCheckboxChange);
-  document.getElementById("clear").addEventListener("click", resetStorage);
 });
 
