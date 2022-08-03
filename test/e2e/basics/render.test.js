@@ -74,26 +74,50 @@ test.describe("Render MapML resources test", () => {
 
         const map = await page.$("xpath=//html/body/mapml-viewer");
         await expect(map).not.toEqual(null);
-    });
+        const projection = await page.$eval("xpath=//html/body/mapml-viewer",
+            (viewer) => viewer.getAttribute('projection'));
+        await expect(projection).toEqual("OSMTILE");
+    }, {times: 1});
 
     test("Projection defaults to OSMTILE in the case of unknown projection", async () => {
         //Changes page.goto response (initial page load) to be of content type text/mapml
-        await page.route("test/e2e/basics/test.mapml", async route => {
-            const response = await page.request.fetch("test/e2e/basics/test.mapml");
+        await page.route("test/e2e/basics/unknown_projection.mapml", async route => {
+            const response = await page.request.fetch("test/e2e/basics/unknown_projection.mapml");
             await route.fulfill({
                 body: await response.body(),
                 contentType: 'text/mapml'
             });
         });
         await page.waitForTimeout(1000);
-        await page.goto("test/e2e/basics/test.mapml");
+        await page.goto("test/e2e/basics/unknown_projection.mapml");
         await page.waitForTimeout(1000);
 
-        const map = await page.$("xpath=//html/body/mapml-viewer");
         const projection = await page.$eval("xpath=//html/body/mapml-viewer",
             (map) => map.getAttribute('projection'));
         await expect(projection).toEqual("OSMTILE");
-    });
+    }, {times: 1});
+    
+    test("Projection from map-meta[content*=projection] attribute / mime type parameter", async () => {
+        //Changes page.goto response (initial page load) to be of content type text/mapml
+        await page.route("test/e2e/basics/content-type-projection.mapml", async route => {
+            const response = await page.request.fetch("test/e2e/basics/content-type-projection.mapml");
+            await route.fulfill({
+                body: await response.body(),
+                contentType: 'text/mapml'
+            });
+        });
+        await page.waitForTimeout(1000);
+        await page.goto("test/e2e/basics/content-type-projection.mapml");
+        await page.waitForTimeout(1000);
 
-
+        const projection = await page.$eval("xpath=//html/body/mapml-viewer",
+            (map) => map.getAttribute('projection'));
+        await expect(projection).toEqual("CBMTILE");
+        // if this issue gets fixed, the following will fail and should be reversed
+        // https://github.com/Maps4HTML/Web-Map-Custom-Element/issues/677
+        const disabled = await page.$eval("xpath=//html/body/mapml-viewer/layer-",
+            (layer) => layer.hasAttribute("disabled"));
+        await expect(disabled).toBe(true);
+        
+    }, {times: 1});
 });

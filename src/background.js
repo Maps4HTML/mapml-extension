@@ -72,8 +72,8 @@ function createMap() {
     if (knownProjections.includes(p)) projection = p;
   //content="text/mapml;projection=..."
   else if(mapml.querySelector("map-meta[content*=projection]")) {
-    let content = mapml.querySelector("map-meta[content*=projection]").getAttribute("content").toUpperCase();
-    p = content.match("projection=(\\w*)")[1];
+    let content = mapml.querySelector("map-meta[content*=projection]").getAttribute("content");
+    p = content.match("projection=(\\w*)")[1].toUpperCase();
     if (knownProjections.includes(p)) projection = p;
   }
 
