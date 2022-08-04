@@ -1,11 +1,12 @@
-const { test, expect, chromium } = require('@playwright/test');
-const path = require("path");
+import { test, expect, chromium } from '@playwright/test';
+import path from 'path';
+
 test.describe("Locale Tests", () => {
   let page;
   let context;
   test.beforeAll(async () => {
     context = await chromium.launchPersistentContext('');
-    page = await context.newPage();
+    page = context.pages().find((page) => page.url() === 'about:blank') || await context.newPage();
     await page.goto("test/e2e/basics/locale.html");
   });
 
