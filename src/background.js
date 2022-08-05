@@ -3,9 +3,18 @@
  * reload page, execute scripts
  */
 chrome.runtime.onMessage.addListener(function (message, sender) {
+  if (!sender.tab && sender.url === chrome.runtime.getURL('popup.html') && message.type === 'options') {
+    chrome.storage.local.set({options: message.options});
+    if (message.options.renderMap) {
+      registerContentScripts();
+    } else {
+      unregisterContentScripts();
+    }
+    return;
+  }
+
   if (!sender.tab) {
-    // This message did not come from a tab but from other source like popup or DevTools.
-    // Extension currently does not use such messaging so we should ignore this message.
+    // This message did not come from a tab and has an unexpected format.
     console.warn('BG got unexpected message', message, sender);
     return;
   }
@@ -36,15 +45,46 @@ chrome.runtime.onMessage.addListener(function (message, sender) {
   }
 });
 
+function registerContentScripts() {
+  chrome.scripting.registerContentScripts([
+    {
+      runAt: "document_start",
+      id: "content",
+      matches: [ "<all_urls>" ],
+      js: [ "content.js" ],
+    },
+    {
+      runAt: "document_idle",
+      id: "sniffer",
+      matches: [ "<all_urls>" ],
+      js: [ "sniffForMapML.js" ],
+    }
+  ]);
+}
+
+async function unregisterContentScripts() {
+  return chrome.scripting.unregisterContentScripts();
+}
+
 /**
  * Runs on installs and updates once
  */
-chrome.runtime.onInstalled.addListener(() => {
+chrome.runtime.onInstalled.addListener(async () => {
+  await unregisterContentScripts();
   chrome.storage.local.get("options", function (obj) {
-    if(!obj.options){
+    if (obj.options) {
+      if (obj.options.renderMap) {
+        registerContentScripts();
+      }
+    } else {
       chrome.storage.local.set({
-        options: {renderMap: true},
+        options: {
+          announceMovement: false,
+          featureIndexOverlayOption: false,
+          renderMap: true,
+        },
       });
+      registerContentScripts();
     }
   });
 

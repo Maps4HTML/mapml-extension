@@ -4,6 +4,7 @@ let options = {};
  * Saves the options to storage
  */
 function saveOptions() {
+  chrome.runtime.sendMessage({type: 'options', options});
   chrome.storage.local.set({
     options: options,
   });
