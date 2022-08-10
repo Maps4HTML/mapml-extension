@@ -17,7 +17,8 @@ document.addEventListener("readystatechange", () => {
       let msgs = ["cmBack", "cmForward", "cmReload", "cmToggleControls", "cmCopyCoords", "cmToggleDebug", "cmCopyMapML",
         "cmViewSource", "cmCopyAll", "lmZoomToLayer", "lmCopyExtent", "lcOpacity", "btnZoomIn", "btnZoomOut", "btnFullScreen",
         "amZoom", "amColumn", "amRow", "amMaxZoom", "amMinZoom", "amZoomedOut", "amDraggedOut", "amEastBound", "amWestBound",
-        "amNorthBound", "amSouthBound"
+        "amNorthBound", "amSouthBound", "kbdShortcuts", "kbdMovement", "kbdFeature", "kbdPanUp", "kbdPanDown", "kbdPanLeft",
+        "kbdPanRight", "kbdPanIncrement", "kbdZoom", "kbdPrevFeature", "kbdNextFeature",
       ];
 
       options.locale = {};
