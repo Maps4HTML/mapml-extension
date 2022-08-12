@@ -88,5 +88,38 @@
   },
   "amSouthBound" : {
     "message" : "Atteint la limite sud, déplacement vers le sud désactivé"
+  },
+  "kbdShortcuts" : {
+    "message" : "Raccourcis clavier"
+  },
+  "kbdMovement" : {
+    "message" : "Touches de mouvement"
+  },
+  "kbdFeature" : {
+    "message" : "Touches de navigation dans les éléments géographiques"
+  },
+  "kbdPanUp" : {
+    "message" : "Panoramique vers le haut"
+  },
+  "kbdPanDown" : {
+    "message" : "Panoramique en bas"
+  },
+  "kbdPanLeft" : {
+    "message" : "Panoramique vers la gauche"
+  },
+  "kbdPanRight" : {
+    "message" : "Panoramique vers la droite"
+  },
+  "kbdPanIncrement" : {
+    "message" : "Incrémenter le panoramique"
+  },
+  "kbdZoom" : {
+    "message" : "Zoom avant/arrière 3 niveaux"
+  },
+  "kbdPrevFeature" : {
+    "message" : "Élément géographique précédente"
+  },
+  "kbdNextFeature" : {
+    "message" : "Élément géographique suivante"
   }
 }

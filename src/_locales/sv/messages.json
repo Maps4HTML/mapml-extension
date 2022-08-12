@@ -54,5 +54,38 @@
   },
   "btnFullScreen": {
     "message": "Visa i helskärm"
+  },
+  "kbdShortcuts": {
+    "message": "Tangentbordsgenvägar"
+  },
+  "kbdMovement": {
+    "message": "Rörelsenycklar"
+  },
+  "kbdFeature": {
+    "message": "Navigationsnycklar för geografiska egenskaper"
+  },
+  "kbdPanUp": {
+    "message": "Panorera upp"
+  },
+  "kbdPanDown": {
+    "message": "Panorera ner"
+  },
+  "kbdPanLeft": {
+    "message": "Panorera till vänster"
+  },
+  "kbdPanRight": {
+    "message": "Panorera till höger"
+  },
+  "kbdPanIncrement": {
+    "message": "Ökning för panorering av kartan"
+  },
+  "kbdZoom": {
+    "message": "Zooma in/ut 3 nivåer"
+  },
+  "kbdPrevFeature": {
+    "message": "Föregående geografisk egenskap"
+  },
+  "kbdNextFeature": {
+    "message": "Nästa geografisk egenskap"
   }
 }
