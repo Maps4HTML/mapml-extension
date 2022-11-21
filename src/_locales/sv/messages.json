@@ -28,6 +28,9 @@
   "cmCopyMapML": {
     "message": "Kopiera MapML"
   },
+  "cmPasteLayer": {
+    "message": "Klistra in"
+  },
   "cmViewSource": {
     "message": "Visa Kartkälla"
   },
@@ -37,6 +40,9 @@
 
   "lmZoomToLayer" : {
     "message": "Zooma Till Lager"
+  },
+  "lmCopyLayer" : {
+    "message": "Kopiera Lager"
   },
   "lmCopyExtent" : {
     "message": "Kopiera Omfattning"
