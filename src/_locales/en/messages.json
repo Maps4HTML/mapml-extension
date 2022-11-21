@@ -28,6 +28,9 @@
   "cmCopyMapML": {
     "message": "Copy MapML"
   },
+  "cmPasteLayer": {
+    "message": "Paste"
+  },
   "cmViewSource": {
     "message": "View Map Source"
   },
@@ -37,6 +40,9 @@
 
   "lmZoomToLayer" : {
     "message": "Zoom To Layer"
+  },
+  "lmCopyLayer" : {
+    "message": "Copy Layer"
   },
   "lmCopyExtent" : {
     "message": "Copy Extent"
