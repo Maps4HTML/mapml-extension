@@ -18,7 +18,7 @@ document.addEventListener("readystatechange", () => {
         "cmPasteLayer", "cmViewSource", "cmCopyAll", "lmZoomToLayer", "lmCopyLayer", "lmCopyExtent", "lcOpacity", "btnZoomIn", "btnZoomOut", "btnFullScreen",
         "amZoom", "amColumn", "amRow", "amMaxZoom", "amMinZoom", "amZoomedOut", "amDraggedOut", "amEastBound", "amWestBound",
         "amNorthBound", "amSouthBound", "kbdShortcuts", "kbdMovement", "kbdFeature", "kbdPanUp", "kbdPanDown", "kbdPanLeft",
-        "kbdPanRight", "kbdPanIncrement", "kbdZoom", "kbdPrevFeature", "kbdNextFeature",
+        "kbdPanRight", "kbdPanIncrement", "kbdZoom", "kbdPrevFeature", "kbdNextFeature", "dfLayer"
       ];
 
       options.locale = {};

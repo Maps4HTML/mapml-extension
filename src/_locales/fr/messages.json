@@ -127,5 +127,8 @@
   },
   "kbdNextFeature" : {
     "message" : "Élément géographique suivante"
+  },
+  "dfLayer": {
+    "message": "Couche"
   }
 }

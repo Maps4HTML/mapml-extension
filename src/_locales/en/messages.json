@@ -126,5 +126,8 @@
   },
   "kbdNextFeature": {
     "message": "Next feature"
+  },
+  "dfLayer": {
+    "message": "Layer"
   }
 }
