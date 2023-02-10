@@ -56,8 +56,14 @@ test.describe("Other Locale Tests", () => {
         `--load-extension=${pathToExtension}`
       ],
     });
+    let [background] = frContext.serviceWorkers();
+    if (!background)
+        background = await frContext.waitForEvent("serviceworker");
+    const id = background.url().split("/")[2];
+    let newPage = await frContext.newPage();
+    await newPage.goto('chrome-extension://' + id +'/popup.html', {waitUntil: "load"});
     frPage = await frContext.newPage();
-    await frPage.goto("test/e2e/basics/locale.html");
+    await frPage.goto("test/e2e/basics/locale.html", {waitUntil: "load"});
   });
 
   test.afterAll(async () => {
@@ -69,7 +75,7 @@ test.describe("Other Locale Tests", () => {
       "xpath=//html/body/mapml-viewer >> css=div > div.leaflet-control-container > div.leaflet-top.leaflet-left > div.mapml-reload-button.leaflet-bar.leaflet-control > button",
       (tile) => tile.title
     );
-
+    
     expect(reloadTitle).toBe("Rechargez");
   });
 });

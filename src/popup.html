@@ -17,6 +17,24 @@
         <input class="form-check-input" type="checkbox" id="renderMap">
         <label class="form-check-label" for="renderMap">Render MapML resources</label>
       </div>
+      <div>
+        <label class="form-label" for="setExtCS">Coordinate system for extent: </label>
+        <select class="form-select" id="defaultExtCoor">
+          <option value="pcrs" selected>pcrs (Default)</option>
+          <option value="gcrs">gcrs</option>
+          <option value="tcrs">tcrs</option>
+          <option value="tilematrix">tilematrix</option>
+        </select>
+        <label class="form-label" for="setLocCS">Coordinate system for location: </label>
+        <select class="form-select" id="defaultLocCoor">
+          <option value="gcrs" selected>gcrs (Default)</option>
+          <option value="pcrs">pcrs</option>
+          <option value="tcrs">tcrs</option>
+          <option value="tilematrix">tilematrix</option>
+          <option value="map">map</option>
+          <option value="tile">tile</option>
+        </select>
+      </div>
     </div>
   </div>
   <div class="card">
@@ -26,7 +44,7 @@
         <input class="form-check-input" type="checkbox" id="announceMovement">
         <label class="form-check-label" for="announceMovement">Announce movement for screen readers</label>
       </div>
-
+      
       <div class="form-check form-switch">
         <input class="form-check-input" type="checkbox" id="featureIndexOverlayOption">
         <label class="form-check-label" for="featureIndexOverlayOption">Show feature index</label>

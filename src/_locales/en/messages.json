@@ -20,13 +20,19 @@
     "message": "Toggle Controls"
   },
   "cmCopyCoords": {
-    "message": "Copy Coordinates"
+    "message": "Copy"
   },
   "cmToggleDebug": {
     "message": "Toggle Debug Mode"
   },
   "cmCopyMapML": {
-    "message": "Copy MapML"
+    "message": "Map"
+  },
+  "cmCopyExtent": {
+    "message": "Extent"
+  },
+  "cmCopyLocation": {
+    "message": "Location"
   },
   "cmPasteLayer": {
     "message": "Paste"
@@ -34,18 +40,12 @@
   "cmViewSource": {
     "message": "View Map Source"
   },
-  "cmCopyAll" : {
-    "message": "All"
-  },
 
   "lmZoomToLayer" : {
     "message": "Zoom To Layer"
   },
   "lmCopyLayer" : {
     "message": "Copy Layer"
-  },
-  "lmCopyExtent" : {
-    "message": "Copy Extent"
   },
 
   "lcOpacity": {

@@ -14,8 +14,8 @@ document.addEventListener("readystatechange", () => {
       let mapOptionsElem = document.createElement("map-options");
       let options = obj.options || {};
 
-      let msgs = ["cmBack", "cmForward", "cmReload", "cmToggleControls", "cmCopyCoords", "cmToggleDebug", "cmCopyMapML",
-        "cmPasteLayer", "cmViewSource", "cmCopyAll", "lmZoomToLayer", "lmCopyLayer", "lmCopyExtent", "lcOpacity", "btnZoomIn", "btnZoomOut", "btnFullScreen",
+      let msgs = ["cmBack", "cmForward", "cmReload", "cmToggleControls", "cmCopyCoords", "cmToggleDebug", "cmCopyMapML", "cmCopyExtent", "cmCopyLocation",
+        "cmPasteLayer", "cmViewSource", "cmCopyAll", "lmZoomToLayer", "lmCopyLayer", "lcOpacity", "btnZoomIn", "btnZoomOut", "btnFullScreen",
         "amZoom", "amColumn", "amRow", "amMaxZoom", "amMinZoom", "amZoomedOut", "amDraggedOut", "amEastBound", "amWestBound",
         "amNorthBound", "amSouthBound", "kbdShortcuts", "kbdMovement", "kbdFeature", "kbdPanUp", "kbdPanDown", "kbdPanLeft",
         "kbdPanRight", "kbdPanIncrement", "kbdZoom", "kbdPrevFeature", "kbdNextFeature", "dfLayer"

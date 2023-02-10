@@ -19,7 +19,9 @@ function loadOptions() {
     options = o.options || {
       announceMovement: false,
       featureIndexOverlayOption: false,
-      renderMap: false
+      renderMap: false,
+      defaultExtCoor: 'pcrs',
+      defaultLocCoor: 'gcrs'
     };
     for (let name in options) {
       let elem = document.getElementById(name);
@@ -27,6 +29,10 @@ function loadOptions() {
         switch (typeof options[name]) {
           case "boolean":
             elem.checked = options[name];
+            break;
+          case "string":
+            Array.from(elem.children).forEach(el => el.value === options[name]? 
+                                              el.selected = true : el.selected = false);
             break;
         }
       }
@@ -45,6 +51,12 @@ function handleCheckboxChange(e) {
   saveOptions();
 }
 
+function handleDropdownChange(e) {
+  let option = e.target.id;
+  options[option] = Array.from(e.target.children).find(el => el.selected).value;
+  saveOptions();
+}
+
 // You cannot call a function directly from popup.html, you need to attach a listener in the accompanying JS file
 
 /**
@@ -55,5 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("announceMovement").addEventListener("change", handleCheckboxChange);
   document.getElementById("featureIndexOverlayOption").addEventListener("change", handleCheckboxChange);
   document.getElementById("renderMap").addEventListener("change", handleCheckboxChange);
+  document.getElementById("defaultExtCoor").addEventListener("change", handleDropdownChange);
+  document.getElementById("defaultLocCoor").addEventListener("change", handleDropdownChange);
 });
 
