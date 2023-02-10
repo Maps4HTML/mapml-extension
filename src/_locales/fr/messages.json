@@ -20,13 +20,19 @@
     "message": "Basculer les contrôles"
   },
   "cmCopyCoords": {
-    "message": "Copier les coordonnées"
+    "message": "Copie"
   },
   "cmToggleDebug": {
     "message": "Basculer le mode de débogage"
   },
   "cmCopyMapML": {
-    "message": "Copier MapML"
+    "message": "Carte"
+  },
+  "cmCopyExtent": {
+    "message": "Étendue"
+  },
+  "cmCopyLocation": {
+    "message": "Localisation"
   },
   "cmPasteLayer": {
     "message": "Coller"
@@ -34,18 +40,12 @@
   "cmViewSource": {
     "message": "Voir la source de la carte"
   },
-  "cmCopyAll" : {
-    "message": "Tous"
-  },
 
   "lmZoomToLayer" : {
     "message": "Zoom sur la couche"
   },
   "lmCopyLayer" : {
     "message": "Copier (la couche)"
-  },
-  "lmCopyExtent" : {
-    "message": "Copier l'étendue"
   },
 
   "lcOpacity": {

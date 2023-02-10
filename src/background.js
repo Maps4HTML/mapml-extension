@@ -5,7 +5,7 @@
 chrome.runtime.onMessage.addListener(function (message, sender) {
   if (!sender.tab && sender.url === chrome.runtime.getURL('popup.html') && message.type === 'options') {
     chrome.storage.local.set({options: message.options});
-    if (message.options.renderMap) {
+    if (message.options) {
       registerContentScripts();
     } else {
       unregisterContentScripts();
@@ -73,7 +73,7 @@ chrome.runtime.onInstalled.addListener(async () => {
   await unregisterContentScripts();
   chrome.storage.local.get("options", function (obj) {
     if (obj.options) {
-      if (obj.options.renderMap) {
+      if (obj.options) {
         registerContentScripts();
       }
     } else {
@@ -82,6 +82,8 @@ chrome.runtime.onInstalled.addListener(async () => {
           announceMovement: false,
           featureIndexOverlayOption: false,
           renderMap: true,
+          defaultExtCoor: 'pcrs',
+          defaultLocCoor: 'gcrs'
         },
       });
       registerContentScripts();

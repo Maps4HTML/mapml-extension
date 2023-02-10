@@ -5,7 +5,14 @@ test.describe("Render MapML resources test", () => {
     let context;
     test.beforeAll(async () => {
         context = await chromium.launchPersistentContext('');
-        page = context.pages().find((page) => page.url() === 'about:blank') || await context.newPage();
+        page = context.pages().find((page) => page.url() === 'about:blank');
+        let [background] = context.serviceWorkers();
+        if (!background)
+            background = await context.waitForEvent("serviceworker");
+
+        const id = background.url().split("/")[2];
+        let newPage = await context.newPage();
+        await newPage.goto('chrome-extension://' + id +'/popup.html', {waitUntil: "load"});
         await page.goto("https://geogratis.gc.ca/mapml/en/cbmtile/cbmt/?alt=xml");
     });
 

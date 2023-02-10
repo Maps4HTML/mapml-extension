@@ -5,6 +5,7 @@ test.describe("Popup test", () => {
     let context;
     test.beforeAll(async () => {
         context = await chromium.launchPersistentContext('');
+        await context.grantPermissions(["clipboard-read", "clipboard-write"]);
         page = context.pages().find((page) => page.url() === 'about:blank') || await context.newPage();
 
         let [background] = context.serviceWorkers();
@@ -20,7 +21,9 @@ test.describe("Popup test", () => {
     });
 
     test("Turn on options", async ()=>{
-        await page.keyboard.press("Tab");
+        for(let i = 0; i < 3; i++){
+            await page.keyboard.press("Tab");
+        }
         for(let i = 0; i < 2; i++){
             await page.keyboard.press("Tab");
             await page.keyboard.press("Space");
@@ -50,10 +53,8 @@ test.describe("Popup test", () => {
 
     test("Turn off options", async () => {
         await page.keyboard.press("Space");
-        for(let i = 0; i < 2; i++) {
-            await page.keyboard.press("Shift+Tab");
-            await page.keyboard.press("Space");
-        }
+        await page.keyboard.press("Shift+Tab");
+        await page.keyboard.press("Space");
 
         await page.waitForTimeout(1000);
         let newPage = await context.newPage();
@@ -80,4 +81,45 @@ test.describe("Popup test", () => {
         expect(output).toEqual("");
         expect(map).toEqual(null);
     });
+
+    test("Change coordinate system for copying location", async () => {
+        await page.keyboard.press("Shift+Tab");
+        await page.keyboard.press("Enter");
+        await page.keyboard.press("ArrowDown");
+        await page.keyboard.press("Enter");
+
+        let newPage = await context.newPage();
+        await newPage.goto("src/dist/index.html", { waitUntil: "load" });
+        newPage.waitForTimeout(500);
+        await newPage.click("body > mapml-viewer");
+        await newPage.keyboard.press("Shift+F10");
+        await newPage.keyboard.press("Enter");
+        await newPage.keyboard.press("Tab");
+        await newPage.keyboard.press("Tab");
+        await newPage.keyboard.press("Enter");
+
+        const text = await newPage.evaluate(() => navigator.clipboard.readText());
+        const expected = "easting:401562, northing:-430496";
+        expect(text).toEqual(expected);
+    })
+
+    test("Change coordinate system for copying extent", async () => {
+        await page.keyboard.press("Shift+Tab");
+        await page.keyboard.press("Enter");
+        await page.keyboard.press("ArrowDown");
+        await page.keyboard.press("Enter");
+
+        let newPage = await context.newPage();
+        await newPage.goto("src/dist/index.html", { waitUntil: "load" });
+        newPage.waitForTimeout(500);
+        await newPage.click("body > mapml-viewer");
+        await newPage.keyboard.press("Shift+F10");
+        await newPage.keyboard.press("Enter");
+        await newPage.keyboard.press("Tab");
+        await newPage.keyboard.press("Enter");
+
+        let text = await newPage.evaluate(() => navigator.clipboard.readText());
+        let expected = `<map-meta name="extent" content="top-left-longitude=-138.64885237902587, top-left-latitude=14.954835511559532, bottom-right-longitude=2.602648210345962, bottom-right-latitude=-7.9417372075824"></map-meta>`;
+        expect(text).toEqual(expected);
+    })
 });

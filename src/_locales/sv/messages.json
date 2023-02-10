@@ -20,13 +20,19 @@
     "message": "Växla Kontroller"
   },
   "cmCopyCoords": {
-    "message": "Kopiera Koordinater"
+    "message": "Kopiera"
   },
   "cmToggleDebug": {
     "message": "Växla Till Felsökningsläge"
   },
   "cmCopyMapML": {
-    "message": "Kopiera MapML"
+    "message": "Karta"
+  },
+  "cmCopyExtent": {
+    "message": "Omfattning"
+  },
+  "cmCopyLocation": {
+    "message": "Plats"
   },
   "cmPasteLayer": {
     "message": "Klistra in"
@@ -34,18 +40,12 @@
   "cmViewSource": {
     "message": "Visa Kartkälla"
   },
-  "cmCopyAll" : {
-    "message": "Alla"
-  },
 
   "lmZoomToLayer" : {
     "message": "Zooma Till Lager"
   },
   "lmCopyLayer" : {
     "message": "Kopiera Lager"
-  },
-  "lmCopyExtent" : {
-    "message": "Kopiera Omfattning"
   },
 
   "lcOpacity": {
