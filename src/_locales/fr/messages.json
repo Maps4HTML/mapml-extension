@@ -61,7 +61,9 @@
   "btnFullScreen": {
     "message": "Affichage plein écran"
   },
-  
+  "btnExitFullScreen": {
+    "message": "Quitter le plein écran"
+  },
   "amZoom" : {
     "message" : "Niveau de zoom"
   },

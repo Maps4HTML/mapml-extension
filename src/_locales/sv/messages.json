@@ -61,6 +61,9 @@
   "btnFullScreen": {
     "message": "Visa i helskärm"
   },
+  "btnExitFullScreen": {
+    "message": "Avsluta fullskärmsläge"
+  },
   "kbdShortcuts": {
     "message": "Kortkommandon"
   },
