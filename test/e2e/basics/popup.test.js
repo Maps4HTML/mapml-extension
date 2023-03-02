@@ -21,13 +21,14 @@ test.describe("Popup test", () => {
     });
 
     test("Turn on options", async ()=>{
-        for(let i = 0; i < 3; i++){
-            await page.keyboard.press("Tab");
-        }
-        for(let i = 0; i < 2; i++){
-            await page.keyboard.press("Tab");
-            await page.keyboard.press("Space");
-        }
+
+        await page.keyboard.press("Tab");
+        await page.keyboard.press("Tab");
+        await page.keyboard.press("Tab");
+        await page.keyboard.press("Tab");
+        await page.keyboard.press("Tab");
+        await page.keyboard.press("Space");
+        
 
         let newPage = await context.newPage();
         await newPage.goto("test/e2e/basics/locale.html", { waitUntil: "domcontentloaded" });

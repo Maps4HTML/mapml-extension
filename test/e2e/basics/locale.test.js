@@ -38,7 +38,7 @@ test.describe("Locale Tests", () => {
     expect(zoomInTitle).toBe("Zoom in");
     expect(zoomOutTitle).toBe("Zoom out");
     expect(reloadTitle).toBe("Reload");
-    expect(fullScreenTitle).toBe("View fullscreen");
+    expect(fullScreenTitle).toBe("View Fullscreen");
   });
 });
 
