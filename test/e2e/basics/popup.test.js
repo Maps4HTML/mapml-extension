@@ -94,6 +94,7 @@ test.describe("Popup test", () => {
         newPage.waitForTimeout(500);
         await newPage.click("body > mapml-viewer");
         await newPage.keyboard.press("Shift+F10");
+        await newPage.keyboard.press("Tab");
         await newPage.keyboard.press("Enter");
         await newPage.keyboard.press("Tab");
         await newPage.keyboard.press("Tab");
@@ -115,6 +116,7 @@ test.describe("Popup test", () => {
         newPage.waitForTimeout(500);
         await newPage.click("body > mapml-viewer");
         await newPage.keyboard.press("Shift+F10");
+        await newPage.keyboard.press("Tab");
         await newPage.keyboard.press("Enter");
         await newPage.keyboard.press("Tab");
         await newPage.keyboard.press("Enter");
