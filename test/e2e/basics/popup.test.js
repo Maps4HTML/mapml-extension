@@ -27,7 +27,7 @@ test.describe("Popup test", () => {
         await page.keyboard.press("Tab");
         await page.keyboard.press("Tab");
         await page.keyboard.press("Tab");
-        await page.keyboard.press("Space");
+        await page.keyboard.press("Space"); // tabs and toggles show feature index (announce zoom is on by default)
         
 
         let newPage = await context.newPage();
@@ -42,14 +42,14 @@ test.describe("Popup test", () => {
             (div) => div.querySelector("output.mapml-feature-index")
         );
 
-        const announceMovement = await newPage.$eval(
+        const announceZoom = await newPage.$eval(
             "xpath=//html/body/mapml-viewer >> css=div > output",
             (output) => output.textContent
         );
 
         await newPage.close();
         expect(featureIndexOverlay).not.toEqual(null);
-        expect(announceMovement).toEqual("zoom level 2 column 10 row 11");
+        expect(announceZoom).toEqual("zoom level 2 column 10 row 11"); // should just be "zoom level 2" after merge
     });
 
     test("Turn off options", async () => {
