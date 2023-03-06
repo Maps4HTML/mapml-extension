@@ -49,7 +49,7 @@ test.describe("Popup test", () => {
 
         await newPage.close();
         expect(featureIndexOverlay).not.toEqual(null);
-        expect(announceZoom).toEqual("zoom level 2 column 10 row 11"); // should just be "zoom level 2" after merge
+        expect(announceZoom).toEqual("zoom level 2"); 
     });
 
     test("Turn off options", async () => {
