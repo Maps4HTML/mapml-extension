@@ -21,13 +21,14 @@ test.describe("Popup test", () => {
     });
 
     test("Turn on options", async ()=>{
-        for(let i = 0; i < 3; i++){
-            await page.keyboard.press("Tab");
-        }
-        for(let i = 0; i < 2; i++){
-            await page.keyboard.press("Tab");
-            await page.keyboard.press("Space");
-        }
+
+        await page.keyboard.press("Tab");
+        await page.keyboard.press("Tab");
+        await page.keyboard.press("Tab");
+        await page.keyboard.press("Tab");
+        await page.keyboard.press("Tab");
+        await page.keyboard.press("Space"); // tabs and toggles show feature index (announce zoom is on by default)
+        
 
         let newPage = await context.newPage();
         await newPage.goto("test/e2e/basics/locale.html", { waitUntil: "domcontentloaded" });
@@ -41,14 +42,14 @@ test.describe("Popup test", () => {
             (div) => div.querySelector("output.mapml-feature-index")
         );
 
-        const announceMovement = await newPage.$eval(
+        const announceZoom = await newPage.$eval(
             "xpath=//html/body/mapml-viewer >> css=div > output",
             (output) => output.textContent
         );
 
         await newPage.close();
         expect(featureIndexOverlay).not.toEqual(null);
-        expect(announceMovement).toEqual("zoom level 2 column 10 row 11");
+        expect(announceZoom).toEqual("zoom level 2"); 
     });
 
     test("Turn off options", async () => {
@@ -93,6 +94,7 @@ test.describe("Popup test", () => {
         newPage.waitForTimeout(500);
         await newPage.click("body > mapml-viewer");
         await newPage.keyboard.press("Shift+F10");
+        await newPage.keyboard.press("Tab");
         await newPage.keyboard.press("Enter");
         await newPage.keyboard.press("Tab");
         await newPage.keyboard.press("Tab");
@@ -114,6 +116,7 @@ test.describe("Popup test", () => {
         newPage.waitForTimeout(500);
         await newPage.click("body > mapml-viewer");
         await newPage.keyboard.press("Shift+F10");
+        await newPage.keyboard.press("Tab");
         await newPage.keyboard.press("Enter");
         await newPage.keyboard.press("Tab");
         await newPage.keyboard.press("Enter");

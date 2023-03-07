@@ -17,7 +17,7 @@ function saveOptions() {
 function loadOptions() {
   chrome.storage.local.get("options", function (o) {
     options = o.options || {
-      announceMovement: false,
+      announceMovement: true,
       featureIndexOverlayOption: false,
       renderMap: false,
       defaultExtCoor: 'pcrs',

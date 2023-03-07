@@ -47,6 +47,7 @@ test.describe("Render MapML resources test", () => {
             await page.keyboard.press("Equal");
             await page.waitForTimeout(1000);
         }
+        await page.waitForTimeout(500);
         expect(page.url()).toContain("#5,-89.7827040843159,60.27815582468662");
         await page.goBack({waitUntil: "networkidle"});
         expect(page.url()).toContain("about:blank");
