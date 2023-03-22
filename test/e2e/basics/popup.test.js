@@ -47,9 +47,15 @@ test.describe("Popup test", () => {
             (output) => output.textContent
         );
 
+        const announceScale = await newPage.$eval(
+            "xpath=//html/body/mapml-viewer >> css=div >  output:nth-child(2)",
+            (output) => output.textContent
+        );
+
         await newPage.close();
         expect(featureIndexOverlay).not.toEqual(null);
-        expect(announceZoom).toEqual("zoom level 2"); 
+        expect(announceZoom).toEqual("zoom level 2");
+        expect(announceScale).toEqual("2 centimeters to 1000 kilometers");  
     });
 
     test("Turn off options", async () => {
