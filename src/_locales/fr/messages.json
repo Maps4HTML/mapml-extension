@@ -132,5 +132,8 @@
   },
   "dfLayer": {
     "message": "Couche"
+  },
+  "dfPastedLayer": {
+    "message": "Couche collée"
   }
 }
