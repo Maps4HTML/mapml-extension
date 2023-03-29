@@ -14,11 +14,16 @@ document.addEventListener("readystatechange", () => {
       let mapOptionsElem = document.createElement("map-options");
       let options = obj.options || {};
 
-      let msgs = ["cmBack", "cmForward", "cmReload", "cmToggleControls", "cmCopyCoords", "cmToggleDebug", "cmCopyMapML", "cmCopyExtent", "cmCopyLocation",
-        "cmPasteLayer", "cmViewSource", "lmZoomToLayer", "lmCopyLayer", "lcOpacity", "btnZoomIn", "btnZoomOut", "btnFullScreen", "btnExitFullScreen",
-        "amZoom", "amColumn", "amRow", "amMaxZoom", "amMinZoom", "amZoomedOut", "amDraggedOut", "amEastBound", "amWestBound",
-        "amNorthBound", "amSouthBound", "kbdShortcuts", "kbdMovement", "kbdFeature", "kbdPanUp", "kbdPanDown", "kbdPanLeft",
-        "kbdPanRight", "kbdPanIncrement", "kbdZoom", "kbdPrevFeature", "kbdNextFeature", "dfLayer", "dfPastedLayer"
+      let msgs = ["cmBack", "cmForward", "cmReload", "cmToggleControls", 
+        "cmCopyCoords", "cmToggleDebug", "cmCopyMapML", "cmCopyExtent", 
+        "cmCopyLocation", "cmPasteLayer", "cmViewSource", "lmZoomToLayer", 
+        "lmCopyLayer", "lcOpacity", "btnZoomIn", "btnZoomOut", "btnFullScreen", 
+        "btnExitFullScreen", "btnLocTrackOn", "btnLocTrackOff", "btnLocTrackLastKnown",
+        "amZoom", "amColumn", "amRow", "amMaxZoom", "amMinZoom", "amZoomedOut", 
+        "amDraggedOut", "amEastBound", "amWestBound", "amNorthBound", "amSouthBound", 
+        "kbdShortcuts", "kbdMovement", "kbdFeature", "kbdPanUp", "kbdPanDown", 
+        "kbdPanLeft", "kbdPanRight", "kbdPanIncrement", "kbdZoom", 
+        "kbdPrevFeature", "kbdNextFeature", "dfLayer", "dfPastedLayer"
       ];
 
       options.locale = {};
