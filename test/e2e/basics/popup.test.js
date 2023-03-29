@@ -84,6 +84,7 @@ test.describe("Popup test", () => {
     });
 
     test("Change coordinate system for copying location", async () => {
+        await page.bringToFront();
         await page.keyboard.press("Shift+Tab");
         await page.keyboard.press("Enter");
         await page.keyboard.press("ArrowDown");
@@ -101,11 +102,16 @@ test.describe("Popup test", () => {
         await newPage.keyboard.press("Enter");
 
         const text = await newPage.evaluate(() => navigator.clipboard.readText());
-        const expected = "easting:401562, northing:-430496";
-        expect(text).toEqual(expected);
-    })
+        const coordinates = await newPage.evaluate((t) => {
+          let d = document.createElement('div');
+          d.insertAdjacentHTML('afterbegin', t);
+          return d.querySelector('map-coordinates').textContent;
+        },text); 
+        expect(coordinates).toEqual("401562 -430496");
+    });
 
     test("Change coordinate system for copying extent", async () => {
+        await page.bringToFront();
         await page.keyboard.press("Shift+Tab");
         await page.keyboard.press("Enter");
         await page.keyboard.press("ArrowDown");
