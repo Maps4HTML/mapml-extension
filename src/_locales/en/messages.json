@@ -64,6 +64,15 @@
   "btnExitFullScreen": {
     "message": "Exit fullscreen"
   },
+  "btnLocTrackOn": { 
+    "message": "Show my location - location tracking on"
+  },
+  "btnLocTrackOff": { 
+    "message": "Show my location - location tracking off"
+  },
+  "btnLocTrackLastKnown": { 
+    "message": "Show my location - last known location shown"
+  },
   "amZoom": {
     "message": "zoom level"
   },

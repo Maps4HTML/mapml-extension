@@ -64,6 +64,15 @@
   "btnExitFullScreen": {
     "message": "Avsluta fullskärmsläge"
   },
+  "btnLocTrackOn": { 
+    "message": "Visa min plats - platsspårning på" 
+  }, 
+  "btnLocTrackOff": { 
+    "message": "Visa min plats - platsspårning av" 
+  }, 
+  "btnLocTrackLastKnown": { 
+    "message": "Visa min plats - senast kända plats visas" 
+  },
   "kbdShortcuts": {
     "message": "Kortkommandon"
   },

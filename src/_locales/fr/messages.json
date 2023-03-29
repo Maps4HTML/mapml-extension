@@ -64,7 +64,16 @@
   "btnExitFullScreen": {
     "message": "Quitter le plein écran"
   },
-  "amZoom" : {
+  "btnLocTrackOn" : { 
+    "message" : "Afficher ma position - suivi de la position activé"
+  },
+  "btnLocTrackOff" : { 
+    "message" : "Afficher ma position - suivi de la position désactivé"
+  },
+  "btnLocTrackLastKnown" : { 
+    "message" : "Afficher ma position - dernière position connue affichée"
+  },
+      "amZoom" : {
     "message" : "Niveau de zoom"
   },
   "amColumn" : {
