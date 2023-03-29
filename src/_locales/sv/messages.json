@@ -99,5 +99,9 @@
   },
   "dfLayer": {
     "message": "Lager"
+  },
+  "dfPastedLayer": {
+    "message": "Klistrat lager"
   }
+
 }

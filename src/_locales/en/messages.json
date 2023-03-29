@@ -132,5 +132,8 @@
   },
   "dfLayer": {
     "message": "Layer"
+  },
+  "dfPastedLayer": {
+    "message": "Pasted Layer"
   }
 }

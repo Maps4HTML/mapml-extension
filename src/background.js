@@ -137,7 +137,7 @@ function createMap() {
     let title = document.createElement("title");
     title.innerText = layer.label;
     document.head.appendChild(title);
-    if(focus) layer.focus();
+    if(focus) layer.zoomTo();
   });
   map.appendChild(layer);
   map.addEventListener("moveend", function () {
