@@ -67,13 +67,19 @@
   "btnLocTrackOn" : { 
     "message" : "Afficher ma position - suivi de la position activé"
   },
+  "btnMyLocTrackOn": {
+    "message": "Ma position actuelle, affichée sur la carte"
+  },
   "btnLocTrackOff" : { 
     "message" : "Afficher ma position - suivi de la position désactivé"
+  },
+  "btnMyLastKnownLocTrackOn": {
+    "message": "Ma dernière position connue, indiquée sur la carte"
   },
   "btnLocTrackLastKnown" : { 
     "message" : "Afficher ma position - dernière position connue affichée"
   },
-      "amZoom" : {
+  "amZoom" : {
     "message" : "Niveau de zoom"
   },
   "amColumn" : {

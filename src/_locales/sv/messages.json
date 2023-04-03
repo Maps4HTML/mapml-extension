@@ -67,9 +67,15 @@
   "btnLocTrackOn": { 
     "message": "Visa min plats - platsspårning på" 
   }, 
+  "btnMyLocTrackOn": {
+    "message": "Min nuvarande plats, visas på kartan"
+  },
   "btnLocTrackOff": { 
     "message": "Visa min plats - platsspårning av" 
   }, 
+  "btnMyLastKnownLocTrackOn": {
+    "message": "Min senast kända plats, visas på kartan"
+  },
   "btnLocTrackLastKnown": { 
     "message": "Visa min plats - senast kända plats visas" 
   },
