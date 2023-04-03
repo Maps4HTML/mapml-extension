@@ -67,8 +67,14 @@
   "btnLocTrackOn": { 
     "message": "Show my location - location tracking on"
   },
+  "btnMyLocTrackOn": {
+    "message": "My current location, shown on map"
+  },
   "btnLocTrackOff": { 
     "message": "Show my location - location tracking off"
+  },
+  "btnMyLastKnownLocTrackOn": {
+    "message": "My last known location, shown on map"
   },
   "btnLocTrackLastKnown": { 
     "message": "Show my location - last known location shown"
