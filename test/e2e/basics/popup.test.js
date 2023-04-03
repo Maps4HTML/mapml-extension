@@ -48,7 +48,7 @@ test.describe("Popup test", () => {
         );
 
         const announceScale = await newPage.$eval(
-            "xpath=//html/body/mapml-viewer >> css=div >  output:nth-child(2)",
+            "xpath=//html/body/mapml-viewer >> css=div >  output:nth-child(7)",
             (output) => output.textContent
         );
 
