@@ -80,6 +80,7 @@ chrome.runtime.onInstalled.addListener(async () => {
       chrome.storage.local.set({
         options: {
           announceMovement: true,
+          announceScale: 'metric',
           featureIndexOverlayOption: false,
           renderMap: true,
           defaultExtCoor: 'pcrs',

@@ -18,6 +18,7 @@ function loadOptions() {
   chrome.storage.local.get("options", function (o) {
     options = o.options || {
       announceMovement: true,
+      announceScale: 'metric',
       featureIndexOverlayOption: false,
       renderMap: false,
       defaultExtCoor: 'pcrs',
@@ -65,6 +66,7 @@ function handleDropdownChange(e) {
 document.addEventListener("DOMContentLoaded", () => {
   loadOptions();
   document.getElementById("announceMovement").addEventListener("change", handleCheckboxChange);
+  document.getElementById("announceScale").addEventListener("change", handleDropdownChange);
   document.getElementById("featureIndexOverlayOption").addEventListener("change", handleCheckboxChange);
   document.getElementById("renderMap").addEventListener("change", handleCheckboxChange);
   document.getElementById("defaultExtCoor").addEventListener("change", handleDropdownChange);
