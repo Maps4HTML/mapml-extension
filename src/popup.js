@@ -18,7 +18,7 @@ function loadOptions() {
   chrome.storage.local.get("options", function (o) {
     options = o.options || {
       announceMovement: true,
-      announceScale: {"metric": true, "imperial": false},
+      announceScale: 'metric',
       featureIndexOverlayOption: false,
       renderMap: false,
       defaultExtCoor: 'pcrs',
