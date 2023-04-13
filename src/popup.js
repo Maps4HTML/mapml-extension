@@ -6,7 +6,7 @@ let options = {};
 function saveOptions() {
   chrome.runtime.sendMessage({type: 'options', options});
   chrome.storage.local.set({
-    options: options,
+    options: options
   });
 }
 

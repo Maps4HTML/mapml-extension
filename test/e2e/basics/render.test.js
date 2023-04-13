@@ -69,7 +69,7 @@ test.describe("Render MapML resources test", () => {
             map,
             map.getAttribute('lat'),
             map.getAttribute('lon'),
-            map.getAttribute('zoom'),
+            map.getAttribute('zoom')
         ]);
 
         expect(map).not.toEqual(null);
@@ -102,8 +102,12 @@ test.describe("Render MapML resources test", () => {
         await extensionPopup.keyboard.press("Space"); // toggles Render off
         // reload page, should not render
         await page.bringToFront();
-        await page.reload();
-        let map = await page.$eval("mapml-viewer", (map) => map);
+        await page.goto("https://geogratis.gc.ca/mapml/en/cbmtile/cbmt/?alt=xml");
+        let map = null;
+        try {
+          let map = await page.$eval("mapml-viewer", (map) => map);
+        } catch {};
+        // page.$eval throws when it can't find the selector, so map should still be null
         expect(map).toEqual(null);
         expect(page.url()).toEqual("https://geogratis.gc.ca/mapml/en/cbmtile/cbmt/?alt=xml");
         await extensionPopup.goto('chrome-extension://' + id +'/popup.html', {waitUntil: "load"});
@@ -118,7 +122,11 @@ test.describe("Render MapML resources test", () => {
         await extensionPopup.keyboard.press("Space"); // toggles Render off
         await page.bringToFront();
         await page.goto("test/e2e/basics/test.mapml");
-        let map = await page.$eval("mapml-viewer", (map) => map);
+        let map = null;
+        try {
+          map = await page.$eval("mapml-viewer", (map) => map);
+        } catch {};
+        // page.$eval throws when it can't find the selector, so map should still be null
         expect(map).toEqual(null);
         await extensionPopup.goto('chrome-extension://' + id +'/popup.html', {waitUntil: "load"});
         await extensionPopup.keyboard.press("Tab"); // tab to Render MapML resources toggle
