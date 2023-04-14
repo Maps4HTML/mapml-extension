@@ -4,7 +4,7 @@
   "description": "Source code for the MapML Browser Extension",
   "main": "index.js",
   "scripts": {
-    "test": "npx playwright test"
+    "test": "npx playwright test --workers=1 --retries=3"
   },
   "keywords": [],
   "author": "Maps for HTML Community Group",

@@ -3,6 +3,8 @@ import { test, expect, chromium } from '@playwright/test';
 test.describe("Render MapML resources test", () => {
     let page;
     let context;
+    let extensionPopup;
+    let id;
     test.beforeAll(async () => {
         context = await chromium.launchPersistentContext('');
         page = context.pages().find((page) => page.url() === 'about:blank');
@@ -10,9 +12,9 @@ test.describe("Render MapML resources test", () => {
         if (!background)
             background = await context.waitForEvent("serviceworker");
 
-        const id = background.url().split("/")[2];
-        let newPage = await context.newPage();
-        await newPage.goto('chrome-extension://' + id +'/popup.html', {waitUntil: "load"});
+        id = background.url().split("/")[2];
+        extensionPopup = await context.newPage();
+        await extensionPopup.goto('chrome-extension://' + id +'/popup.html', {waitUntil: "load"});
         await page.goto("https://geogratis.gc.ca/mapml/en/cbmtile/cbmt/?alt=xml");
     });
 
@@ -67,7 +69,7 @@ test.describe("Render MapML resources test", () => {
             map,
             map.getAttribute('lat'),
             map.getAttribute('lon'),
-            map.getAttribute('zoom'),
+            map.getAttribute('zoom')
         ]);
 
         expect(map).not.toEqual(null);
@@ -93,6 +95,43 @@ test.describe("Render MapML resources test", () => {
             (viewer) => viewer.getAttribute('projection'));
         expect(projection).toEqual("OSMTILE");
     }, {times: 1});
+    
+    test("Do not render map from application/xml document when 'Render' is not checked", async () => {
+        await extensionPopup.goto('chrome-extension://' + id +'/popup.html', {waitUntil: "load"});
+        await extensionPopup.keyboard.press("Tab"); // tab to Render MapML resources toggle
+        await extensionPopup.keyboard.press("Space"); // toggles Render off
+        // reload page, should not render
+        await page.bringToFront();
+        await page.goto("https://geogratis.gc.ca/mapml/en/cbmtile/cbmt/?alt=xml", {waitUntil: "networkidle"});
+        let map = null;
+        try {
+          map = await page.$eval("mapml-viewer", (map) => map);
+        } catch {};
+        // page.$eval throws when it can't find the selector, so map should still be null
+        expect(map).toEqual(null);
+        expect(page.url()).toEqual("https://geogratis.gc.ca/mapml/en/cbmtile/cbmt/?alt=xml");
+        await extensionPopup.goto('chrome-extension://' + id +'/popup.html', {waitUntil: "load"});
+        await extensionPopup.keyboard.press("Tab"); // tab to Render MapML resources toggle
+        await extensionPopup.keyboard.press("Space"); // toggles Render on
+    });
+    
+    test("Do not render map from text/mapml document when 'Render' is not checked", async () => {
+        await extensionPopup.bringToFront();
+        await extensionPopup.goto('chrome-extension://' + id +'/popup.html', {waitUntil: "load"});
+        await extensionPopup.keyboard.press("Tab"); // tab to Render MapML resources toggle
+        await extensionPopup.keyboard.press("Space"); // toggles Render off
+        await page.bringToFront();
+        await page.goto("test/e2e/basics/test.mapml");
+        let map = null;
+        try {
+          map = await page.$eval("mapml-viewer", (map) => map);
+        } catch {};
+        // page.$eval throws when it can't find the selector, so map should still be null
+        expect(map).toEqual(null);
+        await extensionPopup.goto('chrome-extension://' + id +'/popup.html', {waitUntil: "load"});
+        await extensionPopup.keyboard.press("Tab"); // tab to Render MapML resources toggle
+        await extensionPopup.keyboard.press("Space"); // toggles Render on
+    });
 
     test("Projection defaults to OSMTILE in the case of unknown projection", async () => {
         //Changes page.goto response (initial page load) to be of content type text/mapml

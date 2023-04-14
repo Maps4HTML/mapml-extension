@@ -1,6 +1,13 @@
+function sendMessage(message) {
+    chrome.storage.local.get("options", function (items) {
+        const renderMap = items.options ? items.options.renderMap : false;
+        if (renderMap) chrome.runtime.sendMessage(message);
+    });
+}
+
 const mapml = document.querySelector("mapml-");
 if(mapml) {
-    chrome.runtime.sendMessage(document.contentType === "text/html" ? "html" : "xml");
+    sendMessage(document.contentType === "text/html" ? "html" : "xml");
 } else if(document.contentType === "text/mapml"){
-    chrome.runtime.sendMessage("mapml");
+    sendMessage("mapml");
 }
