@@ -102,10 +102,10 @@ test.describe("Render MapML resources test", () => {
         await extensionPopup.keyboard.press("Space"); // toggles Render off
         // reload page, should not render
         await page.bringToFront();
-        await page.goto("https://geogratis.gc.ca/mapml/en/cbmtile/cbmt/?alt=xml");
+        await page.goto("https://geogratis.gc.ca/mapml/en/cbmtile/cbmt/?alt=xml", {waitUntil: "networkidle"});
         let map = null;
         try {
-          let map = await page.$eval("mapml-viewer", (map) => map);
+          map = await page.$eval("mapml-viewer", (map) => map);
         } catch {};
         // page.$eval throws when it can't find the selector, so map should still be null
         expect(map).toEqual(null);
