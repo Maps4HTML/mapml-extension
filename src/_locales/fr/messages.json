@@ -58,6 +58,9 @@
   "btnZoomOut": {
     "message": "Zoom out"
   },
+  "btnAttribution": {
+    "message": "Attribution des données cartographiques"
+  },
   "btnFullScreen": {
     "message": "Affichage plein écran"
   },

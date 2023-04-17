@@ -58,6 +58,9 @@
   "btnZoomOut": {
     "message": "Zooma ut"
   },
+  "btnAttribution": {
+    "message": "Tilldelning av kartdata"
+  },
   "btnFullScreen": {
     "message": "Visa i helskärm"
   },

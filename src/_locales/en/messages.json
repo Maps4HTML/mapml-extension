@@ -58,6 +58,9 @@
   "btnZoomOut": {
     "message": "Zoom out"
   },
+  "btnAttribution": {
+    "message": "Map data attribution"
+  },
   "btnFullScreen": {
     "message": "View fullscreen"
   },
