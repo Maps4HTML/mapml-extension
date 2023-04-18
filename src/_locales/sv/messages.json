@@ -117,6 +117,8 @@
   },
   "dfPastedLayer": {
     "message": "Klistrat lager"
+  },
+  "popupZoom": {
+    "message": "Zooma till här"
   }
-
 }

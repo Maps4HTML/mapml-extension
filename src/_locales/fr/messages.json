@@ -150,5 +150,8 @@
   },
   "dfPastedLayer": {
     "message": "Couche collée"
+  },
+  "popupZoom": {
+    "message": "Zoomer ici"
   }
 }

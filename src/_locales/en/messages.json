@@ -150,5 +150,8 @@
   },
   "dfPastedLayer": {
     "message": "Pasted Layer"
+  },
+  "popupZoom": {
+    "message": "Zoom to here"
   }
 }
