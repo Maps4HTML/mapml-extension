@@ -120,6 +120,8 @@
   },
   "dfPastedLayer": {
     "message": "Klistrat lager"
+  },
+  "popupZoom": {
+    "message": "Zooma hit"
   }
-
 }
