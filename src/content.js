@@ -25,7 +25,7 @@ document.addEventListener("readystatechange", () => {
         "kbdShortcuts", "kbdMovement", "kbdFeature", "kbdPanUp", "kbdPanDown", 
         "kbdPanLeft", "kbdPanRight", "kbdPanIncrement", "kbdZoom", 
         "kbdPrevFeature", "kbdNextFeature", "dfLayer", "dfPastedLayer",
-        "popupZoom"
+        "popupZoom","fIndexNoFeatures"
       ];
 
       options.locale = {};

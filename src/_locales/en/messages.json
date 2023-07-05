@@ -156,5 +156,8 @@
   },
   "popupZoom": {
     "message": "Zoom to here"
+  },
+  "fIndexNoFeatures": {
+    "message": "No features found"
   }
 }

@@ -156,5 +156,8 @@
   },
   "popupZoom": {
     "message": "Zoomer ici"
+  },
+  "fIndexNoFeatures": {
+    "message": "Aucun élément géographique trouvé"
   }
 }

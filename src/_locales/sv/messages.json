@@ -123,5 +123,8 @@
   },
   "popupZoom": {
     "message": "Zooma hit"
+  },
+  "fIndexNoFeatures": {
+    "message": "Inget geografiskt objekt hittades"
   }
 }
