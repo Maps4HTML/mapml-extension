@@ -1,0 +1,163 @@
+{
+  "extName": {
+    "message": "Розширення MapML",
+    "description": "Назва розширення."
+  },
+  "extDescription": {
+    "message": "Розширення для mapml-viewer"
+  },
+
+  "cmBack": {
+    "message": "Повернутися назад"
+  },
+  "cmForward": {
+    "message": "Перейти вперед"
+  },
+  "cmReload": {
+    "message": "Перезавантажити"
+  },
+  "cmToggleControls": {
+    "message": "Увімкнути/вимкнути елементи керування"
+  },
+  "cmCopyCoords": {
+    "message": "Копіювати"
+  },
+  "cmToggleDebug": {
+    "message": "Перемкнути на режим діагностики"
+  },
+  "cmCopyMapML": {
+    "message": "Мапа"
+  },
+  "cmCopyExtent": {
+    "message": "Межа екрану"
+  },
+  "cmCopyLocation": {
+    "message": "Місцеположення"
+  },
+  "cmPasteLayer": {
+    "message": "Вставити"
+  },
+  "cmViewSource": {
+    "message": "Переглянути джерело мапи"
+  },
+
+  "lmZoomToLayer" : {
+    "message": "Збільшити до шару"
+  },
+  "lmCopyLayer" : {
+    "message": "Копіювати шар"
+  },
+
+  "lcOpacity": {
+    "message": "Прозорість"
+  },
+
+  "btnZoomIn": {
+    "message": "Збільшити"
+  },
+  "btnZoomOut": {
+    "message": "Зменшити"
+  },
+  "btnAttribution": {
+    "message": "Авторські права"
+  },
+  "btnFullScreen": {
+    "message": "Повноекранний режим"
+  },
+  "btnExitFullScreen": {
+    "message": "Вихід з повноекранного режиму"
+  },
+  "btnLocTrackOn": { 
+    "message": "Показувати моє місцезнаходження - відстеження місцезнаходження увімкнено"
+  },
+  "btnMyLocTrackOn": {
+    "message": "Моє поточне місцезнаходження на карті"
+  },
+  "btnLocTrackOff": { 
+    "message": "Показувати моє місцезнаходження - відстеження місцезнаходження вимкнено"
+  },
+  "btnMyLastKnownLocTrackOn": {
+    "message": "Моє останнє відоме місцезнаходження на карті"
+  },
+  "btnLocTrackLastKnown": { 
+    "message": "Показати моє місцезнаходження - показано останнє відоме місцезнаходження"
+  },
+  "amZoom": {
+    "message": "рівень масштабування"
+  },
+  "amColumn": {
+    "message": "стовпчик"
+  },
+  "amRow": {
+    "message": "рядок"
+  },
+  "amMaxZoom": {
+    "message": "На максимальному рівні масштабування наближення вимкнено"
+  },
+  "amMinZoom": {
+    "message": "На мінімальному рівні масштабування зменшення масштабу вимкнено"
+  },
+  "amZoomedOut": {
+    "message": "Збільшення за межами, повернутись до"
+  },
+  "amDraggedOut": {
+    "message": "Розширення за межами, повернутись до"
+  },
+  "amEastBound": {
+    "message": "Досягнуто східного напрямку, панорамування на схід вимкнено"
+  },
+  "amWestBound": {
+    "message": "Досягнуто західного напрямку, панорамування на захід вимкнено"
+  },
+  "amNorthBound": {
+    "message": "Досягнуто північного напрямку, панорамування на північ вимкнено"
+  },
+  "amSouthBound": {
+    "message": "Досягнуто південного напрямку, панорамування на південь вимкнено"
+  },
+  "kbdShortcuts": {
+    "message": "Комбінації клавіш"
+  },
+  "kbdMovement": {
+    "message": "Клавіші переміщення"
+  },
+  "kbdFeature": {
+    "message": "Функціональні клавіші навігації"
+  },
+  "kbdPanUp": {
+    "message": "Переміщення вгору"
+  },
+  "kbdPanDown": {
+    "message": "Переміщення вниз"
+  },
+  "kbdPanLeft": {
+    "message": "Переміщення ліворуч"
+  },
+  "kbdPanRight": {
+    "message": "Переміщення праворуч"
+  },
+  "kbdPanIncrement": {
+    "message": "крок переміщення зображення"
+  },
+  "kbdZoom": {
+    "message": "Збільшення/зменшення на 3 рівні"
+  },
+  "kbdPrevFeature": {
+    "message": "Попередній об'єкт"
+  },
+  "kbdNextFeature": {
+    "message": "Наступний об'єкт"
+  },
+  "dfLayer": {
+    "message": "Шар"
+  },
+  "dfPastedLayer": {
+    "message": "Вставлений шар"
+  },
+  "popupZoom": {
+    "message": "Наблизити сюди"
+  },
+  "fIndexNoFeatures": {
+    "message": "Об'єктів не знайдено"
+  }
+}
