@@ -118,6 +118,9 @@
   "dfLayer": {
     "message": "Lager"
   },
+  "dfExtent": {
+    "message": "Sub-layer"
+  },
   "dfPastedLayer": {
     "message": "Klistrat lager"
   },
