@@ -15,7 +15,7 @@ test.describe("Render MapML resources test", () => {
         id = background.url().split("/")[2];
         extensionPopup = await context.newPage();
         await extensionPopup.goto('chrome-extension://' + id +'/popup.html', {waitUntil: "load"});
-        await page.goto("https://geogratis.gc.ca/mapml/en/cbmtile/cbmt/?alt=xml");
+        await page.goto("test/e2e/data/cbmt-cbmtile.mapml");
     });
 
     test.afterAll(async () => {
@@ -33,10 +33,10 @@ test.describe("Render MapML resources test", () => {
             map,
             map.getAttribute('lat'),
             map.getAttribute('lon'),
-            map.getAttribute('zoom'),
+            map.getAttribute('zoom')
         ]);
         expect(map).not.toEqual(null);
-        expect(page.url()).toEqual("https://geogratis.gc.ca/mapml/en/cbmtile/cbmt/?alt=xml");
+        expect(page.url()).toEqual("http://localhost:30002/test/e2e/data/cbmt-cbmtile.mapml");
         expect(lat).toEqual('60.27815582468662');
         expect(lon).toEqual('-89.7827040843159');
         expect(zoom).toEqual('3');
@@ -58,7 +58,7 @@ test.describe("Render MapML resources test", () => {
     });
 
     test("Link with hash sets initial location", async () => {
-        await page.goto("https://geogratis.gc.ca/mapml/en/cbmtile/cbmt/?alt=xml#0,-90,45");
+        await page.goto("http://localhost:30002/test/e2e/data/cbmt-cbmtile.mapml#0,-90,45");
         await page.waitForFunction(() => {
             const map = document.querySelector("mapml-viewer");
             if (map && map.getAttribute('lat') !== '0') {
@@ -102,14 +102,14 @@ test.describe("Render MapML resources test", () => {
         await extensionPopup.keyboard.press("Space"); // toggles Render off
         // reload page, should not render
         await page.bringToFront();
-        await page.goto("https://geogratis.gc.ca/mapml/en/cbmtile/cbmt/?alt=xml", {waitUntil: "networkidle"});
+        await page.goto("test/e2e/data/cbmt-cbmtile.mapml", {waitUntil: "networkidle"});
         let map = null;
         try {
           map = await page.$eval("mapml-viewer", (map) => map);
         } catch {};
         // page.$eval throws when it can't find the selector, so map should still be null
         expect(map).toEqual(null);
-        expect(page.url()).toEqual("https://geogratis.gc.ca/mapml/en/cbmtile/cbmt/?alt=xml");
+        expect(page.url()).toEqual("http://localhost:30002/test/e2e/data/cbmt-cbmtile.mapml");
         await extensionPopup.goto('chrome-extension://' + id +'/popup.html', {waitUntil: "load"});
         await extensionPopup.keyboard.press("Tab"); // tab to Render MapML resources toggle
         await extensionPopup.keyboard.press("Space"); // toggles Render on
