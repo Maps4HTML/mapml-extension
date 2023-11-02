@@ -108,6 +108,7 @@ test.describe("Popup test", () => {
         await newPage.keyboard.press("Enter");
 
         const text = await newPage.evaluate(() => navigator.clipboard.readText());
+        await page.pause();
         const coordinates = await newPage.evaluate((t) => {
           let d = document.createElement('div');
           d.insertAdjacentHTML('afterbegin', t);
