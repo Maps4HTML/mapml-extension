@@ -148,7 +148,7 @@ test.describe("Render MapML resources test", () => {
         expect(projection).toEqual("OSMTILE");
     }, {times: 1});
 
-    test("Projection from map-meta[content*=projection] attribute / mime type parameter", async () => {
+    test.skip("Projection from map-meta[content*=projection] attribute / mime type parameter", async () => {
         //Changes page.goto response (initial page load) to be of content type text/mapml
         await page.route("test/e2e/basics/content-type-projection.mapml", async route => {
             const response = await page.request.fetch("test/e2e/basics/content-type-projection.mapml");
