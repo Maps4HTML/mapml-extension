@@ -97,7 +97,7 @@ test.describe("Popup test", () => {
         await page.keyboard.press("Enter");
 
         let newPage = await context.newPage();
-        await newPage.goto("src/dist/index.html", { waitUntil: "load" });
+        await newPage.goto("test/e2e/basics/popup.test.html", { waitUntil: "load" });
         newPage.waitForTimeout(500);
         await newPage.click("body > mapml-viewer");
         await newPage.keyboard.press("Shift+F10");
@@ -113,7 +113,7 @@ test.describe("Popup test", () => {
           d.insertAdjacentHTML('afterbegin', t);
           return d.querySelector('map-coordinates').textContent;
         },text); 
-        expect(coordinates).toEqual("401562 -430496");
+        expect(coordinates).toEqual("-8426877 5684775");
     });
 
     test("Change coordinate system for copying extent", async () => {
@@ -124,7 +124,7 @@ test.describe("Popup test", () => {
         await page.keyboard.press("Enter");
 
         let newPage = await context.newPage();
-        await newPage.goto("src/dist/index.html", { waitUntil: "load" });
+        await newPage.goto("test/e2e/basics/popup.test.html", { waitUntil: "load" });
         newPage.waitForTimeout(500);
         await newPage.click("body > mapml-viewer");
         await newPage.keyboard.press("Shift+F10");
@@ -134,7 +134,7 @@ test.describe("Popup test", () => {
         await newPage.keyboard.press("Enter");
 
         let text = await newPage.evaluate(() => navigator.clipboard.readText());
-        let expected = `<map-meta name="extent" content="top-left-longitude=-138.64885237902587, top-left-latitude=14.954835511559532, bottom-right-longitude=2.602648210345962, bottom-right-latitude=-7.9417372075824"></map-meta>`;
+        let expected = `<map-meta name=\"extent\" content=\"top-left-longitude=-76.57882690429689, top-left-latitude=45.74644367422244, bottom-right-longitude=-74.82101440429689, bottom-right-latitude=45.052180659942316\"></map-meta>`;
         expect(text).toEqual(expected);
     })
 });

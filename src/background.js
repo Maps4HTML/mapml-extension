@@ -1,4 +1,6 @@
-/**
+/* global chrome */
+
+/*
  * When the document has a mapml element, set the page content type to text/html,
  * reload page, execute scripts
  */
@@ -51,13 +53,13 @@ function registerContentScripts() {
       runAt: "document_start",
       id: "content",
       matches: [ "<all_urls>" ],
-      js: [ "content.js" ],
+      js: [ "content.js" ]
     },
     {
       runAt: "document_idle",
       id: "sniffer",
       matches: [ "<all_urls>" ],
-      js: [ "sniffForMapML.js" ],
+      js: [ "sniffForMapML.js" ]
     }
   ]);
 }
@@ -85,7 +87,7 @@ chrome.runtime.onInstalled.addListener(async () => {
           renderMap: true,
           defaultExtCoor: 'pcrs',
           defaultLocCoor: 'gcrs'
-        },
+        }
       });
       registerContentScripts();
     }
@@ -134,14 +136,14 @@ function createMap() {
   let layer = document.createElement("layer-");
   layer.setAttribute("src", window.location.href);
   layer.setAttribute("checked", "");
-  layer.addEventListener("extentload", function () {
-    let title = document.createElement("title");
-    title.innerText = layer.label;
-    document.head.appendChild(title);
+  let title = document.createElement("title");
+  title.innerText = mapml.querySelector('map-title').innerText;
+  document.head.insertAdjacentElement('afterbegin',title);
+  layer.addEventListener("loadedmetadata", function () {
     if(focus) layer.zoomTo();
   });
   map.appendChild(layer);
-  map.addEventListener("moveend", function () {
+  map.addEventListener("map-moveend", function () {
     let map = document.querySelector("mapml-viewer");
     //Focus fires moveend so if the url has no initial hash, return
     if(focus) {

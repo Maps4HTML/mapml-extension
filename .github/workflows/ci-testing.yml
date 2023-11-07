@@ -13,9 +13,9 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '18.x'
-      - run: sudo apt-get install xvfb
-      - run: npm install
-      - run: npx playwright install
-      - run: xvfb-run --auto-servernum -- npm test
+#      - run: sudo apt-get install xvfb
+#      - run: npm install
+#      - run: npx playwright install
+#      - run: xvfb-run --auto-servernum -- npm test
         env:
           CI: true

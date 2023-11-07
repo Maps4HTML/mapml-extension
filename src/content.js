@@ -24,7 +24,7 @@ document.addEventListener("readystatechange", () => {
         "amDraggedOut", "amEastBound", "amWestBound", "amNorthBound", "amSouthBound", 
         "kbdShortcuts", "kbdMovement", "kbdFeature", "kbdPanUp", "kbdPanDown", 
         "kbdPanLeft", "kbdPanRight", "kbdPanIncrement", "kbdZoom", 
-        "kbdPrevFeature", "kbdNextFeature", "dfLayer", "dfPastedLayer",
+        "kbdPrevFeature", "kbdNextFeature", "dfLayer", "dfExtent", "dfPastedLayer",
         "popupZoom","fIndexNoFeatures"
       ];
 

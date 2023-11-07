@@ -151,6 +151,9 @@
   "dfLayer": {
     "message": "Шар"
   },
+  "dfExtent": {
+    "message": "Sub-layer"
+  },
   "dfPastedLayer": {
     "message": "Вставлений шар"
   },

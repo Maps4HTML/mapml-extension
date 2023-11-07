@@ -151,6 +151,9 @@
   "dfLayer": {
     "message": "Layer"
   },
+  "dfExtent": {
+    "message": "Sub-layer"
+  },
   "dfPastedLayer": {
     "message": "Pasted Layer"
   },
