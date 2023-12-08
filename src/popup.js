@@ -22,7 +22,8 @@ function loadOptions() {
       featureIndexOverlayOption: false,
       renderMap: false,
       defaultExtCoor: 'pcrs',
-      defaultLocCoor: 'gcrs'
+      defaultLocCoor: 'gcrs',
+      defaultContentPreference: 'no-preference'
     };
     for (let name in options) {
       let elem = document.getElementById(name);
@@ -71,5 +72,6 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("renderMap").addEventListener("change", handleCheckboxChange);
   document.getElementById("defaultExtCoor").addEventListener("change", handleDropdownChange);
   document.getElementById("defaultLocCoor").addEventListener("change", handleDropdownChange);
+  document.getElementById('contentPreference').addEventListener("change", handleDropdownChange);
 });
 

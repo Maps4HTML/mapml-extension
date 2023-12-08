@@ -86,7 +86,8 @@ chrome.runtime.onInstalled.addListener(async () => {
           featureIndexOverlayOption: false,
           renderMap: true,
           defaultExtCoor: 'pcrs',
-          defaultLocCoor: 'gcrs'
+          defaultLocCoor: 'gcrs',
+          defaultContentPreference: 'no-preference'
         }
       });
       registerContentScripts();
