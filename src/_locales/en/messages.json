@@ -47,6 +47,12 @@
   "lmCopyLayer" : {
     "message": "Copy Layer"
   },
+  "lmZoomToExtent" : {
+    "message": "Zoom To Sub-layer"
+  },
+  "lmCopyExtent" : {
+    "message": "Copy Sub-layer"
+  },
 
   "lcOpacity": {
     "message": "Opacity"
