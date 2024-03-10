@@ -47,6 +47,12 @@
   "lmCopyLayer" : {
     "message": "Копіювати шар"
   },
+  "lmZoomToExtent" : {
+    "message": "Zoom To Sub-layer"
+  },
+  "lmCopyExtent" : {
+    "message": "Copy Sub-layer"
+  },
 
   "lcOpacity": {
     "message": "Прозорість"
