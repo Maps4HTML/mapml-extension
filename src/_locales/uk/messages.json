@@ -48,10 +48,10 @@
     "message": "Копіювати шар"
   },
   "lmZoomToExtent" : {
-    "message": "Zoom To Sub-layer"
+    "message": "Збільшити до підтипу шару"
   },
   "lmCopyExtent" : {
-    "message": "Copy Sub-layer"
+    "message": "Копіювати підтип шару"
   },
 
   "lcOpacity": {
@@ -158,7 +158,7 @@
     "message": "Шар"
   },
   "dfExtent": {
-    "message": "Sub-layer"
+    "message": "Підтип шару"
   },
   "dfPastedLayer": {
     "message": "Вставлений шар"
