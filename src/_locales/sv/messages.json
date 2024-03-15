@@ -48,10 +48,10 @@
     "message": "Kopiera Lager"
   },
   "lmZoomToExtent" : {
-    "message": "Zoom To Sub-layer"
+    "message": "Zooma Till Underlager"
   },
   "lmCopyExtent" : {
-    "message": "Copy Sub-layer"
+    "message": "Kopiera Underlager"
   },
 
   "lcOpacity": {
@@ -125,7 +125,7 @@
     "message": "Lager"
   },
   "dfExtent": {
-    "message": "Sub-layer"
+    "message": "Underlager"
   },
   "dfPastedLayer": {
     "message": "Klistrat lager"

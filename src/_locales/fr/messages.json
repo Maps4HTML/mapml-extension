@@ -42,16 +42,16 @@
   },
 
   "lmZoomToLayer" : {
-    "message": "Zoom sur la couche"
+    "message": "Zoomer sur la couche"
   },
   "lmCopyLayer" : {
     "message": "Copier (la couche)"
   },
   "lmZoomToExtent" : {
-    "message": "Zoom To Sub-layer"
+    "message": "Zoomer sur la sous-couche"
   },
   "lmCopyExtent" : {
-    "message": "Copy Sub-layer"
+    "message": "Copier (la sous-couche)"
   },
 
   "lcOpacity": {
@@ -158,7 +158,7 @@
     "message": "Couche"
   },
   "dfExtent": {
-    "message": "Sub-layer"
+    "message": "Sous-couche"
   },
   "dfPastedLayer": {
     "message": "Couche collée"
