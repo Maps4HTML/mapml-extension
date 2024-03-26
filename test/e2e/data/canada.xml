@@ -1,0 +1,57 @@
+<mapml- xmlns="http://www.w3.org/1999/xhtml">
+    <map-head>
+        <map-title>Feature content</map-title>
+        <map-meta charset="UTF-8"/>
+        <map-meta content="text/mapml" http-equiv="Content-Type"/>
+        <map-meta name="cs" content="pcrs"/>
+        <map-meta name="projection" content="CBMTILE"/>
+    </map-head>
+    <map-body>
+        <map-feature id="provinces.2" class="provinces">
+            <map-featurecaption>Prince Edward Island</map-featurecaption>
+            <map-geometry cs="pcrs">
+                <map-multipolygon>
+                    <map-polygon>
+                        <map-coordinates>2449821.43896854 366379.46097068 2442414.76407103 347935.37295843 2429008.66775262 341576.26718604 2434529.55653953 326107.63082004 2425948.85487611 317008.42818425 2432802.09121813 311233.34654528 2434380.07172744 317194.67476854 2436279.09519118 302565.92521743 2442807.17567283 303666.01553768 2425428.14805721 286873.16490034 2400266.51110108 286059.60515179 2407147.15605678 301176.25695891 2401651.93807997 296159.76971221 2396930.98168555 303409.29395984 2383661.62000775 299690.40406203 2381389.73047089 285915.6739299 2344475.79143724 280668.22217108 2332461.7556885 284244.90534316 2333188.97158437 293986.33766203 2306394.24383135 280417.84034722 2298308.45483746 306828.22188014 2298404.50192555 299495.5847231 2278220.40816281 292704.68733105 2271585.98107574 300672.20598614 2281345.1381442 350905.46599327 2292168.6437689 333771.07808429 2288698.77748972 319927.37115947 2317677.48425434 309052.67895059 2323033.70783472 295764.0187445 2333282.14389425 299131.42427262 2329563.69420097 313909.10022578 2388005.97280111 318396.3218642 2380733.51665961 322234.88269446 2411709.98575929 339363.61445009 2400163.84008465 336619.62964973 2405588.9516439 342674.34994385 2449821.43896854 366379.46097068</map-coordinates>
+                    </map-polygon>
+                </map-multipolygon>
+            </map-geometry>
+            <map-properties>
+                <table>
+                    <thead>
+                        <tr>
+                            <th role="columnheader" scope="col">Property name</th>
+                            <th role="columnheader" scope="col">Property value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">PRUID</th>
+                            <td itemprop="PRUID">11</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">PRNAME</th>
+                            <td itemprop="PRNAME">Prince Edward Island / Île-du-Prince-Édouard</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">PRENAME</th>
+                            <td itemprop="PRENAME">Prince Edward Island</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">PRFNAME</th>
+                            <td itemprop="PRFNAME">Île-du-Prince-Édouard</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">PREABBR</th>
+                            <td itemprop="PREABBR">P.E.I.</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">PRFABBR</th>
+                            <td itemprop="PRFABBR">Î.-P.-É.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </map-properties>
+        </map-feature>
+    </map-body>
+</mapml->

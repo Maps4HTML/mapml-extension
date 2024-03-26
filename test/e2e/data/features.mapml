@@ -1,0 +1,20 @@
+<mapml- xmlns="http://www.w3.org/1999/xhtml">
+  <map-head>
+    <map-title>Feature content</map-title>
+    <map-meta charset="utf-8"></map-meta>
+    <map-link rel="style" media="prefers-map-content=image"  href="cbmt-cbmtile.mapml" title="Image content" />
+    <map-link rel="style self" media="prefers-map-content=feature" href="features.mapml" title="Feature content" />
+  </map-head>
+  <map-body>
+    <map-extent units="CBMTILE" checked="checked">
+      <map-input name="z" type="zoom" value="25" min="0" max="25"/>
+      <map-input name="xmin" type="location" rel="map" position="top-left" axis="easting" units="pcrs" min="-6105785.728719063" max="6174630.753072981"/>
+      <map-input name="ymin" type="location" rel="map" position="bottom-left" axis="northing" units="pcrs" min="-1692155.9568245453" max="4482681.2054050295"/>
+      <map-input name="xmax" type="location" rel="map" position="top-right" axis="easting" units="pcrs" min="-6105785.728719063" max="6174630.753072981"/>
+      <map-input name="ymax" type="location" rel="map" position="top-left" axis="northing" units="pcrs" min="-1692155.9568245453" max="4482681.2054050295"/>
+      <map-input name="w" type="width" min="0" max="10000"/>
+      <map-input name="h" type="height" min="0" max="10000"/>
+      <map-link media="" tref="canada.xml" rel="features"/>
+    </map-extent>
+  </map-body>
+</mapml->
