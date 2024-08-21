@@ -6,7 +6,7 @@ document.addEventListener("readystatechange", () => {
   if (document.querySelector("mapml-viewer") || document.querySelector("map[is='web-map']")) {
     /*
     TODO: add when you want to remove network requests for built in version
-    let viewerScript = document.querySelector('script[src="https://unpkg.com/@maps4html/web-map-custom-element@latest/dist/mapml-viewer.js"]');
+    let viewerScript = document.querySelector('script[src="https://unpkg.com/@maps4html/mapml@latest/dist/mapml-viewer.js"]');
     if (viewerScript){
       viewerScript.src = chrome.runtime.getURL("/js/mapml-viewer.js");
     }*/

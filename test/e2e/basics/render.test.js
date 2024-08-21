@@ -165,7 +165,7 @@ test.describe("Render MapML resources test", () => {
             (map) => map.getAttribute('projection'));
         expect(projection).toEqual("CBMTILE");
         // if this issue gets fixed, the following will fail and should be reversed
-        // https://github.com/Maps4HTML/Web-Map-Custom-Element/issues/677
+        // https://github.com/Maps4HTML/MapML.js/issues/677
         const disabled = await page.$eval("xpath=//html/body/mapml-viewer/layer-",
             (layer) => layer.hasAttribute("disabled"));
         expect(disabled).toBe(true);
