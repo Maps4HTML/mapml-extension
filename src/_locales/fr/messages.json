@@ -62,7 +62,7 @@
     "message": "Zoomer"
   },
   "btnZoomOut": {
-    "message": "Zoom out"
+    "message": "Dézoomer"
   },
   "btnAttribution": {
     "message": "Attribution des données cartographiques"
@@ -165,6 +165,12 @@
   },
   "popupZoom": {
     "message": "Zoomer ici"
+  },
+  "popupPropName": {
+    "message": "Nom de la propriété"
+  },
+  "popupPropValue": {
+    "message": "Valeur de la propriété"
   },
   "fIndexNoFeatures": {
     "message": "Aucun élément géographique trouvé"
