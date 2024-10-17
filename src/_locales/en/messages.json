@@ -166,6 +166,12 @@
   "popupZoom": {
     "message": "Zoom to here"
   },
+  "popupPropName": {
+    "message": "Property name"
+  },
+  "popupPropValue": {
+    "message": "Property value"
+  },
   "fIndexNoFeatures": {
     "message": "No features found"
   }
