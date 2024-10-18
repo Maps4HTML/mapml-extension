@@ -88,6 +88,18 @@
   "btnLocTrackLastKnown": { 
     "message": "Показати моє місцезнаходження - показано останнє відоме місцезнаходження"
   },
+  "btnFocusMap": {
+    "message": "Карта Фокусування"
+  },
+  "btnFocusControls": {
+    "message": "Елементи Керування Фокусуванням"
+  },
+  "btnPrevFeature": {
+    "message": "Попередня Функція"
+  },
+  "btnNextFeature": {
+    "message": "Наступна Функція"
+  },
   "amZoom": {
     "message": "рівень масштабування"
   },

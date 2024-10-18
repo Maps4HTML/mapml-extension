@@ -88,6 +88,18 @@
   "btnLocTrackLastKnown" : { 
     "message" : "Afficher ma position - dernière position connue affichée"
   },
+  "btnFocusMap": {
+    "message": "Carte Focus"
+  },
+  "btnFocusControls": {
+    "message": "Contrôles de Mise au Point"
+  },
+  "btnPrevFeature": {
+    "message": "Fonctionnalité Précédente"
+  },
+  "btnNextFeature": {
+    "message": "Fonctionnalité Suivante"
+  },
   "amZoom" : {
     "message" : "Niveau de zoom"
   },
