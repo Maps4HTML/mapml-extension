@@ -20,6 +20,7 @@ document.addEventListener("readystatechange", () => {
         "lmCopyLayer", "lmZoomToExtent", "lmCopyExtent", "lcOpacity", "btnZoomIn", "btnZoomOut", "btnAttribution", "btnFullScreen", 
         "btnExitFullScreen", "btnLocTrackOn", "btnMyLocTrackOn", 
         "btnLocTrackOff", "btnLocTrackLastKnown", "btnMyLastKnownLocTrackOn",
+        "btnFocusMap", "btnPrevFeature", "btnNextFeature", "btnFocusControls",
         "amZoom", "amColumn", "amRow", "amMaxZoom", "amMinZoom", "amZoomedOut", 
         "amDraggedOut", "amEastBound", "amWestBound", "amNorthBound", "amSouthBound", 
         "kbdShortcuts", "kbdMovement", "kbdFeature", "kbdPanUp", "kbdPanDown", 
