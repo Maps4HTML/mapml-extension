@@ -134,7 +134,7 @@ function createMap() {
   map.setAttribute("lat", lat);
   map.setAttribute("lon", lon);
   map.setAttribute("zoom", zoom);
-  let layer = document.createElement("layer-");
+  let layer = document.createElement("map-layer");
   layer.setAttribute("src", window.location.href);
   layer.setAttribute("checked", "");
   let title = document.createElement("title");
