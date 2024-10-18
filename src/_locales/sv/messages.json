@@ -88,6 +88,18 @@
   "btnLocTrackLastKnown": { 
     "message": "Visa min plats - senast kända plats visas" 
   },
+  "btnFocusMap": {
+    "message": "Fokuskarta"
+  },
+  "btnFocusControls": {
+    "message": "Fokuskontroller"
+  },
+  "btnPrevFeature": {
+    "message": "Föregående Funktion"
+  },
+  "btnNextFeature": {
+    "message": "Nästa Funktion"
+  },
   "kbdShortcuts": {
     "message": "Kortkommandon"
   },

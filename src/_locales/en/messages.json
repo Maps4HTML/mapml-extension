@@ -88,6 +88,18 @@
   "btnLocTrackLastKnown": { 
     "message": "Show my location - last known location shown"
   },
+  "btnFocusMap": {
+    "message": "Focus Map"
+  },
+  "btnFocusControls": {
+    "message": "Focus Controls"
+  },
+  "btnPrevFeature": {
+    "message": "Previous Feature"
+  },
+  "btnNextFeature": {
+    "message": "Next Feature"
+  },
   "amZoom": {
     "message": "zoom level"
   },
