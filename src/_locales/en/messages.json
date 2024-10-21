@@ -40,24 +40,36 @@
   "cmViewSource": {
     "message": "View Map Source"
   },
-
-  "lmZoomToLayer" : {
+  "lmZoomToLayer": {
     "message": "Zoom To Layer"
   },
-  "lmCopyLayer" : {
+  "lmCopyLayer": {
     "message": "Copy Layer"
   },
-  "lmZoomToExtent" : {
+  "lmLayerSettings": {
+    "message": "Layer Settings"
+  },
+  "lmRemoveLayer": {
+    "message": "Remove Layer"
+  },
+  "lmZoomToExtent": {
     "message": "Zoom To Sub-layer"
   },
-  "lmCopyExtent" : {
+  "lmCopyExtent": {
     "message": "Copy Sub-layer"
   },
-
+  "lmExtentSettings": {
+    "message": "Sub-layer Settings"
+  },
+  "lmRemoveExtent": {
+    "message": "Remove Sub-layer"
+  },
+  "lmStyle": {
+    "message": "Style"
+  },
   "lcOpacity": {
     "message": "Opacity"
   },
-
   "btnZoomIn": {
     "message": "Zoom in"
   },
@@ -73,13 +85,13 @@
   "btnExitFullScreen": {
     "message": "Exit fullscreen"
   },
-  "btnLocTrackOn": { 
+  "btnLocTrackOn": {
     "message": "Show my location - location tracking on"
   },
   "btnMyLocTrackOn": {
     "message": "My current location, shown on map"
   },
-  "btnLocTrackOff": { 
+  "btnLocTrackOff": {
     "message": "Show my location - location tracking off"
   },
   "btnMyLastKnownLocTrackOn": {
@@ -160,6 +172,12 @@
   "kbdZoom": {
     "message": "Zoom in/out 3 levels"
   },
+  "kbdFocusMap": {
+    "message": "Focus map"
+  },
+  "kbdFocusControls": {
+    "message": "Focus controls"
+  },
   "kbdPrevFeature": {
     "message": "Previous feature"
   },
@@ -175,8 +193,17 @@
   "dfPastedLayer": {
     "message": "Pasted Layer"
   },
+  "dfFeatureCaption": {
+    "message": "Feature"
+  },
   "popupZoom": {
     "message": "Zoom to here"
+  },
+  "popupPropName": {
+    "message": "Property name"
+  },
+  "popupPropValue": {
+    "message": "Property value"
   },
   "fIndexNoFeatures": {
     "message": "No features found"

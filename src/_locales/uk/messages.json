@@ -40,20 +40,34 @@
   "cmViewSource": {
     "message": "Переглянути джерело мапи"
   },
-
-  "lmZoomToLayer" : {
+  "lmZoomToLayer": {
     "message": "Збільшити до шару"
   },
-  "lmCopyLayer" : {
+  "lmCopyLayer": {
     "message": "Копіювати шар"
   },
+  "lmLayerSettings": {
+    "message": "Налаштування шару"
+  },
+  "lmRemoveLayer": {
+    "message": "Видалити шар"
+  },
+
   "lmZoomToExtent" : {
     "message": "Збільшити до підтипу шару"
   },
   "lmCopyExtent" : {
     "message": "Копіювати підтип шару"
   },
-
+  "lmExtentSettings": {
+    "message": "Налаштування підшару"
+  },
+  "lmRemoveExtent": {
+    "message": "Видалити підшар"
+  },
+  "lmStyle": {
+    "message": "Стиль"
+  },
   "lcOpacity": {
     "message": "Прозорість"
   },
@@ -73,13 +87,13 @@
   "btnExitFullScreen": {
     "message": "Вихід з повноекранного режиму"
   },
-  "btnLocTrackOn": { 
+  "btnLocTrackOn": {
     "message": "Показувати моє місцезнаходження - відстеження місцезнаходження увімкнено"
   },
   "btnMyLocTrackOn": {
     "message": "Моє поточне місцезнаходження на карті"
   },
-  "btnLocTrackOff": { 
+  "btnLocTrackOff": {
     "message": "Показувати моє місцезнаходження - відстеження місцезнаходження вимкнено"
   },
   "btnMyLastKnownLocTrackOn": {
@@ -160,6 +174,12 @@
   "kbdZoom": {
     "message": "Збільшення/зменшення на 3 рівні"
   },
+  "kbdFocusMap": {
+    "message": "Сфокусувати карту"
+  },
+  "kbdFocusControls": {
+    "message": "Сфокусувати елементи керування"
+  },
   "kbdPrevFeature": {
     "message": "Попередній об'єкт"
   },
@@ -177,6 +197,12 @@
   },
   "popupZoom": {
     "message": "Наблизити сюди"
+  },
+  "popupPropName": {
+    "message": "Назва властивості"
+  },
+  "popupPropValue": {
+    "message": "Значення властивості"
   },
   "fIndexNoFeatures": {
     "message": "Об'єктів не знайдено"

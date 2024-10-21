@@ -17,16 +17,19 @@ document.addEventListener("readystatechange", () => {
       let msgs = ["cmBack", "cmForward", "cmReload", "cmToggleControls", 
         "cmCopyCoords", "cmToggleDebug", "cmCopyMapML", "cmCopyExtent", 
         "cmCopyLocation", "cmPasteLayer", "cmViewSource", "lmZoomToLayer", 
-        "lmCopyLayer", "lmZoomToExtent", "lmCopyExtent", "lcOpacity", "btnZoomIn", "btnZoomOut", "btnAttribution", "btnFullScreen", 
+        "lmCopyLayer", "lmLayerSettings", "lmRemoveLayer", "lmZoomToExtent", 
+        "lmCopyExtent", "lmExtentSettings", "lmRemoveExtent", "lmStyle",
+        "lcOpacity", "btnZoomIn", "btnZoomOut", "btnAttribution", "btnFullScreen", 
         "btnExitFullScreen", "btnLocTrackOn", "btnMyLocTrackOn", 
         "btnLocTrackOff", "btnLocTrackLastKnown", "btnMyLastKnownLocTrackOn",
         "btnFocusMap", "btnPrevFeature", "btnNextFeature", "btnFocusControls",
         "amZoom", "amColumn", "amRow", "amMaxZoom", "amMinZoom", "amZoomedOut", 
         "amDraggedOut", "amEastBound", "amWestBound", "amNorthBound", "amSouthBound", 
         "kbdShortcuts", "kbdMovement", "kbdFeature", "kbdPanUp", "kbdPanDown", 
-        "kbdPanLeft", "kbdPanRight", "kbdPanIncrement", "kbdZoom", 
-        "kbdPrevFeature", "kbdNextFeature", "dfLayer", "dfExtent", "dfPastedLayer",
-        "popupZoom","fIndexNoFeatures"
+        "kbdPanLeft", "kbdPanRight", "kbdPanIncrement", "kbdZoom", "kbdFocusMap",
+        "kbdFocusControls", "kbdPrevFeature", "kbdNextFeature", "dfLayer", "dfExtent", 
+        "dfPastedLayer", "dfFeatureCaption", "popupZoom", "popupPropName", 
+        "popupPropValue", "fIndexNoFeatures"
       ];
 
       options.locale = {};

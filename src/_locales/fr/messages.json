@@ -40,20 +40,33 @@
   "cmViewSource": {
     "message": "Voir la source de la carte"
   },
-
-  "lmZoomToLayer" : {
+  "lmZoomToLayer": {
     "message": "Zoomer sur la couche"
   },
-  "lmCopyLayer" : {
+  "lmCopyLayer": {
     "message": "Copier (la couche)"
   },
-  "lmZoomToExtent" : {
+  "lmLayerSettings": {
+    "message": "Paramètres de la couche"
+  },
+  "lmRemoveLayer": {
+    "message": "Supprimer la couche"
+  },
+  "lmZoomToExtent": {
     "message": "Zoomer sur la sous-couche"
   },
-  "lmCopyExtent" : {
+  "lmCopyExtent": {
     "message": "Copier (la sous-couche)"
   },
-
+  "lmExtentSettings": {
+    "message": "Paramètres de la sous-couche"
+  },
+  "lmRemoveExtent": {
+    "message": "Supprimer la sous-couche"
+  },
+  "lmStyle": {
+    "message": "Style"
+  },
   "lcOpacity": {
     "message": "Opacité"
   },
@@ -73,20 +86,20 @@
   "btnExitFullScreen": {
     "message": "Quitter le plein écran"
   },
-  "btnLocTrackOn" : { 
-    "message" : "Afficher ma position - suivi de la position activé"
+  "btnLocTrackOn": {
+    "message": "Afficher ma position - suivi de la position activé"
   },
   "btnMyLocTrackOn": {
     "message": "Ma position actuelle, affichée sur la carte"
   },
-  "btnLocTrackOff" : { 
-    "message" : "Afficher ma position - suivi de la position désactivé"
+  "btnLocTrackOff": {
+    "message": "Afficher ma position - suivi de la position désactivé"
   },
   "btnMyLastKnownLocTrackOn": {
     "message": "Ma dernière position connue, indiquée sur la carte"
   },
-  "btnLocTrackLastKnown" : { 
-    "message" : "Afficher ma position - dernière position connue affichée"
+  "btnLocTrackLastKnown": {
+    "message": "Afficher ma position - dernière position connue affichée"
   },
   "btnFocusMap": {
     "message": "Carte Focus"
@@ -103,68 +116,68 @@
   "amZoom" : {
     "message" : "Niveau de zoom"
   },
-  "amColumn" : {
-    "message" : "Colonne" 
+  "amColumn": {
+    "message": "Colonne"
   },
-  "amRow" : {
-    "message" : "Rangée"
+  "amRow": {
+    "message": "Rangée"
   },
-  "amMaxZoom" : {
-    "message" : "Au niveau de zoom maximal, le zoom avant est désactivé"
+  "amMaxZoom": {
+    "message": "Au niveau de zoom maximal, le zoom avant est désactivé"
   },
-  "amMinZoom" : {
-    "message" : "Niveau de zoom minimum, le zoom arrière désactivé"
+  "amMinZoom": {
+    "message": "Niveau de zoom minimum, le zoom arrière désactivé"
   },
-  "amZoomedOut" : {
-    "message" : "Zoomé en dehors des limites, retour à"
+  "amZoomedOut": {
+    "message": "Zoomé en dehors des limites, retour à"
   },
-  "amDraggedOut" : {
-    "message" : "Traîné hors des limites, retour à"
+  "amDraggedOut": {
+    "message": "Traîné hors des limites, retour à"
   },
-  "amEastBound" : {
-    "message" : "Atteint la limite est, déplacement ver l'est désactivé"
+  "amEastBound": {
+    "message": "Atteint la limite est, déplacement ver l'est désactivé"
   },
-  "amWestBound" : {
-    "message" : "Atteint la limite ouest, déplacement ver l'ouest désactivé"
+  "amWestBound": {
+    "message": "Atteint la limite ouest, déplacement ver l'ouest désactivé"
   },
-  "amNorthBound" : {
-    "message" : "Atteint la limite nord, déplacement vers le nord désactivé"
+  "amNorthBound": {
+    "message": "Atteint la limite nord, déplacement vers le nord désactivé"
   },
-  "amSouthBound" : {
-    "message" : "Atteint la limite sud, déplacement vers le sud désactivé"
+  "amSouthBound": {
+    "message": "Atteint la limite sud, déplacement vers le sud désactivé"
   },
-  "kbdShortcuts" : {
-    "message" : "Raccourcis clavier"
+  "kbdShortcuts": {
+    "message": "Raccourcis clavier"
   },
-  "kbdMovement" : {
-    "message" : "Touches de mouvement"
+  "kbdMovement": {
+    "message": "Touches de mouvement"
   },
-  "kbdFeature" : {
-    "message" : "Touches de navigation dans les éléments géographiques"
+  "kbdFeature": {
+    "message": "Touches de navigation dans les éléments géographiques"
   },
-  "kbdPanUp" : {
-    "message" : "Panoramique vers le haut"
+  "kbdPanUp": {
+    "message": "Panoramique vers le haut"
   },
-  "kbdPanDown" : {
-    "message" : "Panoramique en bas"
+  "kbdPanDown": {
+    "message": "Panoramique en bas"
   },
-  "kbdPanLeft" : {
-    "message" : "Panoramique vers la gauche"
+  "kbdPanLeft": {
+    "message": "Panoramique vers la gauche"
   },
-  "kbdPanRight" : {
-    "message" : "Panoramique vers la droite"
+  "kbdPanRight": {
+    "message": "Panoramique vers la droite"
   },
-  "kbdPanIncrement" : {
-    "message" : "Incrémenter le panoramique"
+  "kbdPanIncrement": {
+    "message": "Incrémenter le panoramique"
   },
-  "kbdZoom" : {
-    "message" : "Zoom avant/arrière 3 niveaux"
+  "kbdZoom": {
+    "message": "Zoom avant/arrière 3 niveaux"
   },
-  "kbdPrevFeature" : {
-    "message" : "Élément géographique précédente"
+  "kbdPrevFeature": {
+    "message": "Élément géographique précédente"
   },
-  "kbdNextFeature" : {
-    "message" : "Élément géographique suivante"
+  "kbdNextFeature": {
+    "message": "Élément géographique suivante"
   },
   "dfLayer": {
     "message": "Couche"
@@ -177,6 +190,12 @@
   },
   "popupZoom": {
     "message": "Zoomer ici"
+  },
+  "popupPropName": {
+    "message": "Nom de la propriété"
+  },
+  "popupPropValue": {
+    "message": "Valeur de la propriété"
   },
   "fIndexNoFeatures": {
     "message": "Aucun élément géographique trouvé"
