@@ -40,24 +40,36 @@
   "cmViewSource": {
     "message": "Visa Kartkälla"
   },
-
-  "lmZoomToLayer" : {
+  "lmZoomToLayer": {
     "message": "Zooma Till Lager"
   },
-  "lmCopyLayer" : {
+  "lmCopyLayer": {
     "message": "Kopiera Lager"
   },
-  "lmZoomToExtent" : {
+  "lmLayerSettings": {
+    "message": "Lagerinställningar"
+  },
+  "lmRemoveLayer": {
+    "message": "Ta Bort Lager"
+  },
+  "lmZoomToExtent": {
     "message": "Zooma Till Underlager"
   },
-  "lmCopyExtent" : {
+  "lmCopyExtent": {
     "message": "Kopiera Underlager"
   },
-
+  "lmExtentSettings": {
+    "message": "Inställningar För Underlager"
+  },
+  "lmRemoveExtent": {
+    "message": "Ta Bort Underlager"
+  },
+  "lmStyle": {
+    "message": "Stil"
+  },
   "lcOpacity": {
     "message": "Opacitet"
   },
-
   "btnZoomIn": {
     "message": "Zooma in"
   },
@@ -73,20 +85,53 @@
   "btnExitFullScreen": {
     "message": "Avsluta fullskärmsläge"
   },
-  "btnLocTrackOn": { 
-    "message": "Visa min plats - platsspårning på" 
-  }, 
+  "btnLocTrackOn": {
+    "message": "Visa min plats - platsspårning på"
+  },
   "btnMyLocTrackOn": {
     "message": "Min nuvarande plats, visas på kartan"
   },
-  "btnLocTrackOff": { 
-    "message": "Visa min plats - platsspårning av" 
-  }, 
+  "btnLocTrackOff": {
+    "message": "Visa min plats - platsspårning av"
+  },
   "btnMyLastKnownLocTrackOn": {
     "message": "Min senast kända plats, visas på kartan"
   },
-  "btnLocTrackLastKnown": { 
-    "message": "Visa min plats - senast kända plats visas" 
+  "btnLocTrackLastKnown": {
+    "message": "Visa min plats - senast kända plats visas"
+  },
+  "amZoom": {
+    "message": "Zoomnivå"
+  },
+  "amColumn": {
+    "message": "Kolumn"
+  },
+  "amRow": {
+    "message": "Rad"
+  },
+  "amMaxZoom": {
+    "message": "Vid maximal zoomnivå är inzoomning inaktiverad"
+  },
+  "amMinZoom": {
+    "message": "Vid minimal zoomnivå är utzoomning inaktiverad"
+  },
+  "amZoomedOut": {
+    "message": "Zoomad utanför gränserna, återgår till"
+  },
+  "amDraggedOut": {
+    "message": "Drog utanför gränserna, återgår till"
+  },
+  "amEastBound": {
+    "message": "Nått östra gränsen, panorering österut inaktiverad"
+  },
+  "amWestBound": {
+    "message": "Nått västra gränsen, panorering västerut inaktiverad"
+  },
+  "amNorthBound": {
+    "message": "Nått norra gränsen, panorering norrut inaktiverad"
+  },
+  "amSouthBound": {
+    "message": "Nått södra gränsen, panorering söderut inaktiverad"
   },
   "btnFocusMap": {
     "message": "Fokuskarta"
@@ -127,6 +172,12 @@
   "kbdZoom": {
     "message": "Zooma in/ut 3 nivåer"
   },
+  "kbdFocusMap": {
+    "message": "Fokusera på kartan"
+  },
+  "kbdFocusControls": {
+    "message": "Fokusera på kontroller"
+  },
   "kbdPrevFeature": {
     "message": "Föregående geografiskt objekt"
   },
@@ -142,8 +193,17 @@
   "dfPastedLayer": {
     "message": "Klistrat lager"
   },
+  "dfFeatureCaption": {
+    "message": "Geografiskt objekt"
+  },
   "popupZoom": {
     "message": "Zooma hit"
+  },
+  "popupPropName": {
+    "message": "Egenskapsnamn"
+  },
+  "popupPropValue": {
+    "message": "Egenskapsvärde"
   },
   "fIndexNoFeatures": {
     "message": "Inget geografiskt objekt hittades"
