@@ -183,6 +183,9 @@
   "dfPastedLayer": {
     "message": "Вставлений шар"
   },
+  "dfFeatureCaption": {
+    "message": "Об'єкт"
+  },
   "popupZoom": {
     "message": "Наблизити сюди"
   },
