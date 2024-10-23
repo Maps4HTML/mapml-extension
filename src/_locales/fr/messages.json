@@ -75,7 +75,7 @@
     "message": "Zoomer"
   },
   "btnZoomOut": {
-    "message": "Zoom out"
+    "message": "Dézoomer"
   },
   "btnAttribution": {
     "message": "Attribution des données cartographiques"
@@ -173,6 +173,12 @@
   "kbdZoom": {
     "message": "Zoom avant/arrière 3 niveaux"
   },
+  "kbdFocusMap": {
+    "message": "Centrer la cartehow a"
+  },
+  "kbdFocusControls": {
+    "message": "Centrer les contrôles"
+  },
   "kbdPrevFeature": {
     "message": "Élément géographique précédente"
   },
@@ -187,6 +193,9 @@
   },
   "dfPastedLayer": {
     "message": "Couche collée"
+  },
+  "dfFeatureCaption": {
+    "message": "Élément géographique"
   },
   "popupZoom": {
     "message": "Zoomer ici"
