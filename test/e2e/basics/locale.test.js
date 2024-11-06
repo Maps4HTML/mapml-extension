@@ -38,44 +38,44 @@ test.describe("Locale Tests", () => {
     expect(zoomInTitle).toBe("Zoom in");
     expect(zoomOutTitle).toBe("Zoom out");
     expect(reloadTitle).toBe("Reload");
-    expect(fullScreenTitle).toBe("View Fullscreen");
+    expect(fullScreenTitle).toBe("View fullscreen");
   });
 });
 
 test.describe("Other Locale Tests", () => {
-  let frContext, frPage;
+  let svContext, svPage;
   test.beforeAll(async () => {
     let pathToExtension = path.join(__dirname, '../../../src/');
-
-    frContext = await chromium.launchPersistentContext("",{
+    // update to swedish because en and fr locales are 'forced' by the lang attribute
+    svContext = await chromium.launchPersistentContext("",{locale: 'sv',
       headless: false,
       slowMo: 50,
       args: [
-        '--lang=fr',
+        '--lang=sv',
         `--disable-extensions-except=${pathToExtension}`,
         `--load-extension=${pathToExtension}`
-      ],
+      ]
     });
-    let [background] = frContext.serviceWorkers();
+    let [background] = svContext.serviceWorkers();
     if (!background)
-        background = await frContext.waitForEvent("serviceworker");
+        background = await svContext.waitForEvent("serviceworker");
     const id = background.url().split("/")[2];
-    let newPage = await frContext.newPage();
+    let newPage = await svContext.newPage();
     await newPage.goto('chrome-extension://' + id +'/popup.html', {waitUntil: "load"});
-    frPage = await frContext.newPage();
-    await frPage.goto("test/e2e/basics/locale.html", {waitUntil: "load"});
+    svPage = await svContext.newPage();
+    await svPage.goto("test/e2e/basics/locale.html", {waitUntil: "load"});
   });
 
   test.afterAll(async () => {
-    await frContext.close();
+    await svContext.close();
   });
 
   test("UI button titles", async () => {
-    let reloadTitle = await frPage.$eval(
+    let reloadTitle = await svPage.$eval(
       "xpath=//html/body/mapml-viewer >> css=div > div.leaflet-control-container > div.leaflet-top.leaflet-left > div.mapml-reload-button.leaflet-bar.leaflet-control > button",
       (tile) => tile.title
     );
     
-    expect(reloadTitle).toBe("Rechargez");
+    expect(reloadTitle).toBe("Läs In Igen");
   });
 });

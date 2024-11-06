@@ -92,14 +92,18 @@ test.describe("Popup test", () => {
 
         let newPage = await context.newPage();
         await newPage.goto("test/e2e/basics/popup.test.html", { waitUntil: "load" });
-        newPage.waitForTimeout(500);
+        await newPage.waitForTimeout(1000);
         await newPage.click("body > mapml-viewer");
         await newPage.keyboard.press("Shift+F10");
         await newPage.keyboard.press("Tab");
+        await newPage.waitForTimeout(100);
         await newPage.keyboard.press("Enter");
         await newPage.keyboard.press("Tab");
+        await newPage.waitForTimeout(100);
         await newPage.keyboard.press("Tab");
+        await newPage.waitForTimeout(100);
         await newPage.keyboard.press("Enter");
+        await newPage.waitForTimeout(100);
 
         const text = await newPage.evaluate(() => navigator.clipboard.readText());
         const coordinates = await newPage.evaluate((t) => {
@@ -119,7 +123,7 @@ test.describe("Popup test", () => {
 
         let newPage = await context.newPage();
         await newPage.goto("test/e2e/basics/popup.test.html", { waitUntil: "load" });
-        newPage.waitForTimeout(500);
+        await newPage.waitForTimeout(500);
         await newPage.click("body > mapml-viewer");
         await newPage.keyboard.press("Shift+F10");
         await newPage.keyboard.press("Tab");

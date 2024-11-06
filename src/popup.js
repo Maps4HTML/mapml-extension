@@ -22,8 +22,7 @@ function loadOptions() {
       featureIndexOverlayOption: false,
       renderMap: false,
       defaultExtCoor: 'pcrs',
-      defaultLocCoor: 'gcrs',
-      defaultContentPreference: 'no-preference'
+      defaultLocCoor: 'gcrs'
     };
     for (let name in options) {
       let elem = document.getElementById(name);
@@ -35,6 +34,15 @@ function loadOptions() {
           case "string":
             Array.from(elem.children).forEach(el => el.value === options[name]? 
                                               el.selected = true : el.selected = false);
+            break;
+          case "object":
+            if (Array.isArray(options[name])) {
+              Array.from(elem.children).forEach(o => {
+                if (options[name].includes(o.value)) {
+                  o.defaultSelected = true;
+                }
+              });
+            }
             break;
         }
       }
@@ -55,7 +63,11 @@ function handleCheckboxChange(e) {
 
 function handleDropdownChange(e) {
   let option = e.target.id;
-  options[option] = Array.from(e.target.children).find(el => el.selected).value;
+  if (option === 'contentPreference') {
+    options[option] = Array.from(e.target.children).filter(el => el.selected).map( el => el.value);
+  } else {
+    options[option] = Array.from(e.target.children).find(el => el.selected).value;
+  }
   saveOptions();
 }
 

@@ -49,7 +49,7 @@ test.describe("Render MapML resources test", () => {
             await page.keyboard.press("Equal");
             await page.waitForTimeout(1000);
         }
-        await page.waitForTimeout(500);
+        await page.waitForTimeout(1000);
         expect(page.url()).toContain("#5,-89.7827040843159,60.27815582468662");
         await page.goBack({waitUntil: "networkidle"});
         expect(page.url()).toContain("about:blank");
@@ -79,14 +79,6 @@ test.describe("Render MapML resources test", () => {
     });
 
     test("Render map from text/mapml document", async () => {
-        //Changes page.goto response (initial page load) to be of content type text/mapml
-        await page.route("test/e2e/basics/test.mapml", async route => {
-            const response = await page.request.fetch("test/e2e/basics/test.mapml");
-            await route.fulfill({
-                body: await response.body(),
-                contentType: 'text/mapml'
-            });
-        });
         await page.goto("test/e2e/basics/test.mapml");
         const map = await page.waitForFunction(() => document.querySelector("mapml-viewer"));
 
@@ -134,14 +126,6 @@ test.describe("Render MapML resources test", () => {
     });
 
     test("Projection defaults to OSMTILE in the case of unknown projection", async () => {
-        //Changes page.goto response (initial page load) to be of content type text/mapml
-        await page.route("test/e2e/basics/unknown_projection.mapml", async route => {
-            const response = await page.request.fetch("test/e2e/basics/unknown_projection.mapml");
-            await route.fulfill({
-                body: await response.body(),
-                contentType: 'text/mapml'
-            });
-        });
         await page.goto("test/e2e/basics/unknown_projection.mapml");
         const map = await page.waitForFunction(() => document.querySelector("mapml-viewer"));
         const projection = await map.getAttribute('projection');
@@ -149,14 +133,6 @@ test.describe("Render MapML resources test", () => {
     }, {times: 1});
 
     test.skip("Projection from map-meta[content*=projection] attribute / mime type parameter", async () => {
-        //Changes page.goto response (initial page load) to be of content type text/mapml
-        await page.route("test/e2e/basics/content-type-projection.mapml", async route => {
-            const response = await page.request.fetch("test/e2e/basics/content-type-projection.mapml");
-            await route.fulfill({
-                body: await response.body(),
-                contentType: 'text/mapml'
-            });
-        });
         await page.waitForTimeout(1000);
         await page.goto("test/e2e/basics/content-type-projection.mapml");
         await page.waitForTimeout(1000);
