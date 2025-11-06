@@ -5,13 +5,14 @@
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <title>Preferred Content Test</title>
         <script type="module" src="../../../src/dist/mapml.js"></script>
-        <script>
+<!--        <script>
       document.addEventListener('DOMContentLoaded',(e)=>{
         let l, map = document.querySelector('mapml-viewer'),
-            prefersEverything = map.matchMedia('(prefers-map-content: image) and (prefers-map-content: tile) and (prefers-map-content: feature) and (prefers-map-content: table)').matches === 'true',
+            prefersEverything = map.matchMedia('(prefers-map-content: image) and (prefers-map-content: tile) and (prefers-map-content: feature) and (prefers-map-content: table)').matches === true,
             t = document.querySelector('template'),
-            prefersFeaturesOnly = map.matchMedia('(prefers-map-content: feature) and ( not ((prefers-map-content: image) or (prefers-map-content: tile)))').matches === 'true',
-            prefersTiles = map.matchMedia('(prefers-map-content: tile');
+            prefersFeaturesOnly = map.matchMedia('(prefers-map-content: feature) and ( not ((prefers-map-content: image) or (prefers-map-content: tile)))').matches === true,
+            prefersImages = map.matchMedia('(prefers-map-content: image) and ( not ((prefers-map-content: feature) or (prefers-map-content: tile)))').matches === true,
+            prefersTiles = map.matchMedia('(prefers-map-content: tile) and ( not ((prefers-map-content: feature) or (prefers-map-content: image)))').matches === true;
         if (prefersFeaturesOnly) {
           l = t.content.querySelector('#features').cloneNode(true);
         } else if (prefersImages) {
@@ -21,11 +22,13 @@
         }
         map.appendChild(l);
       });
-    </script>
+    </script>-->
     </head>
   <body>
   <mapml-viewer  data-testid="viewer" style="height: 500px;width:500px;" projection="CBMTILE" zoom="8" lat="46.51231982020816" lon="-63.25669692277839"  controls>
-    <map-layer data-testid="test-layer" label="Provinces and Territories" src="../data/cbmt-cbmtile.mapml" checked></map-layer>
+    <!-- this is stupid there should be a simpler way to detect no preference -->
+    <map-layer data-testid="test-layer" media="((prefers-map-content: image) or (not ((prefers-map-content: image) and (prefers-map-content: tile) and (prefers-map-content: feature) and (prefers-map-content: table))))"  label="Provinces and Territories" src="../data/cbmt-cbmtile.mapml" checked></map-layer>
+    <map-layer data-testid="test-layer2" media="(prefers-map-content: feature)"  label="Provinces and Territories" src="../data/features.mapml" checked></map-layer>
   </mapml-viewer>
   </body>
 </html>

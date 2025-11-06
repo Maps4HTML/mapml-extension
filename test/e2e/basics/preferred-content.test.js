@@ -52,7 +52,7 @@ test.describe("Preferred content test", () => {
         await newPage.goto("test/e2e/basics/preferred-content.html", { waitUntil: "domcontentloaded" });
         await newPage.waitForTimeout(1000);
 
-        const layer = newPage.getByTestId('test-layer');
+        const layer = newPage.getByTestId('test-layer2');
         const label = await layer.evaluate((l) => l._layerControlLabel.textContent);
         expect(label).toEqual('Feature content');
     });
