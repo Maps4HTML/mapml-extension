@@ -2,8 +2,9 @@
   <map-head>
     <map-title>Feature content</map-title>
     <map-meta charset="utf-8"></map-meta>
-    <map-link rel="style" media="prefers-map-content=image"  href="cbmt-cbmtile.mapml" title="Image content" />
-    <map-link rel="style self" media="prefers-map-content=feature" href="features.mapml" title="Feature content" />
+    <!-- these don't work -->
+    <map-link rel="style" media="(prefers-map-content: image)"  href="cbmt-cbmtile.mapml" title="Image content" />
+    <map-link rel="style self" media="(prefers-map-content: feature)" href="features.mapml" title="Feature content" />
   </map-head>
   <map-body>
     <map-extent units="CBMTILE" checked="checked">

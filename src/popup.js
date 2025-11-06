@@ -22,7 +22,8 @@ function loadOptions() {
       featureIndexOverlayOption: false,
       renderMap: false,
       defaultExtCoor: 'pcrs',
-      defaultLocCoor: 'gcrs'
+      defaultLocCoor: 'gcrs',
+      contentPreference: []
     };
     for (let name in options) {
       let elem = document.getElementById(name);
