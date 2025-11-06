@@ -1,0 +1,211 @@
+{
+  "extName": {
+    "message": "マップML拡張機能",
+    "description": "Extension name."
+  },
+  "extDescription": {
+    "message": "マップMLビューアー用の拡張機能"
+  },
+
+  "cmBack": {
+    "message": "戻る"
+  },
+  "cmForward": {
+    "message": "進む"
+  },
+  "cmReload": {
+    "message": "再読み込み"
+  },
+  "cmToggleControls": {
+    "message": "コントロールの切り替え"
+  },
+  "cmCopyCoords": {
+    "message": "コピー"
+  },
+  "cmToggleDebug": {
+    "message": "デバッグモードの切り替え"
+  },
+  "cmCopyMapML": {
+    "message": "地図"
+  },
+  "cmCopyExtent": {
+    "message": "範囲"
+  },
+  "cmCopyLocation": {
+    "message": "位置"
+  },
+  "cmPasteLayer": {
+    "message": "貼り付け"
+  },
+  "cmViewSource": {
+    "message": "地図ソースを表示"
+  },
+  "lmZoomToLayer": {
+    "message": "レイヤーにズーム"
+  },
+  "lmCopyLayer": {
+    "message": "レイヤーをコピー"
+  },
+  "lmLayerSettings": {
+    "message": "レイヤー設定"
+  },
+  "lmRemoveLayer": {
+    "message": "レイヤーを削除"
+  },
+  "lmZoomToExtent": {
+    "message": "サブレイヤーにズーム"
+  },
+  "lmCopyExtent": {
+    "message": "サブレイヤーをコピー"
+  },
+  "lmExtentSettings": {
+    "message": "サブレイヤー設定"
+  },
+  "lmRemoveExtent": {
+    "message": "サブレイヤーを削除"
+  },
+  "lmStyle": {
+    "message": "スタイル"
+  },
+  "lcOpacity": {
+    "message": "不透明度"
+  },
+  "btnZoomIn": {
+    "message": "拡大"
+  },
+  "btnZoomOut": {
+    "message": "縮小"
+  },
+  "btnAttribution": {
+    "message": "地図データの帰属表示"
+  },
+  "btnFullScreen": {
+    "message": "全画面表示"
+  },
+  "btnExitFullScreen": {
+    "message": "全画面を終了"
+  },
+  "btnLocTrackOn": {
+    "message": "現在地を表示 - 位置追跡オン"
+  },
+  "btnMyLocTrackOn": {
+    "message": "現在地、地図に表示中"
+  },
+  "btnLocTrackOff": {
+    "message": "現在地を表示 - 位置追跡オフ"
+  },
+  "btnMyLastKnownLocTrackOn": {
+    "message": "最後の既知の位置、地図に表示中"
+  },
+  "btnLocTrackLastKnown": { 
+    "message": "現在地を表示 - 最後の既知の位置を表示中"
+  },
+  "btnFocusMap": {
+    "message": "地図にフォーカス"
+  },
+  "btnFocusControls": {
+    "message": "コントロールにフォーカス"
+  },
+  "btnPrevFeature": {
+    "message": "前のフィーチャー"
+  },
+  "btnNextFeature": {
+    "message": "次のフィーチャー"
+  },
+  "amZoom": {
+    "message": "ズームレベル"
+  },
+  "amColumn": {
+    "message": "列"
+  },
+  "amRow": {
+    "message": "行"
+  },
+  "amMaxZoom": {
+    "message": "最大ズームレベル、拡大無効"
+  },
+  "amMinZoom": {
+    "message": "最小ズームレベル、縮小無効"
+  },
+  "amZoomedOut": {
+    "message": "範囲外にズームアウト、戻ります"
+  },
+  "amDraggedOut": {
+    "message": "範囲外にドラッグ、戻ります"
+  },
+  "amEastBound": {
+    "message": "東の境界に到達、東へのパン無効"
+  },
+  "amWestBound": {
+    "message": "西の境界に到達、西へのパン無効"
+  },
+  "amNorthBound": {
+    "message": "北の境界に到達、北へのパン無効"
+  },
+  "amSouthBound": {
+    "message": "南の境界に到達、南へのパン無効"
+  },
+  "kbdShortcuts": {
+    "message": "キーボードショートカット"
+  },
+  "kbdMovement": {
+    "message": "移動キー"
+  },
+  "kbdFeature": {
+    "message": "フィーチャーナビゲーションキー"
+  },
+  "kbdPanUp": {
+    "message": "上にパン"
+  },
+  "kbdPanDown": {
+    "message": "下にパン"
+  },
+  "kbdPanLeft": {
+    "message": "左にパン"
+  },
+  "kbdPanRight": {
+    "message": "右にパン"
+  },
+  "kbdPanIncrement": {
+    "message": "パン増分"
+  },
+  "kbdZoom": {
+    "message": "3レベル拡大/縮小"
+  },
+  "kbdFocusMap": {
+    "message": "地図にフォーカス"
+  },
+  "kbdFocusControls": {
+    "message": "コントロールにフォーカス"
+  },
+  "kbdPrevFeature": {
+    "message": "前のフィーチャー"
+  },
+  "kbdNextFeature": {
+    "message": "次のフィーチャー"
+  },
+  "dfLayer": {
+    "message": "レイヤー"
+  },
+  "dfExtent": {
+    "message": "サブレイヤー"
+  },
+  "dfPastedLayer": {
+    "message": "貼り付けたレイヤー"
+  },
+  "dfFeatureCaption": {
+    "message": "フィーチャー"
+  },
+  "popupZoom": {
+    "message": "ここにズーム"
+  },
+  "popupPropName": {
+    "message": "プロパティ名"
+  },
+  "popupPropValue": {
+    "message": "プロパティ値"
+  },
+  "fIndexNoFeatures": {
+    "message": "フィーチャーが見つかりません"
+  }
+}
