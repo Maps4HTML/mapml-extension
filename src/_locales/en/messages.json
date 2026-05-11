@@ -76,6 +76,18 @@
   "btnZoomOut": {
     "message": "Zoom out"
   },
+  "btnSearch": {
+    "message": "Search"
+  },
+  "btnSearchClose": {
+    "message": "Close search"
+  },
+  "searchPlaceholder": {
+    "message": "Search…"
+  },
+  "searchResultWithNoName": {
+    "message": "Unnamed"
+  },
   "btnAttribution": {
     "message": "Map data attribution"
   },

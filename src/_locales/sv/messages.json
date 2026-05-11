@@ -76,6 +76,18 @@
   "btnZoomOut": {
     "message": "Zooma ut"
   },
+  "btnSearch": {
+    "message": "Sök"
+  },
+  "btnSearchClose": {
+    "message": "Stäng sökning"
+  },
+  "searchPlaceholder": {
+    "message": "Sök\u2026"
+  },
+  "searchResultWithNoName": {
+    "message": "Namnlös"
+  },
   "btnAttribution": {
     "message": "Tilldelning av kartdata"
   },
