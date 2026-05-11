@@ -78,6 +78,18 @@
   "btnZoomOut": {
     "message": "Зменшити"
   },
+  "btnSearch": {
+    "message": "Пошук"
+  },
+  "btnSearchClose": {
+    "message": "Закрити пошук"
+  },
+  "searchPlaceholder": {
+    "message": "Пошук\u2026"
+  },
+  "searchResultWithNoName": {
+    "message": "Без назви"
+  },
   "btnAttribution": {
     "message": "Авторські права"
   },
