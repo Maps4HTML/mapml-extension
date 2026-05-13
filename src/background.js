@@ -130,6 +130,7 @@ function createMap() {
   let focus = !hash;
   map.setAttribute("projection", projection);
   map.setAttribute("controls", "");
+  map.setAttribute("controlslist", "search");
   map.setAttribute("lat", lat);
   map.setAttribute("lon", lon);
   map.setAttribute("zoom", zoom);
