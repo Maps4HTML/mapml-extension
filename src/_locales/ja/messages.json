@@ -67,6 +67,12 @@
   "lmStyle": {
     "message": "スタイル"
   },
+  "lmLegend": {
+    "message": "凡例"
+  },
+  "lmOpenInNewTab": {
+    "message": "凡例を開く"
+  },
   "lcOpacity": {
     "message": "不透明度"
   },

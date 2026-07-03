@@ -67,6 +67,12 @@
   "lmStyle": {
     "message": "Style"
   },
+  "lmLegend": {
+    "message": "Légende"
+  },
+  "lmOpenInNewTab": {
+    "message": "Ouvrir la légende"
+  },
   "lcOpacity": {
     "message": "Opacité"
   },

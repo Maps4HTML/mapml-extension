@@ -19,7 +19,7 @@ document.addEventListener("readystatechange", () => {
         "cmCopyLocation", "cmPasteLayer", "cmViewSource", "lmZoomToLayer", 
         "lmCopyLayer", "lmLayerSettings", "lmRemoveLayer", "lmZoomToExtent", 
         "lmCopyExtent", "lmExtentSettings", "lmRemoveExtent", "lmStyle",
-        "lcOpacity", "btnZoomIn", "btnZoomOut", "btnAttribution", "btnFullScreen", 
+        "lmLegend", "lmOpenInNewTab", "lcOpacity", "btnZoomIn", "btnZoomOut", "btnAttribution", "btnFullScreen", 
         "btnExitFullScreen", "btnLocTrackOn", "btnMyLocTrackOn", 
         "btnLocTrackOff", "btnLocTrackLastKnown", "btnMyLastKnownLocTrackOn",
         "btnFocusMap", "btnPrevFeature", "btnNextFeature", "btnFocusControls",
