@@ -67,6 +67,12 @@
   "lmStyle": {
     "message": "Stil"
   },
+  "lmLegend": {
+    "message": "Teckenförklaring"
+  },
+  "lmOpenInNewTab": {
+    "message": "Öppna Teckenförklaring"
+  },
   "lcOpacity": {
     "message": "Opacitet"
   },

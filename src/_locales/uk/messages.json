@@ -68,6 +68,12 @@
   "lmStyle": {
     "message": "Стиль"
   },
+  "lmLegend": {
+    "message": "Легенда"
+  },
+  "lmOpenInNewTab": {
+    "message": "Відкрити легенду"
+  },
   "lcOpacity": {
     "message": "Прозорість"
   },
