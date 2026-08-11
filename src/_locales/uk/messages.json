@@ -96,6 +96,27 @@
   "searchResultWithNoName": {
     "message": "Без назви"
   },
+  "btnView": {
+    "message": "Вигляд"
+  },
+  "viewMap": {
+    "message": "Мапа"
+  },
+  "viewGlobe": {
+    "message": "Глобус"
+  },
+  "viewPerspective": {
+    "message": "Перспектива"
+  },
+  "btnStatic": {
+    "message": "Перемкнути статичну мапу"
+  },
+  "btnCompass": {
+    "message": "Скинути напрямок на північ"
+  },
+  "btnFeatureIndex": {
+    "message": "Індекс об'єктів"
+  },
   "btnAttribution": {
     "message": "Авторські права"
   },
@@ -227,5 +248,11 @@
   },
   "fIndexNoFeatures": {
     "message": "Об'єктів не знайдено"
+  },
+  "fIndexMoreResults": {
+    "message": "Більше результатів"
+  },
+  "fIndexPreviousResults": {
+    "message": "Попередні результати"
   }
 }

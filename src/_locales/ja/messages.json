@@ -94,6 +94,27 @@
   "searchResultWithNoName": {
     "message": "名前なし"
   },
+  "btnView": {
+    "message": "表示"
+  },
+  "viewMap": {
+    "message": "地図"
+  },
+  "viewGlobe": {
+    "message": "地球儀"
+  },
+  "viewPerspective": {
+    "message": "パースペクティブ"
+  },
+  "btnStatic": {
+    "message": "静的地図の切り替え"
+  },
+  "btnCompass": {
+    "message": "方位を北にリセット"
+  },
+  "btnFeatureIndex": {
+    "message": "フィーチャーインデックス"
+  },
   "btnAttribution": {
     "message": "地図データの帰属表示"
   },
@@ -225,5 +246,11 @@
   },
   "fIndexNoFeatures": {
     "message": "フィーチャーが見つかりません"
+  },
+  "fIndexMoreResults": {
+    "message": "その他の結果"
+  },
+  "fIndexPreviousResults": {
+    "message": "前の結果"
   }
 }
