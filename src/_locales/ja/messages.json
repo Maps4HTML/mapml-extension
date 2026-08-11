@@ -82,6 +82,18 @@
   "btnZoomOut": {
     "message": "縮小"
   },
+  "btnSearch": {
+    "message": "検索"
+  },
+  "btnSearchClose": {
+    "message": "検索を閉じる"
+  },
+  "searchPlaceholder": {
+    "message": "検索…"
+  },
+  "searchResultWithNoName": {
+    "message": "名前なし"
+  },
   "btnAttribution": {
     "message": "地図データの帰属表示"
   },
