@@ -94,6 +94,27 @@
   "searchResultWithNoName": {
     "message": "Namnlös"
   },
+  "btnView": {
+    "message": "Vy"
+  },
+  "viewMap": {
+    "message": "Karta"
+  },
+  "viewGlobe": {
+    "message": "Glob"
+  },
+  "viewPerspective": {
+    "message": "Perspektiv"
+  },
+  "btnStatic": {
+    "message": "Växla statisk karta"
+  },
+  "btnCompass": {
+    "message": "Återställ riktning till norr"
+  },
+  "btnFeatureIndex": {
+    "message": "Objektindex"
+  },
   "btnAttribution": {
     "message": "Tilldelning av kartdata"
   },
@@ -225,5 +246,11 @@
   },
   "fIndexNoFeatures": {
     "message": "Inget geografiskt objekt hittades"
+  },
+  "fIndexMoreResults": {
+    "message": "Fler resultat"
+  },
+  "fIndexPreviousResults": {
+    "message": "Föregående resultat"
   }
 }

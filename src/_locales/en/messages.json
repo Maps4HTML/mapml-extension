@@ -94,6 +94,27 @@
   "searchResultWithNoName": {
     "message": "Unnamed"
   },
+  "btnView": {
+    "message": "View"
+  },
+  "viewMap": {
+    "message": "Map"
+  },
+  "viewGlobe": {
+    "message": "Globe"
+  },
+  "viewPerspective": {
+    "message": "Perspective"
+  },
+  "btnStatic": {
+    "message": "Toggle static map"
+  },
+  "btnCompass": {
+    "message": "Reset bearing to north"
+  },
+  "btnFeatureIndex": {
+    "message": "Feature index"
+  },
   "btnAttribution": {
     "message": "Map data attribution"
   },
@@ -225,5 +246,11 @@
   },
   "fIndexNoFeatures": {
     "message": "No features found"
+  },
+  "fIndexMoreResults": {
+    "message": "More results"
+  },
+  "fIndexPreviousResults": {
+    "message": "Previous results"
   }
 }

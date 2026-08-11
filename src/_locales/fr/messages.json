@@ -95,6 +95,27 @@
   "searchResultWithNoName": {
     "message": "Sans nom"
   },
+  "btnView": {
+    "message": "Vue"
+  },
+  "viewMap": {
+    "message": "Carte"
+  },
+  "viewGlobe": {
+    "message": "Globe"
+  },
+  "viewPerspective": {
+    "message": "Perspective"
+  },
+  "btnStatic": {
+    "message": "Basculer la carte statique"
+  },
+  "btnCompass": {
+    "message": "Réinitialiser l'orientation vers le nord"
+  },
+  "btnFeatureIndex": {
+    "message": "Index des éléments géographiques"
+  },
   "btnAttribution": {
     "message": "Attribution des données cartographiques"
   },
@@ -226,5 +247,11 @@
   },
   "fIndexNoFeatures": {
     "message": "Aucun élément géographique trouvé"
+  },
+  "fIndexMoreResults": {
+    "message": "Plus de résultats"
+  },
+  "fIndexPreviousResults": {
+    "message": "Résultats précédents"
   }
 }
